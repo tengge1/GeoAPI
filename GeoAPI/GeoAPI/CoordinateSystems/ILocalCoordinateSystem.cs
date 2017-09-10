@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -17,23 +17,20 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// A local coordinate system, with uncertain relationship to the world.
-	/// </summary>
-	/// <remarks>In general, a local coordinate system cannot be related to other coordinate 
-	/// systems. However, if two objects supporting this interface have the same dimension, 
-	/// axes, units and datum then client code is permitted to assume that the two coordinate
-	/// systems are identical. This allows several datasets from a common source (e.g. a CAD
-	/// system) to be overlaid. In addition, some implementations of the Coordinate 
-	/// Transformation (CT) package may have a mechanism for correlating local datums. (E.g. 
-	/// from a database of transformations, which is created and maintained from real-world 
-	/// measurements.)
-	/// </remarks>
-	public interface ILocalCoordinateSystem : ICoordinateSystem
-	{
-		/// <summary>
-		/// Gets or sets the local datum
-		/// </summary>
-		ILocalDatum LocalDatum { get; set; }
-	}
+    /// <summary>
+    /// 一个地方坐标系，与世界关系不确定。
+    /// </summary>
+    /// <remarks>通常，局部坐标系不能与其他坐标系相关。 但是，如果支持该接口的两个
+    /// 对象具有相同的尺寸，轴，单位和数据，则允许客户端代码假设两个坐标系相同。 
+    /// 这允许来自共同来源（例如CAD系统）的多个数据集被覆盖。 此外，坐标转换（CT）
+    /// 包的一些实现可以具有用于关联本地基准的机制。（例如，从实际测量中创建和维护
+    /// 的转换数据库）
+    /// </remarks>
+    public interface ILocalCoordinateSystem : ICoordinateSystem
+    {
+        /// <summary>
+        /// 获取或设置本地基准
+        /// </summary>
+        ILocalDatum LocalDatum { get; set; }
+    }
 }

@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -18,48 +18,48 @@
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// ��������ϵ�Ļ���
+    /// 所有坐标系的基类
     /// </summary>
     /// <remarks>
-    /// <para>����ϵ��һ����ѧ�ռ䣬�ռ��Ԫ�س�Ϊλ�á� ÿ��λ���������б������� 
-    /// �б��ĳ��ȶ�Ӧ������ϵ�ĳߴ硣 ��ˣ���2D����ϵ�У�ÿ��λ���ɰ���2������
-    /// ���б�������</para>
+    /// <para>坐标系是一个数学空间，空间的元素称为位置。 每个位置由数字列表描述。 
+    /// 列表的长度对应于坐标系的尺寸。 因此，在2D坐标系中，每个位置由包含2个数字
+    /// 的列表描述。</para>
     /// <para>
-    /// Ȼ����������ϵ�У����������е������б���Ӧ��λ�� - һЩ�б�����������ϵ��
-    /// ��֮�⡣ ���磬��2D��γ������ϵ�У��б���91,91������Ӧ��λ�á�</para>
+    /// 然而，在坐标系中，并不是所有的数字列表对应于位置 - 一些列表可能在坐标系的
+    /// 域之外。 例如，在2D经纬度坐标系中，列表（91,91）不对应于位置。</para>
     /// <para>
-    /// һЩ����ϵҲ���д���ѧ�ռ䵽��ʵ�����е�λ�õ�ӳ�䡣 �����ھ�γ������ϵ�У�
-    /// ��ѧλ�ã�γ�ȣ����ȣ���Ӧ�ڵ�������ϵ�һ��λ�á� ����ѧ�ռ䵽��ʵ�����
-    /// λ�õ�ӳ���Ϊ��׼��</para>
+    /// 一些坐标系也具有从数学空间到现实世界中的位置的映射。 所以在经纬度坐标系中，
+    /// 数学位置（纬度，经度）对应于地球表面上的一个位置。 从数学空间到现实世界的
+    /// 位置的映射称为基准。</para>
     /// </remarks>
     public interface ICoordinateSystem : IInfo
     {
 
         /// <summary>
-        /// ����ϵ�ĳߴ硣
+        /// 坐标系的尺寸。
         /// </summary>
         int Dimension { get; }
 
         /// <summary>
-        /// ��ȡ����ϵ�гߴ����ϸ�ڡ�
+        /// 获取坐标系中尺寸的轴细节。
         /// </summary>
-        /// <param name="dimension">�ߴ�</param>
-        /// <returns>����Ϣ</returns>
+        /// <param name="dimension">尺寸</param>
+        /// <returns>轴信息</returns>
         AxisInfo GetAxis(int dimension);
 
         /// <summary>
-        /// ��ȡ����ϵ�гߴ�ĵ�λ��
+        /// 获取坐标系中尺寸的单位。
         /// </summary>
         IUnit GetUnits(int dimension);
 
         /// <summary>
-        /// ��ȡ����ϵ��Ĭ�ϰ�Χ�С�
+        /// 获取坐标系的默认包围盒。
         /// </summary>
         /// <remarks>
-        /// ��ȡ����ϵ��Ĭ�ϰ�Χ�С� �н������ϵӦ�÷����������С�߽�� �޽�����ϵ
-        /// Ӧ�÷���һ�������ܴ�Ŀ���ʹ�õĿ� ���磬�Զ�Ϊ��λ�ľ�γ�ȵ�������ϵӦ��
-        /// �ӣ�-180��-90������180,90������һ����һ����������ϵ���Դӣ�-r��-r�� -r��
-        /// ����+ r��+ r��+ r������r�ǵ���Ľ��ư뾶��
+        /// 获取坐标系的默认包围盒。 有界的坐标系应该返回其域的最小边界框。 无界坐标系
+        /// 应该返回一个尽可能大的可能使用的框。 例如，以度为单位的经纬度地理坐标系应该
+        /// 从（-180，-90）到（180,90）返回一个框，一个地心坐标系可以从（-r，-r， -r）
+        /// 到（+ r，+ r，+ r）其中r是地球的近似半径。
         /// </remarks>
         double[] DefaultEnvelope { get; }
     }

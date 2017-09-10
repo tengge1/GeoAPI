@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -18,43 +18,43 @@
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// �᷽�� һЩ����ϵʹ�÷Ǳ�׼���� ���磬�Ϸǵ����ĵ�һ��ͨ��ָ������������
-    /// ���� �����Ϣ�뽫�Ϸ���������ת��Ϊ��γ�ȵ��㷨��Ȼ��ء�
+    /// 轴方向。 一些坐标系使用非标准方向。 例如，南非电网的第一轴通常指向西，而
+    /// 不是东。 这个信息与将南非网格坐标转换为经纬度的算法显然相关。
     /// </summary>
     public enum AxisOrientationEnum : short
     {
         /// <summary>
-        /// δ֪��δָ�����᷽�� ��������ڱ��ػ���ϵ�����ϵ��
+        /// 未知或未指定的轴方向。 这可以用于本地或拟合的坐标系。
         /// </summary>
         Other = 0,
 
         /// <summary>
-        /// ����������ֵ�򱱡� ��ͨ������Grid Y�����γ�ȡ�
+        /// 增加纵坐标值向北。 这通常用于Grid Y坐标和纬度。
         /// </summary>
         North = 1,
 
         /// <summary>
-        /// ����������ֵ���ϡ� �����ʹ�á�
+        /// 增加纵坐标值向南。 这很少使用。
         /// </summary>
         South = 2,
 
         /// <summary>
-        /// ����������ֵ�򶫡� �����ʹ�á�
+        /// 增加纵坐标值向东。 这很少使用。
         /// </summary>
         East = 3,
 
         /// <summary>
-        /// ������������ֵ�� ��ͨ������Grid X����;��ȡ�
+        /// 向西增加坐标值。 这通常用于Grid X坐标和经度。
         /// </summary>
         West = 4,
 
         /// <summary>
-        /// ����������ֵ������ �����ڴ�ֱ����ϵ��
+        /// 增加纵坐标值上升。 这用于垂直坐标系。
         /// </summary>
         Up = 5,
 
         /// <summary>
-        /// ����������ֵ�½��� �����ڴ�ֱ����ϵ��
+        /// 增加纵坐标值下降。 这用于垂直坐标系。
         /// </summary>
         Down = 6
     }

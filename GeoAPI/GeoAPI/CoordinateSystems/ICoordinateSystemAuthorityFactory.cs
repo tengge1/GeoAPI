@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -17,124 +17,122 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// Creates spatial reference objects using codes.
-	/// </summary>
-	/// <remarks>
-	///  The codes are maintained by an external authority. A commonly used authority is EPSG, which is also used in the GeoTIFF standard and in SharpMap.
-	/// </remarks>
-	public interface ICoordinateSystemAuthorityFactory
-	{
-		/// <summary>
-		/// Returns the authority name for this factory (e.g., "EPSG" or "POSC").
-		/// </summary>
-		string Authority { get; }
+    /// <summary>
+    /// 使用代码创建空间参考对象。
+    /// </summary>
+    /// <remarks>
+    ///  规则由外部机构维护。 一个常见的机构是EPSG，它也用于GeoTIFF标准和SharpMap。
+    /// </remarks>
+    public interface ICoordinateSystemAuthorityFactory
+    {
+        /// <summary>
+        /// 返回此工厂的管理局名称（例如“EPSG”或“POSC”）。
+        /// </summary>
+        string Authority { get; }
 
-		/// <summary>
-		/// Returns a projected coordinate system object corresponding to the given code.
-		/// </summary>
-		/// <param name="code">The identification code.</param>
-		/// <returns>The projected coordinate system object with the given code.</returns>
-		IProjectedCoordinateSystem CreateProjectedCoordinateSystem(long code);
+        /// <summary>
+        /// 返回与给定代码相对应的投影坐标系对象。
+        /// </summary>
+        /// <param name="code">识别码。</param>
+        /// <returns>具有给定代码的投影坐标系对象。</returns>
+        IProjectedCoordinateSystem CreateProjectedCoordinateSystem(long code);
 
-		/// <summary>
-		/// Returns a geographic coordinate system object corresponding to the given code.
-		/// </summary>
-		/// <param name="code">The identification code.</param>
-		/// <returns>The geographic coordinate system object with the given code.</returns>
-		IGeographicCoordinateSystem CreateGeographicCoordinateSystem(long code);
+        /// <summary>
+        /// 返回与给定代码相对应的地理坐标系对象。
+        /// </summary>
+        /// <param name="code">识别码。</param>
+        /// <returns>具有给定代码的地理坐标系对象。</returns>
+        IGeographicCoordinateSystem CreateGeographicCoordinateSystem(long code);
 
-		/// <summary>
-		/// Returns a horizontal datum object corresponding to the given code.
-		/// </summary>
-		/// <param name="code">The identification code.</param>
-		/// <returns>The horizontal datum object with the given code.</returns>
-		IHorizontalDatum CreateHorizontalDatum(long code);
+        /// <summary>
+        /// 返回与给定代码相对应的水平数据对象。
+        /// </summary>
+        /// <param name="code">识别码。</param>
+        /// <returns>具有给定代码的水平基准面对象。</returns>
+        IHorizontalDatum CreateHorizontalDatum(long code);
 
-		/// <summary>
-		/// Returns an ellipsoid object corresponding to the given code.
-		/// </summary>
-		/// <param name="code">The identification code.</param>
-		/// <returns>The ellipsoid object with the given code.</returns>
-		IEllipsoid CreateEllipsoid(long code);
+        /// <summary>
+        /// 返回与给定代码相对应的椭圆体对象。
+        /// </summary>
+        /// <param name="code">识别码。</param>
+        /// <returns>具有给定代码的椭圆体对象。</returns>
+        IEllipsoid CreateEllipsoid(long code);
 
-		/// <summary>
-		/// Returns a prime meridian object corresponding to the given code.
-		/// </summary>
-		/// <param name="code">The identification code.</param>
-		/// <returns>The prime meridian object with the given code.</returns>
-		IPrimeMeridian CreatePrimeMeridian(long code);
+        /// <summary>
+        /// 返回与给定代码相对应的主子午线对象。
+        /// </summary>
+        /// <param name="code">识别码。</param>
+        /// <returns>具有给定代码的主子午线对象。</returns>
+        IPrimeMeridian CreatePrimeMeridian(long code);
 
-		/// <summary>
-		/// Returns a linear unit object corresponding to the given code.
-		/// </summary>
-		/// <param name="code">The identification code.</param>
-		/// <returns>The linear unit object with the given code.</returns>
-		ILinearUnit CreateLinearUnit(long code);
+        /// <summary>
+        /// 返回与给定代码相对应的线性单位对象。
+        /// </summary>
+        /// <param name="code">识别码。</param>
+        /// <returns>具有给定代码的线性单位对象。</returns>
+        ILinearUnit CreateLinearUnit(long code);
 
-		/// <summary>
-		/// Returns an <see cref="IAngularUnit">angular unit</see> object corresponding to the given code.
-		/// </summary>
-		/// <param name="code">The identification code.</param>
-		/// <returns>The angular unit object for the given code.</returns>
-		IAngularUnit CreateAngularUnit(long code);
+        /// <summary>
+        /// 返回与给定代码相对应的<see cref =“IAngularUnit”>角度单位</ see>对象。
+        /// </summary>
+        /// <param name="code">识别码。</param>
+        /// <returns>给定代码的角度单位对象。</returns>
+        IAngularUnit CreateAngularUnit(long code);
 
-		/// <summary>
-		/// Creates a <see cref="IVerticalDatum"/> from a code.
-		/// </summary>
-		/// <param name="code">Authority code</param>
-		/// <returns>Vertical datum for the given code</returns>
-		IVerticalDatum CreateVerticalDatum(long code);
+        /// <summary>
+        /// Creates a <see cref="IVerticalDatum"/> from a code.
+        /// </summary>
+        /// <param name="code">管理局代码</param>
+        /// <returns>给定代码的垂直基准</returns>
+        IVerticalDatum CreateVerticalDatum(long code);
 
-		/// <summary>
-		/// Create a <see cref="IVerticalCoordinateSystem">vertical coordinate system</see> from a code.
-		/// </summary>
-		/// <param name="code">Authority code</param>
-		/// <returns></returns>
-		IVerticalCoordinateSystem CreateVerticalCoordinateSystem(long code);
+        /// <summary>
+        /// 从代码创建一个<see cref =“IVerticalCoordinateSystem”>垂直坐标系</ see>。
+        /// </summary>
+        /// <param name="code">管理局代码</param>
+        /// <returns></returns>
+        IVerticalCoordinateSystem CreateVerticalCoordinateSystem(long code);
 
-		/// <summary>
-		/// Creates a 3D coordinate system from a code.
-		/// </summary>
-		/// <param name="code">Authority code</param>
-		/// <returns>Compound coordinate system for the given code</returns>
-		ICompoundCoordinateSystem CreateCompoundCoordinateSystem(long code);
+        /// <summary>
+        /// 从代码创建一个3D坐标系。
+        /// </summary>
+        /// <param name="code">管理局代码</param>
+        /// <returns>给定代码的复合坐标系</returns>
+        ICompoundCoordinateSystem CreateCompoundCoordinateSystem(long code);
 
-		/// <summary>
-		/// Creates a <see cref="IHorizontalCoordinateSystem">horizontal co-ordinate system</see> from a code.
-		/// The horizontal coordinate system could be geographic or projected.
-		/// </summary>
-		/// <param name="code">Authority code</param>
-		/// <returns>Horizontal coordinate system for the given code</returns>
-		IHorizontalCoordinateSystem CreateHorizontalCoordinateSystem(long code);
+        /// <summary>
+        /// 从代码创建一个<see cref =“IHorizontalCoordinateSystem”>水平坐标系统</ see>。
+        /// 水平坐标系可以是地理或投影。
+        /// </summary>
+        /// <param name="code">管理局代码</param>
+        /// <returns>给定代码的水平坐标系</returns>
+        IHorizontalCoordinateSystem CreateHorizontalCoordinateSystem(long code);
 
-		/// <summary>
-		/// Gets a description of the object corresponding to a code.
-		/// </summary>
-		string DescriptionText { get; }
+        /// <summary>
+        /// 获取对应于代码的对象的描述。
+        /// </summary>
+        string DescriptionText { get; }
 
-		/// <summary>
-		/// Gets the Geoid code from a WKT name.
-		/// </summary>
-		/// <remarks>
-		///  In the OGC definition of WKT horizontal datums, the geoid is referenced 
-		/// by a quoted string, which is used as a key value. This method converts 
-		/// the key value string into a code recognized by this authority.
-		/// </remarks>
-		/// <param name="wkt"></param>
-		/// <returns></returns>
-		string GeoidFromWktName(string wkt);
+        /// <summary>
+        /// 从WKT名称获取大地水准面代码。
+        /// </summary>
+        /// <remarks>
+        ///  在WKT水平基准的OGC定义中，大地水准面由引用的字符串引用，用作键值。 
+        /// 该方法将键值字符串转换为该权限所识别的代码。
+        /// </remarks>
+        /// <param name="wkt"></param>
+        /// <returns></returns>
+        string GeoidFromWktName(string wkt);
 
-		/// <summary>
-		/// Gets the WKT name of a Geoid.
-		/// </summary>
-		/// <remarks>
-		///  In the OGC definition of WKT horizontal datums, the geoid is referenced by 
-		/// a quoted string, which is used as a key value. This method gets the OGC WKT 
-		/// key value from a geoid code.
-		/// </remarks>
-		/// <param name="geoid"></param>
-		/// <returns></returns>
-		string WktGeoidName(string geoid);		
-	}
+        /// <summary>
+        /// 获取大地水准面的WKT名称。
+        /// </summary>
+        /// <remarks>
+        ///  在WKT水平基准的OGC定义中，大地水准面由引用的字符串引用，用作键值。 
+        /// 该方法从大地水准面代码获取OGC WKT键值。
+        /// </remarks>
+        /// <param name="geoid"></param>
+        /// <returns></returns>
+        string WktGeoidName(string geoid);
+    }
 }

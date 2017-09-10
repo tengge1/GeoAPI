@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+ï»¿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -20,37 +20,37 @@ using System.Collections.Generic;
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// IGOgraphicTransform½Ó¿ÚÔÚµØÀí±ä»»¶ÔÏóÉÏÊµÏÖ£¬²¢ÔÚµØÀí×ø±êÏµÖ®¼äÊµÏÖ»ù×¼±ä»»¡£
+    /// IGOgraphicTransformæ¥å£åœ¨åœ°ç†å˜æ¢å¯¹è±¡ä¸Šå®ç°ï¼Œå¹¶åœ¨åœ°ç†åæ ‡ç³»ä¹‹é—´å®ç°åŸºå‡†å˜æ¢ã€‚
     /// </summary>
     public interface IGeographicTransform : IInfo
     {
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃ±ä»»µÄÔ´µØÀí×ø±êÏµ¡£
+        /// è·å–æˆ–è®¾ç½®å˜æ¢çš„æºåœ°ç†åæ ‡ç³»ã€‚
         /// </summary>
         IGeographicCoordinateSystem SourceGCS { get; set; }
 
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃ×ª»»µÄÄ¿±êµØÀí×ø±êÏµ¡£
+        /// è·å–æˆ–è®¾ç½®è½¬æ¢çš„ç›®æ ‡åœ°ç†åæ ‡ç³»ã€‚
         /// </summary>
         IGeographicCoordinateSystem TargetGCS { get; set; }
 
         /// <summary>
-        /// ·µ»Ø´ËµØÀí±ä»»²ÎÊıµÄ·ÃÎÊÆ÷½Ó¿Ú¡£
+        /// è¿”å›æ­¤åœ°ç†å˜æ¢å‚æ•°çš„è®¿é—®å™¨æ¥å£ã€‚
         /// </summary>
         IParameterInfo ParameterInfo { get; }
 
         /// <summary>
-        /// ½«µãÕóÁĞ´ÓÔ´µØÀí×ø±êÏµ×ª»»ÎªÄ¿±êµØÀí×ø±êÏµ¡£
+        /// å°†ç‚¹é˜µåˆ—ä»æºåœ°ç†åæ ‡ç³»è½¬æ¢ä¸ºç›®æ ‡åœ°ç†åæ ‡ç³»ã€‚
         /// </summary>
-        /// <param name="points">Ô´µØÀí×ø±êÏµÖĞµÄµã</param>
-        /// <returns>Ä¿±êµØÀí×ø±êÏµÖĞµÄµã</returns>
+        /// <param name="points">æºåœ°ç†åæ ‡ç³»ä¸­çš„ç‚¹</param>
+        /// <returns>ç›®æ ‡åœ°ç†åæ ‡ç³»ä¸­çš„ç‚¹</returns>
         List<double[]> Forward(List<double[]> points);
 
         /// <summary>
-        /// ½«µãÕóÁĞ´ÓÄ¿±êµØÀí×ø±êÏµ×ª»»ÎªÔ´µØÀí×ø±êÏµ¡£
+        /// å°†ç‚¹é˜µåˆ—ä»ç›®æ ‡åœ°ç†åæ ‡ç³»è½¬æ¢ä¸ºæºåœ°ç†åæ ‡ç³»ã€‚
         /// </summary>
-        /// <param name="points">Ä¿±êµØÀí×ø±êÏµÖĞµÄµã</param>
-        /// <returns>Ô´µØÀí×ø±êÏµÖĞµÄµã</returns>
+        /// <param name="points">ç›®æ ‡åœ°ç†åæ ‡ç³»ä¸­çš„ç‚¹</param>
+        /// <returns>æºåœ°ç†åæ ‡ç³»ä¸­çš„ç‚¹</returns>
         List<double[]> Inverse(List<double[]> points);
     }
 }

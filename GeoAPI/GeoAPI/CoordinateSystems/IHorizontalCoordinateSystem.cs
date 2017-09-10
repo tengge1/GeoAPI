@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -17,14 +17,14 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// A 2D coordinate system suitable for positions on the Earth's surface.
-	/// </summary>
-	public interface IHorizontalCoordinateSystem : ICoordinateSystem
-	{
-		/// <summary>
-		/// Returns the HorizontalDatum.
-		/// </summary>
-		IHorizontalDatum HorizontalDatum { get; set; }
-	}
+    /// <summary>
+    /// 适合地球表面位置的二维坐标系。
+    /// </summary>
+    public interface IHorizontalCoordinateSystem : ICoordinateSystem
+    {
+        /// <summary>
+        /// 返回HorizontalDatum。
+        /// </summary>
+        IHorizontalDatum HorizontalDatum { get; set; }
+    }
 }

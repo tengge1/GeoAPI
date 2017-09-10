@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -18,33 +18,33 @@
 namespace GeoAPI.CoordinateSystems.Transformations
 {
     /// <summary>
-    /// ָʾ��͹�����ǵ���Ĳ��ֵı�־
+    /// 指示由凸包覆盖的域的部分的标志
     /// </summary>
     /// <remarks>
-    /// ��Щ��־������ϡ� ���磬ֵ3��Ӧ��<see cref =��Inside��/>
-    /// ��<see cref =��Outside��/>����ϣ�����ζ��͹����ĳЩ������
-    /// ���ڣ�������͹������֮�⡣
+    /// 这些标志可以组合。 例如，值3对应于<see cref =“Inside”/>
+    /// 和<see cref =“Outside”/>的组合，这意味着凸包的某些部分在
+    /// 域内，而部分凸包在域之外。
     /// </remarks>
     public enum DomainFlags : int
     {
         /// <summary>
-        /// ͹���е�����һ�����ڱ任�����ڡ�
+        /// 凸包中的至少一个点在变换的域内。
         /// </summary>
         Inside = 1,
 
         /// <summary>
-        /// ͹���е�����һ�����ڱ任��֮�⡣
+        /// 凸包中的至少一个点在变换域之外。
         /// </summary>
         Outside = 2,
 
         /// <summary>
-        /// ͹���е�����һ�㲻���������Ρ�
+        /// 凸包中的至少一点不会连续变形。
         /// </summary>
         /// <remarks>
-        /// ��Ϊһ�����ӣ�����һ�������Ȼع顱�任����������������
-        /// �Կ����������ߵı仯�� �����ת�Ƕ���5�ȣ����
-        /// ��Lat = 175��Lon = 0�����������任����Ϊ��λ�ڽ���+ 180 / -180��
-        /// �ָ�������ߡ�
+        /// 作为一个例子，考虑一个“经度回归”变换，它调整经度坐标
+        /// 以考虑主子午线的变化。 如果旋转是东方5度，则点
+        /// （Lat = 175，Lon = 0）不会连续变换，因为它位于将以+ 180 / -180度
+        /// 分割的子午线。
         /// </remarks>
         Discontinuous = 4
     }

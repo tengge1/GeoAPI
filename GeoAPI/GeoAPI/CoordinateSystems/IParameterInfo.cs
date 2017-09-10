@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -19,36 +19,34 @@ using System.Collections.Generic;
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// The IParameterInfo interface provides an interface through which clients of a
-	/// Projected Coordinate System or of a Projection can set the parameters of the
-	/// projection. It provides a generic interface for discovering the names and default
-	/// values of parameters, and for setting and getting parameter values. Subclasses of
-	/// this interface may provide projection specific parameter access methods.
-	/// </summary>
-	public interface IParameterInfo
-	{
-		/// <summary>
-		/// Gets the number of parameters expected.
-		/// </summary>
-		int NumParameters { get; }
+    /// <summary>
+    /// IParameterInfo接口提供了一个接口，通过该接口，投影坐标系或投影的客户端
+    /// 可以设置投影的参数。 它提供了一个通用接口，用于发现参数的名称和默认值，
+    /// 以及设置和获取参数值。 该接口的子类可以提供投影特定的参数访问方法。
+    /// </summary>
+    public interface IParameterInfo
+    {
+        /// <summary>
+        /// 获取预期的参数数量。
+        /// </summary>
+        int NumParameters { get; }
 
-		/// <summary>
-		/// Returns the default parameters for this projection.
-		/// </summary>
-		/// <returns></returns>
-		Parameter[] DefaultParameters();
+        /// <summary>
+        /// 返回此投影的默认参数。
+        /// </summary>
+        /// <returns></returns>
+        Parameter[] DefaultParameters();
 
-		/// <summary>
-		/// Gets or sets the parameters set for this projection.
-		/// </summary>
-		List<Parameter> Parameters { get; set; }
+        /// <summary>
+        /// 获取或设置为此投影设置的参数。
+        /// </summary>
+        List<Parameter> Parameters { get; set; }
 
-		/// <summary>
-		/// Gets the parameter by its name
-		/// </summary>
-		/// <param name="name"></param>
-		/// <returns></returns>
-		Parameter GetParameterByName(string name);
-	}
+        /// <summary>
+        /// 通过名称获取参数
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        Parameter GetParameterByName(string name);
+    }
 }

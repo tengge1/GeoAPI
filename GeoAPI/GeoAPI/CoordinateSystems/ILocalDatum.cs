@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -17,11 +17,10 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// Local datum. If two local datum objects have the same datum type and name, 
-	/// then they can be considered equal. This means that coordinates can be
-	/// transformed between two different local coordinate systems, as long as
-	/// they are based on the same local datum.
-	/// </summary>
-	public interface ILocalDatum : IDatum { }
+    /// <summary>
+    /// 本地数据 如果两个本地数据对象具有相同的基准类型和名称，那么它们可以被认为
+    /// 是相等的。 这意味着坐标可以在两个不同的局部坐标系之间进行转换，只要它们基于
+    /// 相同的局部基准。
+    /// </summary>
+    public interface ILocalDatum : IDatum { }
 }

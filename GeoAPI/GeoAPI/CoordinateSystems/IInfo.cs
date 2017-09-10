@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -18,58 +18,58 @@
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// ISpatialReferenceInfo�ӿڶ�����ռ�ο�����һ��洢�ı�׼��Ϣ�� �ýӿ�
-    /// ��������ϵͳ�е�����ռ�ο�����
+    /// ISpatialReferenceInfo接口定义与空间参考对象一起存储的标准信息。 该接口
+    /// 被重用于系统中的许多空间参考对象。
     /// </summary>
     public interface IInfo
     {
         /// <summary>
-        /// ��ȡ�����ö�������ơ�
+        /// 获取或设置对象的名称。
         /// </summary>
         string Name { get; }
 
         /// <summary>
-        /// ��ȡ�����ô˶���Ĺ��������ƣ����磬POSC�Ǿ�����Ȩ�ض����ݴ���ı�׼���� 
-        /// ��������Զ�����󣬷���CUSTOM��
+        /// 获取或设置此对象的管理局名称，例如，POSC是具有授权特定身份代码的标准对象。 
+        /// 如果这是自定义对象，返回CUSTOM。
         /// </summary>
         string Authority { get; }
 
         /// <summary>
-        /// ��ȡ�����ö���Ĺ������ض�ʶ����
+        /// 获取或设置对象的管理局特定识别码
         /// </summary>
         long AuthorityCode { get; }
 
         /// <summary>
-        /// ��ȡ�����ö���ı�����
+        /// 获取或设置对象的别名。
         /// </summary>
         string Alias { get; }
 
         /// <summary>
-        /// ��ȡ�����ö������д��
+        /// 获取或设置对象的缩写。
         /// </summary>
         string Abbreviation { get; }
 
         /// <summary>
-        /// ��ȡ�����ö�����ṩ���ṩ�ı�ע��
+        /// 获取或设置对象的提供者提供的备注。
         /// </summary>
         string Remarks { get; }
 
         /// <summary>
-        /// ���ش˼������淶�ж���Ĵ˿ռ�ο������֪���ı���
+        /// 返回此简单特征规范中定义的此空间参考对象的知名文本。
         /// </summary>
         string WKT { get; }
 
         /// <summary>
-        /// ��ȡ�˶����XML��ʾ��
+        /// 获取此对象的XML表示。
         /// </summary>
         string XML { get; }
 
         /// <summary>
-        /// ����ʵ����ֵ�Ƿ������һ��ʵ����ֵ��
-        /// ����������ϵ�Ĳ������ڱȽϡ� ���ƣ���д��Ȩ�ޣ������ͱ�ע�ڱȽ��б����ԡ�
+        /// 检查此实例的值是否等于另一个实例的值。
+        /// 仅用于坐标系的参数用于比较。 名称，缩写，权限，别名和备注在比较中被忽略。
         /// </summary>
         /// <param name="obj"></param>
-        /// <returns>��������Ϊ��</returns>
+        /// <returns>如果相等则为真</returns>
         bool EqualParams(object obj);
     }
 }

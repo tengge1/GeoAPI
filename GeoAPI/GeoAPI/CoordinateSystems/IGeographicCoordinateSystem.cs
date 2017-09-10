@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -17,30 +17,30 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// The IGeographicCoordinateSystem interface is a subclass of IGeodeticSpatialReference and
-	/// defines the standard information stored with geographic coordinate system objects.
-	/// </summary>
-	public interface IGeographicCoordinateSystem : IHorizontalCoordinateSystem
-	{
-		/// <summary>
-		/// Gets or sets the angular units of the geographic coordinate system.
-		/// </summary>
-		IAngularUnit AngularUnit { get; set; }
+    /// <summary>
+    ///IGeographicCoordinateSystem接口是IGeodeticSpatialReference的子类，并定义了
+    /// 与地理坐标系对象存储的标准信息。
+    /// </summary>
+    public interface IGeographicCoordinateSystem : IHorizontalCoordinateSystem
+    {
+        /// <summary>
+        /// 获取或设置地理坐标系的角度单位。
+        /// </summary>
+        IAngularUnit AngularUnit { get; set; }
 
-		/// <summary>
-		/// Gets or sets the prime meridian of the geographic coordinate system.
-		/// </summary>
-		IPrimeMeridian PrimeMeridian { get; set; }
+        /// <summary>
+        /// 获取或设置地理坐标系的主子午线。
+        /// </summary>
+        IPrimeMeridian PrimeMeridian { get; set; }
 
-		/// <summary>
-		/// Gets the number of available conversions to WGS84 coordinates.
-		/// </summary>
-		int NumConversionToWGS84 { get; }
+        /// <summary>
+        /// 获取WGS84坐标的可用转换次数。
+        /// </summary>
+        int NumConversionToWGS84 { get; }
 
-		/// <summary>
-		/// Gets details on a conversion to WGS84.
-		/// </summary>
-		Wgs84ConversionInfo GetWgs84ConversionInfo(int index);
-	}    
+        /// <summary>
+        /// 获取有关转换为WGS84的详细信息。
+        /// </summary>
+        Wgs84ConversionInfo GetWgs84ConversionInfo(int index);
+    }
 }

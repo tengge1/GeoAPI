@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+ï»¿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -21,16 +21,16 @@ using System.Globalization;
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// ÖáµÄÏ¸½Ú¡£ ÕâÓÃÓÚ±ê¼ÇÖá£¬²¢Ö¸Ê¾·½Ïò¡£
+    /// è½´çš„ç»†èŠ‚ã€‚ è¿™ç”¨äºæ ‡è®°è½´ï¼Œå¹¶æŒ‡ç¤ºæ–¹å‘ã€‚
     /// </summary>
 	[Serializable]
     public class AxisInfo
     {
         /// <summary>
-        /// ³õÊ¼»¯AxisInfoµÄĞÂÊµÀı¡£
+        /// åˆå§‹åŒ–AxisInfoçš„æ–°å®ä¾‹ã€‚
         /// </summary>
-        /// <param name="name">ÖáÃû³Æ</param>
-        /// <param name="orientation">Öá·½Ïò</param>
+        /// <param name="name">è½´åç§°</param>
+        /// <param name="orientation">è½´æ–¹å‘</param>
         public AxisInfo(string name, AxisOrientationEnum orientation)
         {
             _Name = name;
@@ -40,7 +40,7 @@ namespace GeoAPI.CoordinateSystems
         private string _Name;
 
         /// <summary>
-        /// ÈËÃÇ¿É¶ÁÃû³Æ¡£ ¿ÉÄÜµÄÖµÎªX£¬Y£¬Long£¬Lat»òÈÎºÎÆäËû¶Ì×Ö·û´®¡£
+        /// å¯è¯»åç§°ã€‚ å¯èƒ½çš„å€¼ä¸ºXï¼ŒYï¼ŒLongï¼ŒLatæˆ–ä»»ä½•å…¶ä»–çŸ­å­—ç¬¦ä¸²ã€‚
         /// </summary>
         public string Name
         {
@@ -51,7 +51,7 @@ namespace GeoAPI.CoordinateSystems
         private AxisOrientationEnum _Orientation;
 
         /// <summary>
-        /// »ñÈ¡Ã¶¾ÙµÄ·½ÏòÖµ¡£
+        /// è·å–æšä¸¾çš„æ–¹å‘å€¼ã€‚
         /// </summary>
         public AxisOrientationEnum Orientation
         {
@@ -60,7 +60,7 @@ namespace GeoAPI.CoordinateSystems
         }
 
         /// <summary>
-        /// ·µ»ØÔÚ¼òµ¥ÌØÕ÷¹æ·¶ÖĞ¶¨ÒåµÄ¸Ã¶ÔÏóµÄÖªÃûÎÄ±¾¡£
+        /// è¿”å›åœ¨ç®€å•ç‰¹å¾è§„èŒƒä¸­å®šä¹‰çš„è¯¥å¯¹è±¡çš„çŸ¥åæ–‡æœ¬ã€‚
         /// </summary>
         public string WKT
         {
@@ -71,7 +71,7 @@ namespace GeoAPI.CoordinateSystems
         }
 
         /// <summary>
-        /// »ñÈ¡´Ë¶ÔÏóµÄXML±íÊ¾
+        /// è·å–æ­¤å¯¹è±¡çš„XMLè¡¨ç¤º
         /// </summary>
         public string XML
         {

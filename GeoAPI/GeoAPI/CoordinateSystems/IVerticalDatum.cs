@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -17,8 +17,8 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// Procedure used to measure vertical distances.
-	/// </summary>
-	public interface IVerticalDatum : IDatum { }
+    /// <summary>
+    /// 用于测量垂直距离的程序。
+    /// </summary>
+    public interface IVerticalDatum : IDatum { }
 }

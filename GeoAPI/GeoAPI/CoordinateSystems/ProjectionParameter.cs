@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+ï»¿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -21,21 +21,21 @@ using System.Globalization;
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// Ò»¸öÃüÃûµÄÍ¶Ó°²ÎÊıÖµ¡£
+    /// ä¸€ä¸ªå‘½åçš„æŠ•å½±å‚æ•°å€¼ã€‚
     /// </summary>
     /// <remarks>
-    /// ²ÎÊıÖµµÄÏßĞÔµ¥Î»Óë°üº¬µÄÍ¶Ó°×ø±êÏµµÄÏßĞÔµ¥Î»ÏàÆ¥Åä¡£ ²ÎÊıÖµµÄ½Ç¶Èµ¥Î»ÓëÍ¶Ó°×ø±êÏµ
-    /// Ëù»ùÓÚµÄµØÀí×ø±êÏµµÄ½Ç¶Èµ¥Î»ÏàÆ¥Åä¡££¨Çë×¢Òâ£¬Õâ²»Í¬ÓÚ<see cref =¡°Parameter¡±/>£¬
-    /// ÆäÖĞµ¥Î»Ê¼ÖÕÎªÃ×ºÍ¶È¡££©
+    /// å‚æ•°å€¼çš„çº¿æ€§å•ä½ä¸åŒ…å«çš„æŠ•å½±åæ ‡ç³»çš„çº¿æ€§å•ä½ç›¸åŒ¹é…ã€‚ å‚æ•°å€¼çš„è§’åº¦å•ä½ä¸æŠ•å½±åæ ‡ç³»
+    /// æ‰€åŸºäºçš„åœ°ç†åæ ‡ç³»çš„è§’åº¦å•ä½ç›¸åŒ¹é…ã€‚ï¼ˆè¯·æ³¨æ„ï¼Œè¿™ä¸åŒäº<see cref =â€œParameterâ€/>ï¼Œ
+    /// å…¶ä¸­å•ä½å§‹ç»ˆä¸ºç±³å’Œåº¦ã€‚ï¼‰
     /// </remarks>
     [Serializable]
     public class ProjectionParameter
     {
         /// <summary>
-        /// ³õÊ¼»¯ProjectionParameterµÄÒ»¸öÊµÀı
+        /// åˆå§‹åŒ–ProjectionParameterçš„ä¸€ä¸ªå®ä¾‹
         /// </summary>
-        /// <param name="name">²ÎÊıÃû³Æ</param>
-        /// <param name="value">²ÎÊıÖµ</param>
+        /// <param name="name">å‚æ•°åç§°</param>
+        /// <param name="value">å‚æ•°å€¼</param>
         public ProjectionParameter(string name, double value)
         {
             _Name = name;
@@ -46,7 +46,7 @@ namespace GeoAPI.CoordinateSystems
         private string _Name;
 
         /// <summary>
-        /// ²ÎÊıÃû³Æ¡£
+        /// å‚æ•°åç§°ã€‚
         /// </summary>
         public string Name
         {
@@ -57,9 +57,9 @@ namespace GeoAPI.CoordinateSystems
         private double _Value;
 
         /// <summary>
-        /// ²ÎÊıÖµ¡£
-        /// ²ÎÊıÖµµÄÏßĞÔµ¥Î»Óë°üº¬µÄÍ¶Ó°×ø±êÏµµÄÏßĞÔµ¥Î»ÏàÆ¥Åä¡£ ²ÎÊıÖµµÄ½Ç¶Èµ¥Î»ÓëÍ¶Ó°
-        /// ×ø±êÏµËù»ùÓÚµÄµØÀí×ø±êÏµµÄ½Ç¶Èµ¥Î»ÏàÆ¥Åä¡£
+        /// å‚æ•°å€¼ã€‚
+        /// å‚æ•°å€¼çš„çº¿æ€§å•ä½ä¸åŒ…å«çš„æŠ•å½±åæ ‡ç³»çš„çº¿æ€§å•ä½ç›¸åŒ¹é…ã€‚ å‚æ•°å€¼çš„è§’åº¦å•ä½ä¸æŠ•å½±
+        /// åæ ‡ç³»æ‰€åŸºäºçš„åœ°ç†åæ ‡ç³»çš„è§’åº¦å•ä½ç›¸åŒ¹é…ã€‚
         /// </summary>
         public double Value
         {
@@ -68,7 +68,7 @@ namespace GeoAPI.CoordinateSystems
         }
 
         /// <summary>
-        /// ·µ»ØÔÚ¼òµ¥ÌØÕ÷¹æ·¶ÖĞ¶¨ÒåµÄ¸Ã¶ÔÏóµÄÖªÃûÎÄ±¾¡£
+        /// è¿”å›åœ¨ç®€å•ç‰¹å¾è§„èŒƒä¸­å®šä¹‰çš„è¯¥å¯¹è±¡çš„çŸ¥åæ–‡æœ¬ã€‚
         /// </summary>
         public string WKT
         {
@@ -79,7 +79,7 @@ namespace GeoAPI.CoordinateSystems
         }
 
         /// <summary>
-        /// »ñÈ¡´Ë¶ÔÏóµÄXML±íÊ¾
+        /// è·å–æ­¤å¯¹è±¡çš„XMLè¡¨ç¤º
         /// </summary>
         public string XML
         {
@@ -90,7 +90,7 @@ namespace GeoAPI.CoordinateSystems
         }
 
         /// <summary>
-        /// »ñÈ¡´ËÀàµÄÎÄ±¾±íÊ¾µÄ¹¦ÄÜ
+        /// è·å–æ­¤ç±»çš„æ–‡æœ¬è¡¨ç¤ºçš„åŠŸèƒ½
         /// </summary>
         /// <returns>A textual representation of this envelope</returns>
         public override string ToString()

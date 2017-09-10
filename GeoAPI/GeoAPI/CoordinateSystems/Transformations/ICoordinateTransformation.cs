@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+ï»¿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -18,62 +18,62 @@
 namespace GeoAPI.CoordinateSystems.Transformations
 {
     /// <summary>
-    /// ÃèÊö×ø±ê±ä»»¡£ ´Ë½Ó¿Ú½öÃèÊö×ø±ê±ä»»£¬µ«Êµ¼ÊÉÏ²¢²»¶Ôµã
-    /// ½øÐÐ±ä»»²Ù×÷¡£ Òª×ª»»µã£¬Äú±ØÐëÊ¹ÓÃÊýÑ§±ä»»¡£
+    /// æè¿°åæ ‡å˜æ¢ã€‚ æ­¤æŽ¥å£ä»…æè¿°åæ ‡å˜æ¢ï¼Œä½†å®žé™…ä¸Šå¹¶ä¸å¯¹ç‚¹
+    /// è¿›è¡Œå˜æ¢æ“ä½œã€‚ è¦è½¬æ¢ç‚¹ï¼Œæ‚¨å¿…é¡»ä½¿ç”¨æ•°å­¦å˜æ¢ã€‚
     /// </summary>
     public interface ICoordinateTransformation
     {
         /// <summary>
-        /// Ô´×ø±êÏµÖÐÓòµÄÈËÀà¿É¶ÁÃèÊö¡£
+        /// æºåæ ‡ç³»ä¸­åŸŸçš„äººç±»å¯è¯»æè¿°ã€‚
         /// </summary>
         string AreaOfUse { get; }
 
         /// <summary>
-        /// ¶¨Òå×ª»»ºÍ²ÎÊýÖµµÄÈ¨ÏÞ¡£
+        /// å®šä¹‰è½¬æ¢å’Œå‚æ•°å€¼çš„æƒé™ã€‚
         /// </summary>
         /// <remarks>
-        /// ¹ÜÀí¾ÖÊÇÒ»¸öÎ¬»¤È¨Á¦»ú¹¹´úÂë¶¨ÒåµÄ×éÖ¯¡£ ÀýÈç£¬Å·ÖÞÊ¯ÓÍµ÷²é×é
-        /// £¨EPSG£©Î¬»¤×ø±êÏµÊý¾Ý¿âºÍÆäËû¿Õ¼ä²ÎÕÕ¶ÔÏó£¬ÆäÖÐÃ¿¸ö¶ÔÏó¶¼ÓÐÒ»
-        /// ¸ö´úºÅ¡£ ÀýÈç£¬WGS84 Lat / Lon×ø±êÏµµÄEPSG´úÂëÊÇ£¿326£¿
+        /// ç®¡ç†å±€æ˜¯ä¸€ä¸ªç»´æŠ¤æƒåŠ›æœºæž„ä»£ç å®šä¹‰çš„ç»„ç»‡ã€‚ ä¾‹å¦‚ï¼Œæ¬§æ´²çŸ³æ²¹è°ƒæŸ¥ç»„
+        /// ï¼ˆEPSGï¼‰ç»´æŠ¤åæ ‡ç³»æ•°æ®åº“å’Œå…¶ä»–ç©ºé—´å‚ç…§å¯¹è±¡ï¼Œå…¶ä¸­æ¯ä¸ªå¯¹è±¡éƒ½æœ‰ä¸€
+        /// ä¸ªä»£å·ã€‚ ä¾‹å¦‚ï¼ŒWGS84 Lat / Lonåæ ‡ç³»çš„EPSGä»£ç æ˜¯ï¼Ÿ326ï¼Ÿ
         /// </remarks>
         string Authority { get; }
 
         /// <summary>
-        /// ¹ÜÀí¾ÖÓÃÓÚÊ¶±ð×ª»¯µÄ´úÂë¡£ ¿Õ×Ö·û´®ÓÃÓÚÎÞ´úÂë¡£
+        /// ç®¡ç†å±€ç”¨äºŽè¯†åˆ«è½¬åŒ–çš„ä»£ç ã€‚ ç©ºå­—ç¬¦ä¸²ç”¨äºŽæ— ä»£ç ã€‚
         /// </summary>
-        /// <remarks>AuthorityCodeÊÇÓÉ¹ÜÀí»ú¹¹¶¨ÒåÒÔÒýÓÃÌØ¶¨¿Õ¼ä²Î¿¼¶ÔÏóµÄ
-        /// ½ô´Õ×Ö·û´®¡£ ÀýÈç£¬Å·ÖÞµ÷²é×é£¨EPSG£©ÊÚÈ¨»ú¹¹Ê¹ÓÃ32Î»ÕûÊýÀ´ÒýÓÃ
-        /// ×ø±êÏµ£¬Òò´ËËùÓÐµÄ´úÂë×Ö·û´®¶¼½«ÓÉÊýÎ»×é³É¡£ WGS84 Lat / LonµÄ
-        /// EPSG´úÂëÊÇ£¿326£¿</remarks>
+        /// <remarks>AuthorityCodeæ˜¯ç”±ç®¡ç†æœºæž„å®šä¹‰ä»¥å¼•ç”¨ç‰¹å®šç©ºé—´å‚è€ƒå¯¹è±¡çš„
+        /// ç´§å‡‘å­—ç¬¦ä¸²ã€‚ ä¾‹å¦‚ï¼Œæ¬§æ´²è°ƒæŸ¥ç»„ï¼ˆEPSGï¼‰æŽˆæƒæœºæž„ä½¿ç”¨32ä½æ•´æ•°æ¥å¼•ç”¨
+        /// åæ ‡ç³»ï¼Œå› æ­¤æ‰€æœ‰çš„ä»£ç å­—ç¬¦ä¸²éƒ½å°†ç”±æ•°ä½ç»„æˆã€‚ WGS84 Lat / Lonçš„
+        /// EPSGä»£ç æ˜¯ï¼Ÿ326ï¼Ÿ</remarks>
         long AuthorityCode { get; }
 
         /// <summary>
-        /// »ñµÃÊýÑ§±ä»»¡£
+        /// èŽ·å¾—æ•°å­¦å˜æ¢ã€‚
         /// </summary>
         IMathTransform MathTransform { get; }
 
         /// <summary>
-        /// ×ª»»Ãû³Æ
+        /// è½¬æ¢åç§°
         /// </summary>
         string Name { get; }
 
         /// <summary>
-        /// »ñÈ¡¹©Ó¦ÉÌÌá¹©µÄ±¸×¢¡£
+        /// èŽ·å–ä¾›åº”å•†æä¾›çš„å¤‡æ³¨ã€‚
         /// </summary>
         string Remarks { get; }
 
         /// <summary>
-        /// Ô´×ø±êÏµ¡£
+        /// æºåæ ‡ç³»ã€‚
         /// </summary>
         ICoordinateSystem SourceCS { get; }
 
         /// <summary>
-        /// Ä¿±ê×ø±êÏµ¡£
+        /// ç›®æ ‡åæ ‡ç³»ã€‚
         /// </summary>
         ICoordinateSystem TargetCS { get; }
 
         /// <summary>
-        /// ÓïÒåÀàÐÍµÄ±ä»»¡£ ÀýÈç£¬»ù×¼±ä»»»ò×ø±ê×ª»»¡£
+        /// è¯­ä¹‰ç±»åž‹çš„å˜æ¢ã€‚ ä¾‹å¦‚ï¼ŒåŸºå‡†å˜æ¢æˆ–åæ ‡è½¬æ¢ã€‚
         /// </summary>
         TransformType TransformType { get; }
     }

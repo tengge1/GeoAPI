@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+ï»¿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -18,18 +18,18 @@
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// ¼ÆËãÆäËûÊýÁ¿µÄÒ»×éÊýÁ¿¡££¨»ù×¼£©
+    /// è®¡ç®—å…¶ä»–æ•°é‡çš„ä¸€ç»„æ•°é‡ã€‚ï¼ˆåŸºå‡†ï¼‰
     /// </summary>
     /// <remarks>
-    /// ¶ÔÓÚOGC³éÏóÄ£ÐÍ£¬Ëü¿ÉÒÔ±»¶¨ÒåÎª¾ßÓÐ×ø±êµÄµØÇòÉÏµÄÒ»×éÕæÊµµã¡£ ÀýÈç£¬
-    /// Êý¾Ý¿ÉÒÔ±»ÈÏÎªÊÇÍêÈ«¶¨Òå×ø±êÏµÏà¶ÔÓÚµØÇòµÄÆðµãºÍ·½ÏòµÄÒ»×é²ÎÊý¡£ ÃèÊö
-    /// ×ø±êÏµÓëÄ³Ð©Ô¤¶¨ÎïÀíÎ»ÖÃ£¨ÈçÖÊÐÄ£©ºÍÎïÀí·½Ïò£¨ÈçÐý×ªÖá£©µÄ¹ØÏµµÄÎÄ±¾
-    /// ÃèÊöºÍ/»òÒ»×é²ÎÊý¡£ »ù×¼ÃæµÄ¶¨Òå»¹¿ÉÒÔ°üÀ¨Ê±¼äÐÐÎª£¨ÀýÈç×ø±êÖá·½ÏòµÄ±ä»¯ÂÊ£©¡£
+    /// å¯¹äºŽOGCæŠ½è±¡æ¨¡åž‹ï¼Œå®ƒå¯ä»¥è¢«å®šä¹‰ä¸ºå…·æœ‰åæ ‡çš„åœ°çƒä¸Šçš„ä¸€ç»„çœŸå®žç‚¹ã€‚ ä¾‹å¦‚ï¼Œ
+    /// æ•°æ®å¯ä»¥è¢«è®¤ä¸ºæ˜¯å®Œå…¨å®šä¹‰åæ ‡ç³»ç›¸å¯¹äºŽåœ°çƒçš„èµ·ç‚¹å’Œæ–¹å‘çš„ä¸€ç»„å‚æ•°ã€‚ æè¿°
+    /// åæ ‡ç³»ä¸ŽæŸäº›é¢„å®šç‰©ç†ä½ç½®ï¼ˆå¦‚è´¨å¿ƒï¼‰å’Œç‰©ç†æ–¹å‘ï¼ˆå¦‚æ—‹è½¬è½´ï¼‰çš„å…³ç³»çš„æ–‡æœ¬
+    /// æè¿°å’Œ/æˆ–ä¸€ç»„å‚æ•°ã€‚ åŸºå‡†é¢çš„å®šä¹‰è¿˜å¯ä»¥åŒ…æ‹¬æ—¶é—´è¡Œä¸ºï¼ˆä¾‹å¦‚åæ ‡è½´æ–¹å‘çš„å˜åŒ–çŽ‡ï¼‰ã€‚
     /// </remarks>
     public interface IDatum : IInfo
     {
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃ»ù×¼µÄÀàÐÍÎªÃ¶¾Ù´úÂë¡£
+        /// èŽ·å–æˆ–è®¾ç½®åŸºå‡†çš„ç±»åž‹ä¸ºæžšä¸¾ä»£ç ã€‚
         /// </summary>
         DatumType DatumType { get; set; }
     }

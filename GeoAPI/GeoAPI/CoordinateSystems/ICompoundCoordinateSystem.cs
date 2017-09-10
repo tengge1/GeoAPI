@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+ï»¿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -18,18 +18,18 @@
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// Á½¸ö×ø±êÏµ£¨CRS£©µÄ¼¯ºÏ¡£ ÆäÖĞÖ®Ò»Í¨³£ÊÇ»ùÓÚ¶şÎ¬×ø±êÏµµÄCRS£¬ÀıÈç¾ßÓĞË®Æ½»ù×¼
-    /// µÄµØÀí»òÍ¶Ó°×ø±êÏµ¡£ ÁíÒ»¸öÊÇ´¹Ö±CRS£¬ËüÊÇ¾ßÓĞ´¹Ö±»ù×¼µÄÒ»Î¬×ø±êÏµ¡£
+    /// ä¸¤ä¸ªåæ ‡ç³»ï¼ˆCRSï¼‰çš„é›†åˆã€‚ å…¶ä¸­ä¹‹ä¸€é€šå¸¸æ˜¯åŸºäºäºŒç»´åæ ‡ç³»çš„CRSï¼Œä¾‹å¦‚å…·æœ‰æ°´å¹³åŸºå‡†
+    /// çš„åœ°ç†æˆ–æŠ•å½±åæ ‡ç³»ã€‚ å¦ä¸€ä¸ªæ˜¯å‚ç›´CRSï¼Œå®ƒæ˜¯å…·æœ‰å‚ç›´åŸºå‡†çš„ä¸€ç»´åæ ‡ç³»ã€‚
     /// </summary>
     public interface ICompoundCoordinateSystem : ICoordinateSystem
     {
         /// <summary>
-        /// »ñµÃµÚÒ»¸ö×Ó×ø±êÏµ¡£
+        /// è·å¾—ç¬¬ä¸€ä¸ªå­åæ ‡ç³»ã€‚
         /// </summary>
         ICoordinateSystem HeadCS { get; }
 
         /// <summary>
-        /// »ñµÃµÚ¶ş¸ö×Ó×ø±êÏµ¡£
+        /// è·å¾—ç¬¬äºŒä¸ªå­åæ ‡ç³»ã€‚
         /// </summary>
         ICoordinateSystem TailCS { get; }
     }

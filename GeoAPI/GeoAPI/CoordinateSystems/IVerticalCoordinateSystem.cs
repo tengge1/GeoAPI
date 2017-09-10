@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -17,19 +17,19 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// A one-dimensional coordinate system suitable for vertical measurements.
-	/// </summary>
-	public interface IVerticalCoordinateSystem : ICoordinateSystem
-	{
-		/// <summary>
-		/// Gets the vertical datum, which indicates the measurement method
-		/// </summary>
-		IVerticalDatum VerticalDatum { get; set; }
+    /// <summary>
+    /// 适用于垂直测量的一维坐标系。
+    /// </summary>
+    public interface IVerticalCoordinateSystem : ICoordinateSystem
+    {
+        /// <summary>
+        /// 获取垂直基准，表示测量方法
+        /// </summary>
+        IVerticalDatum VerticalDatum { get; set; }
 
-		/// <summary>
-		/// Gets the units used along the vertical axis.
-		/// </summary>
-		ILinearUnit VerticalUnit { get; set; }
-	}
+        /// <summary>
+        /// 获取沿垂直轴使用的单位。
+        /// </summary>
+        ILinearUnit VerticalUnit { get; set; }
+    }
 }

@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+ï»¿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -18,7 +18,7 @@
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// IUnit½Ó¿Ú³éÏó²»Í¬ÀàĞÍµÄµ¥Î»£¬ËüÃ»ÓĞ·½·¨¡£
+    /// IUnitæ¥å£æŠ½è±¡ä¸åŒç±»å‹çš„å•ä½ï¼Œå®ƒæ²¡æœ‰æ–¹æ³•ã€‚
     /// </summary>
     public interface IUnit : IInfo { }
 }

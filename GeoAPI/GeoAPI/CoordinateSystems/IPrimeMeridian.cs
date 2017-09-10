@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -17,21 +17,20 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// The IPrimeMeridian interface defines the standard information stored with prime
-	/// meridian objects. Any prime meridian object must implement this interface as
-	/// well as the ISpatialReferenceInfo interface.
-	/// </summary>
-	public interface IPrimeMeridian : IInfo
-	{
-		/// <summary>
-		/// Gets or sets the longitude of the prime meridian (relative to the Greenwich prime meridian).
-		/// </summary>
-		double Longitude { get; set; }
+    /// <summary>
+    /// IPrimeMeridian接口定义与主子午线对象一起存储的标准信息。 任何主要子午线对象
+    /// 必须实现此接口以及ISpatialReferenceInfo接口。
+    /// </summary>
+    public interface IPrimeMeridian : IInfo
+    {
+        /// <summary>
+        /// 获取或设定主子午线的经度（相对于格林威治主子午线）。
+        /// </summary>
+        double Longitude { get; set; }
 
-		/// <summary>
-		/// Gets or sets the AngularUnits.
-		/// </summary>
-		IAngularUnit AngularUnit { get; set; }
-	}
+        /// <summary>
+        /// 获取或设置AngularUnits。
+        /// </summary>
+        IAngularUnit AngularUnit { get; set; }
+    }
 }

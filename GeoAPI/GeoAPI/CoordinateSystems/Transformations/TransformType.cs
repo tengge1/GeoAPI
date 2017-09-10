@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+ï»¿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -18,27 +18,27 @@
 namespace GeoAPI.CoordinateSystems.Transformations
 {
     /// <summary>
-    /// ÓÃÓÚ×ø±ê±ä»»µÄÓïÒå±ä»»ÀàĞÍ¡£
+    /// ç”¨äºåæ ‡å˜æ¢çš„è¯­ä¹‰å˜æ¢ç±»å‹ã€‚
     /// </summary>
     public enum TransformType : int
     {
         /// <summary>
-        /// Î´Öª»òÎ´Ö¸¶¨ÀàĞÍµÄ±ä»»¡£
+        /// æœªçŸ¥æˆ–æœªæŒ‡å®šç±»å‹çš„å˜æ¢ã€‚
         /// </summary>
         Other = 0,
 
         /// <summary>
-        /// ±ä»»½öÈ¡¾öÓÚ¶¨ÒåµÄ²ÎÊı¡£ ÀıÈç£¬µØÍ¼Í¶Ó°¡£
+        /// å˜æ¢ä»…å–å†³äºå®šä¹‰çš„å‚æ•°ã€‚ ä¾‹å¦‚ï¼Œåœ°å›¾æŠ•å½±ã€‚
         /// </summary>
         Conversion = 1,
 
         /// <summary>
-        /// ±ä»»½öÈ¡¾öÓÚ¾­Ñéµ¼³öµÄ²ÎÊı¡£ ÀıÈç»ù×¼±ä»»¡£
+        /// å˜æ¢ä»…å–å†³äºç»éªŒå¯¼å‡ºçš„å‚æ•°ã€‚ ä¾‹å¦‚åŸºå‡†å˜æ¢ã€‚
         /// </summary>
         Transformation = 2,
 
         /// <summary>
-        /// ±ä»»È¡¾öÓÚ¶¨ÒåºÍ¾­Ñé²ÎÊı¡£
+        /// å˜æ¢å–å†³äºå®šä¹‰å’Œç»éªŒå‚æ•°ã€‚
         /// </summary>
         ConversionAndTransformation = 3
     }

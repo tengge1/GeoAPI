@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -18,23 +18,20 @@
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// A coordinate system which sits inside another coordinate system. The fitted 
-    /// coordinate system can be rotated and shifted, or use any other math transform
-    /// to inject itself into the base coordinate system.
+    /// 位于另一个坐标系中的坐标系。 拟合的坐标系可以旋转和移动，或使用任何其他
+    /// 数学变换将其自身注入基坐标系。
     /// </summary>
     public interface IFittedCoordinateSystem : ICoordinateSystem
     {
         /// <summary>
-        /// Gets underlying coordinate system.
+        /// 获取基坐标系。
         /// </summary>
         ICoordinateSystem BaseCoordinateSystem { get; }
 
         /// <summary>
-        /// Gets Well-Known Text of a math transform to the base coordinate system. 
-        /// The dimension of this fitted coordinate system is determined by the source 
-        /// dimension of the math transform. The transform should be one-to-one within 
-        /// this coordinate system's domain, and the base coordinate system dimension 
-        /// must be at least as big as the dimension of this coordinate system.
+        /// 获取已知的数学变换文本到基坐标系。 该拟合坐标系的尺寸由数学变换的
+        /// 源维度决定。 变换在该坐标系的域中应该是一对一的，基坐标系的维数必须
+        /// 至少与该坐标系的尺寸一样大。
         /// </summary>
         /// <returns></returns>
         string ToBase();

@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+ï»¿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -20,179 +20,179 @@ using System.Collections.Generic;
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// ´Ó¼òµ¥µÄ¶ÔÏó»òÖµ¹¹½¨¸´ÔÓµÄ¶ÔÏó¡£
+    /// ä»Žç®€å•çš„å¯¹è±¡æˆ–å€¼æž„å»ºå¤æ‚çš„å¯¹è±¡ã€‚
     /// </summary>
     /// <remarks>
-    /// <para>ICoordinateSystemFactoryÔÊÐíÓ¦ÓÃ³ÌÐòÖÆ×÷²»ÄÜÓÉ
-    /// <see cref =¡°ICoordinateSystemAuthorityFactory¡±/>´´½¨µÄ×ø±êÏµ¡£ Õâ¸ö¹¤³§·Ç³£
-    /// Áé»î£¬¶øÈ¨ÍþµÄ¹¤³§¸üÈÝÒ×Ê¹ÓÃ¡£</para>
-    /// <para>ËùÒÔ<see cref =¡°ICoordinateSystemAuthorityFactory¡±/>¿ÉÓÃÓÚÖÆ×÷¡°±ê×¼¡±
-    /// ×ø±êÏµ£¬¶ø<see cref =¡°ICoordinateSystemFactory¡±/>¿ÉÓÃÓÚÖÆ×÷¡°ÌØÊâ¡±×ø±êÏµ¡£
+    /// <para>ICoordinateSystemFactoryå…è®¸åº”ç”¨ç¨‹åºåˆ¶ä½œä¸èƒ½ç”±
+    /// <see cref =â€œICoordinateSystemAuthorityFactoryâ€/>åˆ›å»ºçš„åæ ‡ç³»ã€‚ è¿™ä¸ªå·¥åŽ‚éžå¸¸
+    /// çµæ´»ï¼Œè€Œæƒå¨çš„å·¥åŽ‚æ›´å®¹æ˜“ä½¿ç”¨ã€‚</para>
+    /// <para>æ‰€ä»¥<see cref =â€œICoordinateSystemAuthorityFactoryâ€/>å¯ç”¨äºŽåˆ¶ä½œâ€œæ ‡å‡†â€
+    /// åæ ‡ç³»ï¼Œè€Œ<see cref =â€œICoordinateSystemFactoryâ€/>å¯ç”¨äºŽåˆ¶ä½œâ€œç‰¹æ®Šâ€åæ ‡ç³»ã€‚
     /// </para>
-    /// <para>ÀýÈç£¬EPSGÈ¨Íþ»ú¹¹ÓµÓÐÊ¹ÓÃNAD83»ù×¼µÄÃÀ¹ú¹ú¼ÒÆ½Ãæ×ø±êÏµµÄ´úÂë£¬µ«ÕâÐ©
-    /// ×ø±êÏµÍ³Ê¼ÖÕÊ¹ÓÃÃ×¡£ EPSGÃ»ÓÐÊ¹ÓÃÓ¢³ßµ¥Î»µÄNAD83×´Ì¬Æ½Ãæ×ø±êÏµµÄ´úÂë¡£ ¸Ã¹¤³§
-    /// ÔÊÐíÓ¦ÓÃ³ÌÐò´´½¨ÕâÑùµÄ»ìºÏ×ø±êÏµ¡£</para>
+    /// <para>ä¾‹å¦‚ï¼ŒEPSGæƒå¨æœºæž„æ‹¥æœ‰ä½¿ç”¨NAD83åŸºå‡†çš„ç¾Žå›½å›½å®¶å¹³é¢åæ ‡ç³»çš„ä»£ç ï¼Œä½†è¿™äº›
+    /// åæ ‡ç³»ç»Ÿå§‹ç»ˆä½¿ç”¨ç±³ã€‚ EPSGæ²¡æœ‰ä½¿ç”¨è‹±å°ºå•ä½çš„NAD83çŠ¶æ€å¹³é¢åæ ‡ç³»çš„ä»£ç ã€‚ è¯¥å·¥åŽ‚
+    /// å…è®¸åº”ç”¨ç¨‹åºåˆ›å»ºè¿™æ ·çš„æ··åˆåæ ‡ç³»ã€‚</para>
     /// </remarks>
     public interface ICoordinateSystemFactory
     {
         /// <summary>
-        /// ´´½¨Ò»¸ö<see cref =¡°ICompoundCoordinateSystem¡±/>¡£
+        /// åˆ›å»ºä¸€ä¸ª<see cref =â€œICompoundCoordinateSystemâ€/>ã€‚
         /// </summary>
-        /// <param name="name">¸´ºÏ×ø±êÏµµÄÃû³Æ¡£</param>
-        /// <param name="head">Í·×ø±êÏµ</param>
-        /// <param name="tail">Î²×ø±êÏµ</param>
-        /// <returns>¸´ºÏ×ø±êÏµ</returns>
+        /// <param name="name">å¤åˆåæ ‡ç³»çš„åç§°ã€‚</param>
+        /// <param name="head">å¤´åæ ‡ç³»</param>
+        /// <param name="tail">å°¾åæ ‡ç³»</param>
+        /// <returns>å¤åˆåæ ‡ç³»</returns>
         ICompoundCoordinateSystem CreateCompoundCoordinateSystem(string name, ICoordinateSystem head, ICoordinateSystem tail);
 
         /// <summary>
-        /// ´Ó°ë¾¶Öµ´´½¨Ò»¸ö<see cref =¡°IEllipsoid¡±/>¡£
+        /// ä»ŽåŠå¾„å€¼åˆ›å»ºä¸€ä¸ª<see cref =â€œIEllipsoidâ€/>ã€‚
         /// </summary>
         /// <seealso cref="CreateFlattenedSphere"/>
-        /// <param name="name">ÍÖÔ²ÌåÃû³Æ</param>
+        /// <param name="name">æ¤­åœ†ä½“åç§°</param>
         /// <param name="semiMajorAxis"></param>
         /// <param name="semiMinorAxis"></param>
         /// <param name="linearUnit"></param>
-        /// <returns>ÍÖÇò</returns>
+        /// <returns>æ¤­çƒ</returns>
         IEllipsoid CreateEllipsoid(string name, double semiMajorAxis, double semiMinorAxis, ILinearUnit linearUnit);
 
         /// <summary>
-        /// ´´½¨<see cref="IFittedCoordinateSystem"/>.
+        /// åˆ›å»º<see cref="IFittedCoordinateSystem"/>.
         /// </summary>
-        /// <remarks>ÄâºÏ×ø±êÏµÖÐÖáµÄµ¥Î»½«´Ó»ù×ù×ø±êÏµµÄµ¥Î»ÍÆ¶Ï³öÀ´¡£ Èç¹û·ÂÉäÓ³Éä
-        /// Ö´ÐÐÐý×ª£¬ÔòÈÎºÎ»ìºÏÖá±ØÐë¾ßÓÐÏàÍ¬µÄµ¥Î»¡£ ÀýÈç£¬£¨lat_deg£¬lon_deg£¬
-        /// height_feet£©ÏµÍ³¿ÉÒÔÔÚ£¨lat£¬lon£©Æ½ÃæÖÐÐý×ª£¬ÒòÎªÁ½¸öÊÜÓ°ÏìµÄÖá¶¼ÊÇ¶ÈÊý¡£
-        ///  µ«Äú²»Ó¦¸ÃÔÚÈÎºÎÆäËûÆ½°åÉÏÐý×ª¸Ã×ø±êÏµ¡£</remarks>
-        /// <param name="name">×ø±êÏµÃû³Æ</param>
-        /// <param name="baseCoordinateSystem">»ù±¾×ø±êÏµ</param>
+        /// <remarks>æ‹Ÿåˆåæ ‡ç³»ä¸­è½´çš„å•ä½å°†ä»ŽåŸºåº§åæ ‡ç³»çš„å•ä½æŽ¨æ–­å‡ºæ¥ã€‚ å¦‚æžœä»¿å°„æ˜ å°„
+        /// æ‰§è¡Œæ—‹è½¬ï¼Œåˆ™ä»»ä½•æ··åˆè½´å¿…é¡»å…·æœ‰ç›¸åŒçš„å•ä½ã€‚ ä¾‹å¦‚ï¼Œï¼ˆlat_degï¼Œlon_degï¼Œ
+        /// height_feetï¼‰ç³»ç»Ÿå¯ä»¥åœ¨ï¼ˆlatï¼Œlonï¼‰å¹³é¢ä¸­æ—‹è½¬ï¼Œå› ä¸ºä¸¤ä¸ªå—å½±å“çš„è½´éƒ½æ˜¯åº¦æ•°ã€‚
+        ///  ä½†æ‚¨ä¸åº”è¯¥åœ¨ä»»ä½•å…¶ä»–å¹³æ¿ä¸Šæ—‹è½¬è¯¥åæ ‡ç³»ã€‚</remarks>
+        /// <param name="name">åæ ‡ç³»åç§°</param>
+        /// <param name="baseCoordinateSystem">åŸºæœ¬åæ ‡ç³»</param>
         /// <param name="toBaseWkt"></param>
         /// <param name="arAxes"></param>
-        /// <returns>ºÏÊÊ×ø±êÏµ</returns>
+        /// <returns>åˆé€‚åæ ‡ç³»</returns>
         IFittedCoordinateSystem CreateFittedCoordinateSystem(string name, ICoordinateSystem baseCoordinateSystem, string toBaseWkt, List<AxisInfo> arAxes);
 
         /// <summary>
-        /// ´´½¨ <see cref="IEllipsoid"/> ´ÓÒ»¸ö´ó°ë¾¶£¬·´Æ½Ì¹»¯¡£
+        /// åˆ›å»º <see cref="IEllipsoid"/> ä»Žä¸€ä¸ªå¤§åŠå¾„ï¼Œåå¹³å¦åŒ–ã€‚
         /// </summary>
         /// <seealso cref="CreateEllipsoid"/>
-        /// <param name="name">ÍÖÔ²ÌåÃû³Æ</param>
-        /// <param name="semiMajorAxis">°ëÖ÷Öá</param>
-        /// <param name="inverseFlattening">·´Æ½Õû</param>
-        /// <param name="linearUnit">ÏßÐÔµ¥Î»</param>
-        /// <returns>ÍÖÇò</returns>
+        /// <param name="name">æ¤­åœ†ä½“åç§°</param>
+        /// <param name="semiMajorAxis">åŠä¸»è½´</param>
+        /// <param name="inverseFlattening">åå¹³æ•´</param>
+        /// <param name="linearUnit">çº¿æ€§å•ä½</param>
+        /// <returns>æ¤­çƒ</returns>
         IEllipsoid CreateFlattenedSphere(string name, double semiMajorAxis, double inverseFlattening, ILinearUnit linearUnit);
 
 
         /// <summary>
-        /// ´ÓXML×Ö·û´®´´½¨×ø±êÏµ¶ÔÏó¡£
+        /// ä»ŽXMLå­—ç¬¦ä¸²åˆ›å»ºåæ ‡ç³»å¯¹è±¡ã€‚
         /// </summary>
-        /// <param name="xml">¿Õ¼äË÷ÒýµÄXML±íÊ¾</param>
-        /// <returns>²úÉúµÄ¿Õ¼äË÷Òý¶ÔÏó</returns>
+        /// <param name="xml">ç©ºé—´ç´¢å¼•çš„XMLè¡¨ç¤º</param>
+        /// <returns>äº§ç”Ÿçš„ç©ºé—´ç´¢å¼•å¯¹è±¡</returns>
         ICoordinateSystem CreateFromXml(string xml);
 
         /// <summary>
-        /// ¸ø³öËüÖÚËùÖÜÖªµÄÎÄ±¾±íÊ¾£¬´´½¨Ò»¸ö¿Õ¼ä²Î¿¼¶ÔÏó¡£ Êä³ö¶ÔÏó¿ÉÒÔÊÇ
-        /// <see cref =¡°IGeographicCoordinateSystem¡±/>»ò
-        /// <see cref =¡°IProjectedCoordinateSystem¡±/>¡£
+        /// ç»™å‡ºå®ƒä¼—æ‰€å‘¨çŸ¥çš„æ–‡æœ¬è¡¨ç¤ºï¼Œåˆ›å»ºä¸€ä¸ªç©ºé—´å‚è€ƒå¯¹è±¡ã€‚ è¾“å‡ºå¯¹è±¡å¯ä»¥æ˜¯
+        /// <see cref =â€œIGeographicCoordinateSystemâ€/>æˆ–
+        /// <see cref =â€œIProjectedCoordinateSystemâ€/>ã€‚
         /// </summary>
-        /// <param name="WKT">ÓÃÓÚ¿Õ¼ä²Î¿¼µÄÖÚËùÖÜÖªµÄÎÄ±¾±íÊ¾</param>
+        /// <param name="WKT">ç”¨äºŽç©ºé—´å‚è€ƒçš„ä¼—æ‰€å‘¨çŸ¥çš„æ–‡æœ¬è¡¨ç¤º</param>
         /// <returns>The resulting spatial reference object</returns>
         ICoordinateSystem CreateFromWkt(string WKT);
 
         /// <summary>
-        /// ´´½¨Ò»¸ö<see cref =¡°IGeographicCoordinateSystem¡±/>£¬¿ÉÒÔÊÇLat / Lon»òLon / Lat¡£
+        /// åˆ›å»ºä¸€ä¸ª<see cref =â€œIGeographicCoordinateSystemâ€/>ï¼Œå¯ä»¥æ˜¯Lat / Lonæˆ–Lon / Latã€‚
         /// </summary>
-        /// <param name="name">µØÀí×ø±êÏµµÄÃû³Æ</param>
-        /// <param name="angularUnit">½Ç¶Èµ¥Î»</param>
-        /// <param name="datum">Ë®Æ½»ù×¼</param>
-        /// <param name="primeMeridian">±¾³õ×ÓÎçÏß</param>
-        /// <param name="axis0">µÚÒ»Öá</param>
-        /// <param name="axis1">µÚ¶þÖá</param>
-        /// <returns>µØÀí×ø±êÏµ</returns>
+        /// <param name="name">åœ°ç†åæ ‡ç³»çš„åç§°</param>
+        /// <param name="angularUnit">è§’åº¦å•ä½</param>
+        /// <param name="datum">æ°´å¹³åŸºå‡†</param>
+        /// <param name="primeMeridian">æœ¬åˆå­åˆçº¿</param>
+        /// <param name="axis0">ç¬¬ä¸€è½´</param>
+        /// <param name="axis1">ç¬¬äºŒè½´</param>
+        /// <returns>åœ°ç†åæ ‡ç³»</returns>
         IGeographicCoordinateSystem CreateGeographicCoordinateSystem(string name, IAngularUnit angularUnit, IHorizontalDatum datum, IPrimeMeridian primeMeridian, AxisInfo axis0, AxisInfo axis1);
 
         /// <summary>
-        /// ´ÓÍÖÔ²ÌåºÍBursa-World²ÎÊý´´½¨<see cref =¡°IHorizontalDatum¡±/>¡£
+        /// ä»Žæ¤­åœ†ä½“å’ŒBursa-Worldå‚æ•°åˆ›å»º<see cref =â€œIHorizontalDatumâ€/>ã€‚
         /// </summary>
         /// <remarks>
-        /// ÓÉÓÚ´Ë·½·¨°üº¬Ò»×éBursa-Wolf²ÎÊý£¬Òò´Ë´´½¨µÄÊý¾Ý½«Ê¼ÖÕÓëWGS84ÓÐ¹ØÏµ¡£ 
-        /// Èç¹ûÒª´´½¨Ò»¸öÓëWGS84ÎÞ¹ØµÄË®Æ½»ù×¼£¬Ôò¿ÉÒÔÖ¸¶¨<see cref =¡°DatumType¡±>
-        ///  horizontalDatumType </see> <see cref =¡°DatumType.HD_Other¡±/>£¬»òÍ¨¹ý
-        /// WKT´´½¨Ëü¡£
+        /// ç”±äºŽæ­¤æ–¹æ³•åŒ…å«ä¸€ç»„Bursa-Wolfå‚æ•°ï¼Œå› æ­¤åˆ›å»ºçš„æ•°æ®å°†å§‹ç»ˆä¸ŽWGS84æœ‰å…³ç³»ã€‚ 
+        /// å¦‚æžœè¦åˆ›å»ºä¸€ä¸ªä¸ŽWGS84æ— å…³çš„æ°´å¹³åŸºå‡†ï¼Œåˆ™å¯ä»¥æŒ‡å®š<see cref =â€œDatumTypeâ€>
+        ///  horizontalDatumType </see> <see cref =â€œDatumType.HD_Otherâ€/>ï¼Œæˆ–é€šè¿‡
+        /// WKTåˆ›å»ºå®ƒã€‚
         /// </remarks>
-        /// <param name="name">ÍÖÔ²ÌåÃû³Æ</param>
-        /// <param name="datumType">»ù×¼ÀàÐÍ</param>
-        /// <param name="ellipsoid">ÍÖÇò</param>
-        /// <param name="toWgs84">Wgs84×ª»»²ÎÊý</param>
-        /// <returns>Ë®Æ½»ù×¼</returns>
+        /// <param name="name">æ¤­åœ†ä½“åç§°</param>
+        /// <param name="datumType">åŸºå‡†ç±»åž‹</param>
+        /// <param name="ellipsoid">æ¤­çƒ</param>
+        /// <param name="toWgs84">Wgs84è½¬æ¢å‚æ•°</param>
+        /// <returns>æ°´å¹³åŸºå‡†</returns>
         IHorizontalDatum CreateHorizontalDatum(string name, DatumType datumType, IEllipsoid ellipsoid, Wgs84ConversionInfo toWgs84);
 
         /// <summary>
-        /// ´´½¨Ò»¸ö<see cref =¡°ILocalCoordinateSystem¡±>¾Ö²¿×ø±êÏµ</ see>¡£
+        /// åˆ›å»ºä¸€ä¸ª<see cref =â€œILocalCoordinateSystemâ€>å±€éƒ¨åæ ‡ç³»</ see>ã€‚
         /// </summary>
         /// <remarks>
-        /// ¾Ö²¿×ø±êÏµµÄ³ß´çÓÉÖáÕóÁÐµÄ´óÐ¡È·¶¨¡£ ËùÓÐÖá½«¾ßÓÐÏàÍ¬µÄµ¥Î»¡£Èç¹ûÒªÊ¹ÓÃ
-        /// »ìºÏµ¥Î»ÖÆ×÷×ø±êÏµ£¬Ôò¿ÉÒÔÊ¹ÓÃ²»Í¬µÄ¾Ö²¿×ø±êÏµ½øÐÐ¸´ºÏ×ø±êÏµ¡£
+        /// å±€éƒ¨åæ ‡ç³»çš„å°ºå¯¸ç”±è½´é˜µåˆ—çš„å¤§å°ç¡®å®šã€‚ æ‰€æœ‰è½´å°†å…·æœ‰ç›¸åŒçš„å•ä½ã€‚å¦‚æžœè¦ä½¿ç”¨
+        /// æ··åˆå•ä½åˆ¶ä½œåæ ‡ç³»ï¼Œåˆ™å¯ä»¥ä½¿ç”¨ä¸åŒçš„å±€éƒ¨åæ ‡ç³»è¿›è¡Œå¤åˆåæ ‡ç³»ã€‚
         /// </remarks>
-        /// <param name="name">¾Ö²¿×ø±êÏµµÄÃû³Æ</param>
-        /// <param name="datum">±¾µØÊý¾Ý</param>
-        /// <param name="unit">µ¥Î»</param>
-        /// <param name="axes">ÖáÐÅÏ¢</param>
-        /// <returns>¾Ö²¿×ø±êÏµ</returns>
+        /// <param name="name">å±€éƒ¨åæ ‡ç³»çš„åç§°</param>
+        /// <param name="datum">æœ¬åœ°æ•°æ®</param>
+        /// <param name="unit">å•ä½</param>
+        /// <param name="axes">è½´ä¿¡æ¯</param>
+        /// <returns>å±€éƒ¨åæ ‡ç³»</returns>
         ILocalCoordinateSystem CreateLocalCoordinateSystem(string name, ILocalDatum datum, IUnit unit, List<AxisInfo> axes);
 
         /// <summary>
-        /// ´´½¨Ò»¸ö<see cref =¡°ILocalDatum¡±/>¡£
+        /// åˆ›å»ºä¸€ä¸ª<see cref =â€œILocalDatumâ€/>ã€‚
         /// </summary>
-        /// <param name="name">»ù×¼Ãû³Æ</param>
-        /// <param name="datumType">»ù×¼ÀàÐÍ</param>
+        /// <param name="name">åŸºå‡†åç§°</param>
+        /// <param name="datumType">åŸºå‡†ç±»åž‹</param>
         /// <returns></returns>
         ILocalDatum CreateLocalDatum(string name, DatumType datumType);
 
         /// <summary>
-        /// Ïà¶ÔÓÚ¸ñÁÖÍþÖÎ£¬´´½¨Ò»¸ö<see cref =¡°IPrimeMeridian¡±/>¡£
+        /// ç›¸å¯¹äºŽæ ¼æž—å¨æ²»ï¼Œåˆ›å»ºä¸€ä¸ª<see cref =â€œIPrimeMeridianâ€/>ã€‚
         /// </summary>
-        /// <param name="name">Ô­×ÓÎçÏßÃû³Æ</param>
-        /// <param name="angularUnit">½Ç¶Èµ¥Î»</param>
-        /// <param name="longitude">¾­¶È</param>
-        /// <returns>±¾³õ×ÓÎçÏß</returns>
+        /// <param name="name">åŽŸå­åˆçº¿åç§°</param>
+        /// <param name="angularUnit">è§’åº¦å•ä½</param>
+        /// <param name="longitude">ç»åº¦</param>
+        /// <returns>æœ¬åˆå­åˆçº¿</returns>
         IPrimeMeridian CreatePrimeMeridian(string name, IAngularUnit angularUnit, double longitude);
 
         /// <summary>
-        /// Ê¹ÓÃÍ¶Ó°¶ÔÏó´´½¨<see cref =¡°IProjectedCoordinateSystem¡±/>¡£
+        /// ä½¿ç”¨æŠ•å½±å¯¹è±¡åˆ›å»º<see cref =â€œIProjectedCoordinateSystemâ€/>ã€‚
         /// </summary>
-        /// <param name="name">Í¶Ó°×ø±êÏµµÄÃû³Æ</param>
-        /// <param name="gcs">µØÀí×ø±êÏµ</param>
-        /// <param name="projection">Í¶Ó°</param>
-        /// <param name="linearUnit">ÏßÐÔµ¥Î»</param>
-        /// <param name="axis0">Ö÷Öá</param>
-        /// <param name="axis1">´ÎÖá</param>
-        /// <returns>Í¶Ó°×ø±êÏµ</returns>
+        /// <param name="name">æŠ•å½±åæ ‡ç³»çš„åç§°</param>
+        /// <param name="gcs">åœ°ç†åæ ‡ç³»</param>
+        /// <param name="projection">æŠ•å½±</param>
+        /// <param name="linearUnit">çº¿æ€§å•ä½</param>
+        /// <param name="axis0">ä¸»è½´</param>
+        /// <param name="axis1">æ¬¡è½´</param>
+        /// <returns>æŠ•å½±åæ ‡ç³»</returns>
         IProjectedCoordinateSystem CreateProjectedCoordinateSystem(string name, IGeographicCoordinateSystem gcs, IProjection projection, ILinearUnit linearUnit, AxisInfo axis0, AxisInfo axis1);
 
         /// <summary>
-        /// ´´½¨Ò»¸ö<see cref =¡°IProjection¡±/>¡£
+        /// åˆ›å»ºä¸€ä¸ª<see cref =â€œIProjectionâ€/>ã€‚
         /// </summary>
-        /// <param name="name">Í¶Ó°Ãû³Æ</param>
-        /// <param name="wktProjectionClass">Í¶Ó°Àà</param>
-        /// <param name="Parameters">Í¶Ó°²ÎÊý</param>
-        /// <returns>Í¶Ó°</returns>
+        /// <param name="name">æŠ•å½±åç§°</param>
+        /// <param name="wktProjectionClass">æŠ•å½±ç±»</param>
+        /// <param name="Parameters">æŠ•å½±å‚æ•°</param>
+        /// <returns>æŠ•å½±</returns>
         IProjection CreateProjection(string name, string wktProjectionClass, List<ProjectionParameter> Parameters);
 
         /// <summary>
-        /// ´Ó<see cref =¡°IVerticalDatum¡±>»ù×¼</ see>ºÍ<see cref =¡°ILinearUnit¡±>ÏßÐÔµ¥Î»</ see>´´½¨<see cref =¡°IVerticalCoordinateSystem¡±/>¡£
+        /// ä»Ž<see cref =â€œIVerticalDatumâ€>åŸºå‡†</ see>å’Œ<see cref =â€œILinearUnitâ€>çº¿æ€§å•ä½</ see>åˆ›å»º<see cref =â€œIVerticalCoordinateSystemâ€/>ã€‚
         /// </summary>
-        /// <param name="name">´¹Ö±×ø±êÏµµÄÃû³Æ</param>
-        /// <param name="datum">´¹Ö±»ù×¼</param>
-        /// <param name="verticalUnit">µ¥Ôª</param>
-        /// <param name="axis">ÖáÐÅÏ¢</param>
-        /// <returns>´¹Ö±×ø±êÏµ</returns>
+        /// <param name="name">åž‚ç›´åæ ‡ç³»çš„åç§°</param>
+        /// <param name="datum">åž‚ç›´åŸºå‡†</param>
+        /// <param name="verticalUnit">å•å…ƒ</param>
+        /// <param name="axis">è½´ä¿¡æ¯</param>
+        /// <returns>åž‚ç›´åæ ‡ç³»</returns>
         IVerticalCoordinateSystem CreateVerticalCoordinateSystem(string name, IVerticalDatum datum, ILinearUnit verticalUnit, AxisInfo axis);
 
         /// <summary>
-        /// ´ÓÃ¶¾ÙÀàÐÍÖµ´´½¨Ò»¸ö<see cref =¡°IVerticalDatum¡±/>¡£
+        /// ä»Žæžšä¸¾ç±»åž‹å€¼åˆ›å»ºä¸€ä¸ª<see cref =â€œIVerticalDatumâ€/>ã€‚
         /// </summary>
-        /// <param name="name">»ù×¼Ãû³Æ</param>
-        /// <param name="datumType">»ù×¼ÀàÐÍ</param>
-        /// <returns>´¹Ö±»ù×¼</returns>	
+        /// <param name="name">åŸºå‡†åç§°</param>
+        /// <param name="datumType">åŸºå‡†ç±»åž‹</param>
+        /// <returns>åž‚ç›´åŸºå‡†</returns>	
         IVerticalDatum CreateVerticalDatum(string name, DatumType datumType);
     }
 }

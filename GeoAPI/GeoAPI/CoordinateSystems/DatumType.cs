@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -18,100 +18,100 @@
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// ���ˮ׼��ģ�������߶ȵĴ�ֱ��׼��Ҳ��ΪGPS�����߶ȡ� ��Щ�߶���ͨ��ʹ�ø���
-    /// �Ĵ��ˮ׼�沨��ģ�ͣ�N��ͨ����ʽH = h-N������߶ȣ�h�����������߶ȣ�H���Ľ�
-    /// ��ֵ��
+    /// 大地水准面模型衍生高度的垂直基准，也称为GPS导出高度。 这些高度是通过使用给定
+    /// 的大地水准面波动模型（N）通过等式H = h-N由椭球高度（h）构建的正高度（H）的近
+    /// 似值。
     /// </summary>
     public enum DatumType : int
     {
         /// <summary>
-        /// ˮƽ��׼���͵���С����ֵ
+        /// 水平基准类型的最小可能值
         /// </summary>
         HD_Min = 1000,
 
         /// <summary>
-        /// δָ����ˮƽ��׼���͡� ʹ�ô����͵�ˮƽ��׼��Ӧʹ��Bursa Wolf������WGS84
-        /// �ṩת����
+        /// 未指定的水平基准类型。 使用此类型的水平基准不应使用Bursa Wolf参数向WGS84
+        /// 提供转换。
         /// </summary>
         HD_Other = 1000,
 
         /// <summary>
-        /// ��Щ��׼�㣬����ED50��NAD27��NAD83�������Ϊ֧����Բ���ϵ�ˮƽλ�ã�����
-        /// ��3-D�ռ��е�λ�á� ��Щ��׼����Ҫ��Ϊ��֧�������޳̶ȵ���������ң�����
-        /// ���½���е�һ��λ�õ�ˮƽ���֡�
+        /// 这些基准点，例如ED50，NAD27和NAD83，被设计为支持椭圆体上的水平位置，而不
+        /// 是3-D空间中的位置。 这些基准面主要是为了支持在有限程度的领域（如国家，地区
+        /// 或大陆）中的一个位置的水平部分。
         /// </summary>
         HD_Classic = 1001,
 
         /// <summary>
-        /// ����ѧ��׼��ȫ��Χ�ڵġ�����ʱ�����ִ���ز������ݣ���WGS84������GPS����
-        /// PZ90��GLONASS��ʹ�ã���ITRF�� ��Щ��׼�汻��Ƴ�֧��λ�õ�ˮƽ������λ�õ�
-        /// ��ֱ������ͨ����Բ�߶ȣ��� ITRF������ʵ�֣���ETRF��Ҳ��������һ�ࡣ
+        /// 地心学基准是全球范围内的“卫星时代”现代大地测量数据，如WGS84（用于GPS），
+        /// PZ90（GLONASS中使用）和ITRF。 这些基准面被设计成支持位置的水平分量和位置的
+        /// 垂直分量（通过椭圆高度）。 ITRF的区域实现，如ETRF，也包括在这一类。
         /// </summary>
         HD_Geocentric = 1002,
 
         /// <summary>
-        /// ˮƽ��׼���͵����ֵ��
+        /// 水平基准类型的最高值。
         /// </summary>
         HD_Max = 1999,
 
         /// <summary>
-        /// ��ֱ��׼���͵���Ϳ���ֵ��
+        /// 垂直基准类型的最低可能值。
         /// </summary>
         VD_Min = 2000,
 
         /// <summary>
-        /// δָ���Ĵ�ֱ��׼���͡�
+        /// 未指定的垂直基准类型。
         /// </summary>
         VD_Other = 2000,
 
         /// <summary>
-        /// �ش�ֱ�߲����������߶ȵĴ�ֱ��׼��
+        /// 沿垂直线测量的正交高度的垂直基准。
         /// </summary>
         VD_Orthometric = 2001,
 
         /// <summary>
-        /// ������Բ�߶ȵĴ�ֱ��׼����ˮƽԭ�㶨����ʹ�õ���Բ��ķ��߲�����
+        /// 用于椭圆高度的垂直基准，沿水平原点定义中使用的椭圆体的法线测量。
         /// </summary>
         VD_Ellipsoidal = 2002,
 
         /// <summary>
-        /// �����и߶Ȼ�߶ȵĴ�ֱ��׼�� ��Щ������ѹ�ƻ���ѹ�߶ȼƵİ����»�õ����߶�
-        /// �Ľ���ֵ�� ��Щֵͨ�������µ�λ֮һ��ʾ���ף�Ӣ�ߣ����ͣ����ڲ���ѹ��ˮƽ��
-        /// ���ֵ�����ڲ���λ�Ƹ߶ȵĵ�λ����
+        /// 大气中高度或高度的垂直基准。 这些是在气压计或气压高度计的帮助下获得的正高度
+        /// 的近似值。 这些值通常以以下单位之一表示：米，英尺，毫巴（用于测量压力水平）
+        /// 或θ值（用于测量位势高度的单位）。
         /// </summary>
         VD_AltitudeBarometric = 2003,
 
         /// <summary>
-        /// �����߶�ϵͳ��
+        /// 正常高度系统。
         /// </summary>
         VD_Normal = 2004,
 
         /// <summary>
-        /// ���ˮ׼��ģ�������߶ȵĴ�ֱ��׼��Ҳ��ΪGPS�����߶ȡ� ��Щ�߶���ͨ��ʹ�ø���
-        /// �Ĵ��ˮ׼�沨��ģ�ͣ�N��ͨ����ʽH = h-N������߶ȣ�h�����������߶ȣ�H���Ľ�
-        /// ��ֵ��
+        /// 大地水准面模型衍生高度的垂直基准，也称为GPS导出高度。 这些高度是通过使用给定
+        /// 的大地水准面波动模型（N）通过等式H = h-N由椭球高度（h）构建的正高度（H）的近
+        /// 似值。
         /// </summary>
         VD_GeoidModelDerived = 2005,
 
         /// <summary>
-        /// ����������֧����Ҫ�ں�ƽ��������Ȳ�����ˮ�Ĺ�����Ŀ���ɵĻ�׼���� ��ͨ����
-        /// ��Ϊˮ�Ļ����׼�� ͨ��ʹ�ûز�̽��ȳ������������������ʵ�ʵȵ�λ�洹ֱ
-        /// �����£��ķ����ϲ�����ȡ�
+        /// 该属性用于支持需要在海平面以下深度测量的水文工程项目生成的基准集。 它通常被
+        /// 称为水文或海洋基准。 通过使用回波探测等程序，在与地球重力场的实际等电位面垂直
+        /// （大致）的方向上测量深度。
         /// </summary>
         VD_Depth = 2006,
 
         /// <summary>
-        /// ��ֱ��׼���͵���߿���ֵ��
+        /// 垂直基准类型的最高可能值。
         /// </summary>
         VD_Max = 2999,
 
         /// <summary>
-        /// �ֲ���׼���͵���Ϳ���ֵ��
+        /// 局部基准类型的最低可能值。
         /// </summary>
         LD_Min = 10000,
 
         /// <summary>
-        /// ���ػ�׼���͵���߿���ֵ��
+        /// 本地基准类型的最高可能值。
         /// </summary>
         LD_Max = 32767
     }

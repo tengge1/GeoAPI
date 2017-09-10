@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+ï»¿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -18,34 +18,34 @@
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// IEllipsoid½Ó¿Ú¶¨ÒåÁËÓÃÍÖÔ²Ìå¶ÔÏó´æ´¢µÄ±ê×¼ĞÅÏ¢¡£
+    /// IEllipsoidæ¥å£å®šä¹‰äº†ç”¨æ¤­åœ†ä½“å¯¹è±¡å­˜å‚¨çš„æ ‡å‡†ä¿¡æ¯ã€‚
     /// </summary>
     public interface IEllipsoid : IInfo
     {
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃ°ë³¤ÖáµÄÖµ¡£
+        /// è·å–æˆ–è®¾ç½®åŠé•¿è½´çš„å€¼ã€‚
         /// </summary>
         double SemiMajorAxis { get; set; }
 
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃ°ë¶ÌÖáµÄÖµ¡£
+        /// è·å–æˆ–è®¾ç½®åŠçŸ­è½´çš„å€¼ã€‚
         /// </summary>
         double SemiMinorAxis { get; set; }
 
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃÍÖÇòµÄÆ½Ì¹³£ÊıµÄµ¹ÊıÖµ¡£
+        /// è·å–æˆ–è®¾ç½®æ¤­çƒçš„å¹³å¦å¸¸æ•°çš„å€’æ•°å€¼ã€‚
         /// </summary>
         double InverseFlattening { get; set; }
 
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃÖáµ¥Î»µÄÖµ¡£
+        /// è·å–æˆ–è®¾ç½®è½´å•ä½çš„å€¼ã€‚
         /// </summary>
         ILinearUnit AxisUnit { get; set; }
 
         /// <summary>
-        /// Õâ¸öÍÖÔ²ÌåµÄ·´ÏòÆ½Ì¹¶ÈÊÇ·ñÕıÈ·£¿ Ò»Ğ©ÍÖÔ²ÌåÊ¹ÓÃIVF×÷Îª¶¨ÒåÖµ£¬²¢ÔÚÑ¯ÎÊÊ±¼ÆËã
-        /// ¼«×ø±ê°ë¾¶¡£ ÆäËûÍÖÔ²ÌåÊ¹ÓÃ¼«×ø±ê°ë¾¶À´¼ÆËãIVF¡£ ÕâÖÖÇø±ğ¶ÔÓÚ±ÜÃâ¸¡µãÉáÈëÎó²î
-        /// ºÜÖØÒª¡£
+        /// è¿™ä¸ªæ¤­åœ†ä½“çš„åå‘å¹³å¦åº¦æ˜¯å¦æ­£ç¡®ï¼Ÿ ä¸€äº›æ¤­åœ†ä½“ä½¿ç”¨IVFä½œä¸ºå®šä¹‰å€¼ï¼Œå¹¶åœ¨è¯¢é—®æ—¶è®¡ç®—
+        /// æåæ ‡åŠå¾„ã€‚ å…¶ä»–æ¤­åœ†ä½“ä½¿ç”¨æåæ ‡åŠå¾„æ¥è®¡ç®—IVFã€‚ è¿™ç§åŒºåˆ«å¯¹äºé¿å…æµ®ç‚¹èˆå…¥è¯¯å·®
+        /// å¾ˆé‡è¦ã€‚
         /// </summary>
         bool IsIvfDefinitive { get; set; }
     }

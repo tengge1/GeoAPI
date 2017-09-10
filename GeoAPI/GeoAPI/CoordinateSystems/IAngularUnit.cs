@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+ï»¿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -18,12 +18,12 @@
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// IAngularUnit½Ó¿Ú¶¨Òå½Ç¶Èµ¥Î»µÄ·½·¨¡£
+    /// IAngularUnitæ¥å£å®šä¹‰è§’åº¦å•ä½çš„æ–¹æ³•ã€‚
     /// </summary>
     public interface IAngularUnit : IUnit
     {
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃÃ¿¸ö½Ç¶Èµ¥Î»µÄ»¡¶ÈÊı¡£
+        /// è·å–æˆ–è®¾ç½®æ¯ä¸ªè§’åº¦å•ä½çš„å¼§åº¦æ•°ã€‚
         /// </summary>
         double RadiansPerUnit { get; set; }
     }

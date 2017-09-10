@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -17,20 +17,20 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// Procedure used to measure positions on the surface of the Earth.
-	/// </summary>
-	public interface IHorizontalDatum : IDatum
-	{
-		/// <summary>
-		/// Gets or sets the ellipsoid of the datum.
-		/// </summary>
-		IEllipsoid Ellipsoid { get; set; }
+    /// <summary>
+    /// 用于测量地球表面位置的程序。
+    /// </summary>
+    public interface IHorizontalDatum : IDatum
+    {
+        /// <summary>
+        /// 获取或设置基准面的椭圆体。
+        /// </summary>
+        IEllipsoid Ellipsoid { get; set; }
 
-		/// <summary>
-		/// Gets preferred parameters for a Bursa Wolf transformation into WGS84. The 7 returned values 
-		/// correspond to (dx,dy,dz) in meters, (ex,ey,ez) in arc-seconds, and scaling in parts-per-million.
-		/// </summary>
-		Wgs84ConversionInfo Wgs84Parameters { get; set; }
-	}
+        /// <summary>
+        /// 获得Bursa Wolf转换为WGS84的首选参数。 7个返回的值对应于以米
+        /// 为单位的（dx，dy，dz），（ex，ey，ez）为弧秒，scaling为百万分之一。
+        /// </summary>
+        Wgs84ConversionInfo Wgs84Parameters { get; set; }
+    }
 }

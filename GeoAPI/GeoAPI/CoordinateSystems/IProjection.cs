@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -18,35 +18,35 @@
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// IProjection�ӿڶ�����ͶӰ����һ��洢�ı�׼��Ϣ�� ������������ϵ������ͶӰ����
-    /// ʵ�ִӵ�������ϵ��ͶӰ����ϵ������任�� Ԥ�ڸ���Ȥ��ÿ������任���������ī���У�
-    /// �����ؽ���ʵ��Ϊco����ͶӰ��COM�֧࣬��IProjection�ӿڡ�
+    /// IProjection接口定义与投影对象一起存储的标准信息。 给定地理坐标系的椭球，投影对象
+    /// 实现从地理坐标系到投影坐标系的坐标变换。 预期感兴趣的每个坐标变换，例如横向墨卡托，
+    /// 兰伯特将被实现为co类型投影的COM类，支持IProjection接口。
     /// </summary>
     public interface IProjection : IInfo
     {
         /// <summary>
-        /// ��ȡͶӰ�Ĳ�������
+        /// 获取投影的参数数。
         /// </summary>
         int NumParameters { get; }
 
         /// <summary>
-        /// ��ȡͶӰ�������ƣ����硰����ī���С�����
+        /// 获取投影分类名称（例如“横向墨卡托”）。
         /// </summary>
         string ClassName { get; }
 
         /// <summary>
-        /// ��ȡͶӰ������������
+        /// 获取投影的索引参数。
         /// </summary>
-        /// <param name="index">��������</param>
-        /// <returns>��n������</returns>
+        /// <param name="index">参数索引</param>
+        /// <returns>第n个参数</returns>
         ProjectionParameter GetParameter(int index);
 
         /// <summary>
-        /// ��ȡͶӰ������������
+        /// 获取投影的命名参数。
         /// </summary>
-        /// <remarks>�������Ʋ����ִ�Сд</remarks>
-        /// <param name="name">��������</param>
-        /// <returns>������null�����û���ҵ���</returns>
+        /// <remarks>参数名称不区分大小写</remarks>
+        /// <param name="name">参数名称</param>
+        /// <returns>参数或null（如果没有找到）</returns>
         ProjectionParameter GetParameter(string name);
     }
 }

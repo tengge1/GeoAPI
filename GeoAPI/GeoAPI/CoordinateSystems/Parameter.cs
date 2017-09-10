@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -20,17 +20,17 @@ using System;
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// A named parameter value.
+    /// 命名参数值。
     /// </summary>
     [Serializable]
     public class Parameter
     {
         /// <summary>
-        /// Creates an instance of a parameter
+        /// 创建参数的实例
         /// </summary>
-        /// <remarks>Units are always either meters or degrees.</remarks>
-        /// <param name="name">Name of parameter</param>
-        /// <param name="value">Value</param>
+        /// <remarks>单位始终为米或度。</remarks>
+        /// <param name="name">参数名称</param>
+        /// <param name="value">值</param>
         public Parameter(string name, double value)
         {
             _Name = name;
@@ -40,7 +40,7 @@ namespace GeoAPI.CoordinateSystems
         private string _Name;
 
         /// <summary>
-        /// Parameter name
+        /// 参数名称
         /// </summary>
         public string Name
         {
@@ -51,7 +51,7 @@ namespace GeoAPI.CoordinateSystems
         private double _Value;
 
         /// <summary>
-        /// Parameter value
+        /// 参数值
         /// </summary>
         public double Value
         {

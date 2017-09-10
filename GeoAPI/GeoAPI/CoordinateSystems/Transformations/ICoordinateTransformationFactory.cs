@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+ï»¿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -18,18 +18,18 @@
 namespace GeoAPI.CoordinateSystems.Transformations
 {
     /// <summary>
-    /// ´´½¨×ø±ê±ä»»¡£
+    /// åˆ›å»ºåæ ‡å˜æ¢ã€‚
     /// </summary>
     public interface ICoordinateTransformationFactory
     {
         /// <summary>
-        /// ´´½¨Á½¸ö×ø±êÏµÖ®¼äµÄ×ª»»¡£
+        /// åˆ›å»ºä¸¤ä¸ªåæ ‡ç³»ä¹‹é—´çš„è½¬æ¢ã€‚
         /// </summary>
         /// <remarks>
-        /// ¸Ã·½·¨½«¼ì²é×ø±êÏµ£¬ÒÔ¹¹½¨ËüÃÇÖ®¼äµÄ×ª»»¡£ Èç¹ûÕÒ²»µ½×ø±êÏµÖ®¼äµÄ
-        /// Â·¾¶£¬Ê¹ÓÃDCPµÄÕı³£Ê§°ÜĞĞÎª£¨ÀıÈçÅ×³öÒì³££©£¬Ôò´Ë·½·¨¿ÉÄÜ»áÊ§°Ü¡£</remarks>
-        /// <param name="sourceCS">Ô´×ø±êÏµ</param>
-        /// <param name="targetCS">Ä¿±ê×ø±êÏµ</param>
+        /// è¯¥æ–¹æ³•å°†æ£€æŸ¥åæ ‡ç³»ï¼Œä»¥æ„å»ºå®ƒä»¬ä¹‹é—´çš„è½¬æ¢ã€‚ å¦‚æœæ‰¾ä¸åˆ°åæ ‡ç³»ä¹‹é—´çš„
+        /// è·¯å¾„ï¼Œä½¿ç”¨DCPçš„æ­£å¸¸å¤±è´¥è¡Œä¸ºï¼ˆä¾‹å¦‚æŠ›å‡ºå¼‚å¸¸ï¼‰ï¼Œåˆ™æ­¤æ–¹æ³•å¯èƒ½ä¼šå¤±è´¥ã€‚</remarks>
+        /// <param name="sourceCS">æºåæ ‡ç³»</param>
+        /// <param name="targetCS">ç›®æ ‡åæ ‡ç³»</param>
         /// <returns></returns>
         ICoordinateTransformation CreateFromCoordinateSystems(ICoordinateSystem sourceCS, ICoordinateSystem targetCS);
     }

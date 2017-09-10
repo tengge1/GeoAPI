@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -17,26 +17,25 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// A 3D coordinate system, with its origin at the center of the Earth.
-	/// </summary>
-	public interface IGeocentricCoordinateSystem : ICoordinateSystem
-	{
-		/// <summary>
-		/// Returns the HorizontalDatum. The horizontal datum is used to determine where
-		/// the centre of the Earth is considered to be. All coordinate points will be 
-		/// measured from the centre of the Earth, and not the surface.
-		/// </summary>
-		IHorizontalDatum HorizontalDatum  { get; set; }
+    /// <summary>
+    /// 一个3D坐标系，起源于地球的中心。
+    /// </summary>
+    public interface IGeocentricCoordinateSystem : ICoordinateSystem
+    {
+        /// <summary>
+        /// 返回HorizontalDatum。 水平数据用于确定地球中心在何处被认为是。 
+        /// 所有坐标点将从地球的中心而不是表面测量。
+        /// </summary>
+        IHorizontalDatum HorizontalDatum { get; set; }
 
-		/// <summary>
-		/// Gets the units used along all the axes.
-		/// </summary>
-		ILinearUnit LinearUnit { get; set; }
+        /// <summary>
+        /// 获取沿所有轴使用的单位。
+        /// </summary>
+        ILinearUnit LinearUnit { get; set; }
 
-		/// <summary>
-		/// Returns the PrimeMeridian.
-		/// </summary>
-		IPrimeMeridian PrimeMeridian { get; set; }
-	}
+        /// <summary>
+        /// 返回主子午线。
+        /// </summary>
+        IPrimeMeridian PrimeMeridian { get; set; }
+    }
 }

@@ -1,4 +1,4 @@
-// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
+﻿// Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
 // This file is part of SharpMap.
 // SharpMap is free software; you can redistribute it and/or modify
@@ -17,9 +17,8 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-    /// The IGeodeticSpatialReference interface defines a root interface for all types of geodetic
-	/// spatial references, it is a subclass of ICoordinateSystem.
+    /// <summary>
+    /// IGeodeticSpatialReference接口定义了所有类型的大地测量空间参考的根接口，它是ICoordinateSystem的子类。
     /// </summary>
     public interface IGeodeticSpatialReference : ICoordinateSystem { }
 }
