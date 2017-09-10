@@ -1,18 +1,14 @@
-origin: https://github.com/NetTopologySuite/GeoAPI
+来源：https://github.com/NetTopologySuite/GeoAPI
 
 # GeoAPI
 
+GeoAPI项目提供了基于OGC / ISO标准的通用框架，以提高.NET GIS项目之间的互操作性。 GeoAPI主要用作
+[NTS](https://github.com/NetTopologySuite/NetTopologySuite/)的基础。
 
+### 支持平台
 
-GeoAPI project provides a common framework based on OGC/ISO standards to improve interoperability among .NET GIS projects. GeoAPI is used mostly as a base for [NTS](https://github.com/NetTopologySuite/NetTopologySuite/)
+GeoAPI支持各种.NET版本，为了兼容，本项目使用net40。
 
-### Supported platforms
+### 开发和编译
 
-GeoAPI supports a wide range of .NET versions:
-
-- net40-client
-
-### Development & building
-
-Because of the wide support of platforms, building GeoAPI can be a pain. Make sure you install all the targeting packs. We provided a few scripts for this in the root folder of this repo.
-
+下载源码，生成即可。
