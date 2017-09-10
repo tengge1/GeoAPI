@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoAPI", "GeoAPI\GeoAPI.csproj", "{227BF43B-8489-4EA3-964D-D660FDDE50F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetAPI.Tests", "GetAPI.Tests\GetAPI.Tests.csproj", "{CA3B45DF-08ED-4296-8111-0E39CD571FA3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{227BF43B-8489-4EA3-964D-D660FDDE50F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{227BF43B-8489-4EA3-964D-D660FDDE50F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{227BF43B-8489-4EA3-964D-D660FDDE50F3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CA3B45DF-08ED-4296-8111-0E39CD571FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CA3B45DF-08ED-4296-8111-0E39CD571FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CA3B45DF-08ED-4296-8111-0E39CD571FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CA3B45DF-08ED-4296-8111-0E39CD571FA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
