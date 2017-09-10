@@ -1,34 +1,30 @@
-using System;
-#if HAS_SYSTEM_APPLICATIONEXCEPTION
-using ApplicationException = System.ApplicationException;
-#else
+ï»¿using System;
 using ApplicationException = System.Exception;
-#endif
 
 namespace GeoAPI.IO
 {
     /// <summary>
-    /// µ±½âÎöÎÊÌâ·¢ÉúÊ±£¬ÓÉ<c> WKTReader </ c>Å×³ö¡£
+    /// å½“è§£æé—®é¢˜å‘ç”Ÿæ—¶ï¼Œç”±<c> WKTReader </ c>æŠ›å‡ºã€‚
     /// </summary>
     public class ParseException : ApplicationException
     {
         /// <summary>
-        /// Ê¹ÓÃ¸ø¶¨µÄÏêÏ¸ÏûÏ¢´´½¨Ò»¸ö<c> ParseException </ c>¡£
+        /// ä½¿ç”¨ç»™å®šçš„è¯¦ç»†æ¶ˆæ¯åˆ›å»ºä¸€ä¸ª<c> ParseException </ c>ã€‚
         /// </summary>
-        /// <param name="message">Õâ¸ö<c> ParseException </ c>µÄÃèÊö¡£</param>
+        /// <param name="message">è¿™ä¸ª<c> ParseException </ c>çš„æè¿°ã€‚</param>
         public ParseException(String message) : base(message) { }
 
         /// <summary>
-        /// ÓÃ<c> e </ c>µÄÏêÏ¸ĞÅÏ¢´´½¨Ò»¸ö<c> ParseException </ c>¡£
+        /// ç”¨<c> e </ c>çš„è¯¦ç»†ä¿¡æ¯åˆ›å»ºä¸€ä¸ª<c> ParseException </ c>ã€‚
         /// </summary>
-        /// <param name="e">µ±<c> WKTReader </ c>ÕıÔÚ½âÎöÒ»¸öÖÚËùÖÜÖªµÄÎÄ±¾×Ö·û´®Ê±·¢ÉúµÄÒì³£¡£</param>
+        /// <param name="e">å½“<c> WKTReader </ c>æ­£åœ¨è§£æä¸€ä¸ªä¼—æ‰€å‘¨çŸ¥çš„æ–‡æœ¬å­—ç¬¦ä¸²æ—¶å‘ç”Ÿçš„å¼‚å¸¸ã€‚</param>
         public ParseException(Exception e) : this(e.ToString(), e) { }
 
         /// <summary>
-        /// Ê¹ÓÃ<paramref name =¡°innerException¡±/>µÄÏêÏ¸ÏûÏ¢´´½¨Ò»¸ö<c> ParseException </ c>
+        /// ä½¿ç”¨<paramref name =â€œinnerExceptionâ€/>çš„è¯¦ç»†æ¶ˆæ¯åˆ›å»ºä¸€ä¸ª<c> ParseException </ c>
         /// </summary>
         /// <param name="message"></param>
-        /// <param name="innerException">ÄÚ²¿Òì³£</param>
+        /// <param name="innerException">å†…éƒ¨å¼‚å¸¸</param>
         public ParseException(String message, Exception innerException)
             : base(message, innerException)
         {

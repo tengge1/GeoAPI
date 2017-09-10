@@ -1,25 +1,25 @@
-using System;
+ï»¿using System;
 
 namespace GeoAPI.Operation.Buffer
 {
     /// <summary>
-    /// »º³åÑùÊ½¡£
+    /// ç¼“å†²æ ·å¼ã€‚
     /// </summary>
     [Obsolete("Use EndCapStyle instead.")]
     public enum BufferStyle
     {
         /// <summary> 
-        /// Ö¸¶¨Ò»¸öÔ²ĞÎ»º³åÇø¶ËÃ±endCapStyle£¨Ä¬ÈÏ£©¡£
+        /// æŒ‡å®šä¸€ä¸ªåœ†å½¢ç¼“å†²åŒºç«¯å¸½endCapStyleï¼ˆé»˜è®¤ï¼‰ã€‚
         /// </summary>/
         CapRound = 1,
 
         /// <summary> 
-        /// Ö¸¶¨Ò»¸ö¶Ô½Ó£¨»òÆ½Ãæ£©ĞĞ»º³åÇø¶ËÃ±endCapStyle¡£
+        /// æŒ‡å®šä¸€ä¸ªå¯¹æ¥ï¼ˆæˆ–å¹³é¢ï¼‰è¡Œç¼“å†²åŒºç«¯å¸½endCapStyleã€‚
         /// </summary>
         CapButt = 2,
 
         /// <summary>
-        /// Ö¸¶¨Ò»¸ö·½ĞÎÏß»º³åÇø¶ËÃ±endCapStyle¡£
+        /// æŒ‡å®šä¸€ä¸ªæ–¹å½¢çº¿ç¼“å†²åŒºç«¯å¸½endCapStyleã€‚
         /// </summary>
         CapSquare = 3,
     }

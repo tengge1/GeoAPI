@@ -1,36 +1,36 @@
-using System;
+ï»¿using System;
 using GeoAPI.Geometries;
 
 namespace GeoAPI.IO
 {
     /// <summary>
-    /// ´¦ÀíOGC¼¸ºÎÀàĞÍÉùÃ÷µÄÇáÁ¿¼¶µÄÀà
+    /// å¤„ç†OGCå‡ ä½•ç±»å‹å£°æ˜çš„è½»é‡çº§çš„ç±»
     /// </summary>
     public struct GeometryType
     {
         /// <summary>
-        /// ³õÊ¼»¯´ËÊµÀı
+        /// åˆå§‹åŒ–æ­¤å®ä¾‹
         /// </summary>
-        /// <param name =¡°geometryType¡±>ÃèÊö<see cref =¡°GeometryType¡±/> </ param>µÄÖµ
+        /// <param name =â€œgeometryTypeâ€>æè¿°<see cref =â€œGeometryTypeâ€/> </ param>çš„å€¼
         public GeometryType(uint geometryType)
         {
             _geometrytype = geometryType;
         }
 
         /// <summary>
-        /// »ùÓÚ¼¸ºÎºÍÒ»¸ö¡°×ø±ê¡±±êÖ¾À´³õÊ¼»¯Õâ¸öÊµÀı¡£
+        /// åŸºäºå‡ ä½•å’Œä¸€ä¸ªâ€œåæ ‡â€æ ‡å¿—æ¥åˆå§‹åŒ–è¿™ä¸ªå®ä¾‹ã€‚
         /// </summary>
-        /// <param name="geometry">¼¸ºÎ¡£</param>
-        /// <param name="ordinates">×İ×ø±ê±êÖ¾¡£</param>
+        /// <param name="geometry">å‡ ä½•ã€‚</param>
+        /// <param name="ordinates">çºµåæ ‡æ ‡å¿—ã€‚</param>
         public GeometryType(IGeometry geometry, Ordinates ordinates)
             : this(geometry.OgcGeometryType, ordinates, geometry.SRID >= 0)
         {
         }
 
         /// <summary>
-        /// »ùÓÚ<see cref =¡°OgcGeometryType¡±/>³õÊ¼»¯´ËÊµÀı
+        /// åŸºäº<see cref =â€œOgcGeometryTypeâ€/>åˆå§‹åŒ–æ­¤å®ä¾‹
         /// </summary>
-        /// <param name="ogcGeometryType">OGC¼¸ºÎÀàĞÍ</param>
+        /// <param name="ogcGeometryType">OGCå‡ ä½•ç±»å‹</param>
         public GeometryType(OgcGeometryType ogcGeometryType)
             : this(ogcGeometryType, Ordinates.XY, false)
         {
@@ -38,21 +38,21 @@ namespace GeoAPI.IO
         }
 
         /// <summary>
-        /// ¸ù¾İ<see cref =¡°OgcGeometryType¡±/>ºÍSRIDÖ¸Ê¾·û³õÊ¼»¯´ËÊµÀı
+        /// æ ¹æ®<see cref =â€œOgcGeometryTypeâ€/>å’ŒSRIDæŒ‡ç¤ºç¬¦åˆå§‹åŒ–æ­¤å®ä¾‹
         /// </summary>
-        /// <param name="ogcGeometryType">OGC¼¸ºÎÀàĞÍ</param>
-        /// <param name="hasSrid">ÊÇ·ñÌá¹©SRIDµÄ±êÖ¾¡£</param>
+        /// <param name="ogcGeometryType">OGCå‡ ä½•ç±»å‹</param>
+        /// <param name="hasSrid">æ˜¯å¦æä¾›SRIDçš„æ ‡å¿—ã€‚</param>
         public GeometryType(OgcGeometryType ogcGeometryType, bool hasSrid)
             : this(ogcGeometryType, Ordinates.XY, hasSrid)
         {
         }
 
         /// <summary>
-        /// ¸ù¾İ<see cref =¡°OgcGeometryType¡±/>ºÍSRIDÖ¸Ê¾·û³õÊ¼»¯´ËÊµÀı
+        /// æ ¹æ®<see cref =â€œOgcGeometryTypeâ€/>å’ŒSRIDæŒ‡ç¤ºç¬¦åˆå§‹åŒ–æ­¤å®ä¾‹
         /// </summary>
-        /// <param name="ogcGeometryType">OGC¼¸ºÎÀàĞÍ</param>
-        /// <param name="ordinates">×İ×ø±ê±êÖ¾¡£</param>
-        /// <param name="hasSrid">ÊÇ·ñÌá¹©SRIDµÄ±êÖ¾¡£</param>
+        /// <param name="ogcGeometryType">OGCå‡ ä½•ç±»å‹</param>
+        /// <param name="ordinates">çºµåæ ‡æ ‡å¿—ã€‚</param>
+        /// <param name="hasSrid">æ˜¯å¦æä¾›SRIDçš„æ ‡å¿—ã€‚</param>
         public GeometryType(OgcGeometryType ogcGeometryType, Ordinates ordinates, bool hasSrid)
         {
             _geometrytype = (uint)ogcGeometryType;
@@ -75,13 +75,13 @@ namespace GeoAPI.IO
         private uint _geometrytype;
 
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃ»ù±¾¼¸ºÎÀàĞÍ
+        /// è·å–æˆ–è®¾ç½®åŸºæœ¬å‡ ä½•ç±»å‹
         /// </summary>
         public OgcGeometryType BaseGeometryType
         {
             get
             {
-                // ÁôÏÂEwkb±êÖ¾
+                // ç•™ä¸‹Ewkbæ ‡å¿—
                 var val = _geometrytype & 0xffffff;
                 if (val > 2000) val -= 2000;
                 if (val > 1000) val -= 1000;
@@ -98,7 +98,7 @@ namespace GeoAPI.IO
         }
 
         /// <summary>
-        /// »ñµÃOGCÖªÃû¶ş½øÖÆÀàĞÍ´úÂë
+        /// è·å¾—OGCçŸ¥åäºŒè¿›åˆ¶ç±»å‹ä»£ç 
         /// </summary>
         public int WkbGeometryType
         {
@@ -106,7 +106,7 @@ namespace GeoAPI.IO
         }
 
         /// <summary>
-        /// »ñµÃPostGISÔöÇ¿µÄÖªÃû¶ş½øÖÆÀàĞÍ´úÂë
+        /// è·å¾—PostGISå¢å¼ºçš„çŸ¥åäºŒè¿›åˆ¶ç±»å‹ä»£ç 
         /// </summary>
         public int EwkbWkbGeometryType
         {
@@ -117,22 +117,22 @@ namespace GeoAPI.IO
         }
 
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃz×ø±êÖµÊÇ·ñÓë¼¸ºÎÒ»Æğ´æ´¢¡£
+        /// è·å–æˆ–è®¾ç½®zåæ ‡å€¼æ˜¯å¦ä¸å‡ ä½•ä¸€èµ·å­˜å‚¨ã€‚
         /// </summary>
         public bool HasZ { get { return HasWkbZ | HasEwkbZ; } }
 
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃ×ø±êÖµÊÇ·ñÓë¼¸ºÎÒ»Æğ´æ´¢¡£
+        /// è·å–æˆ–è®¾ç½®åæ ‡å€¼æ˜¯å¦ä¸å‡ ä½•ä¸€èµ·å­˜å‚¨ã€‚
         /// </summary>
         public bool HasM { get { return HasWkbM | HasEwkbM; } }
 
         /// <summary>
-        /// »ñÈ¡SRIDÖµÊÇ·ñÓë¼¸ºÎÒ»Æğ´æ´¢¡£
+        /// è·å–SRIDå€¼æ˜¯å¦ä¸å‡ ä½•ä¸€èµ·å­˜å‚¨ã€‚
         /// </summary>
         public bool HasSrid { get { return HasEwkbSrid; } }
 
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃz×ø±êÖµÊÇ·ñÓë¼¸ºÎÒ»Æğ´æ´¢¡£
+        /// è·å–æˆ–è®¾ç½®zåæ ‡å€¼æ˜¯å¦ä¸å‡ ä½•ä¸€èµ·å­˜å‚¨ã€‚
         /// </summary>
         public bool HasWkbZ
         {
@@ -150,7 +150,7 @@ namespace GeoAPI.IO
         }
 
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃ×ø±êÖµÊÇ·ñÓë¼¸ºÎÒ»Æğ´æ´¢¡£
+        /// è·å–æˆ–è®¾ç½®åæ ‡å€¼æ˜¯å¦ä¸å‡ ä½•ä¸€èµ·å­˜å‚¨ã€‚
         /// </summary>
         public bool HasWkbM
         {
@@ -176,8 +176,8 @@ namespace GeoAPI.IO
         private const uint EwkbFlags = EwkbZFlag | EwkbMFlag | EwkbSridFlag;
 
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃ×ø±êÊÇ·ñÓë¼¸ºÎÒ»Æğ´æ´¢¡£
-        /// <para>PostGis EWKB¸ñÊ½¡£</para>
+        /// è·å–æˆ–è®¾ç½®åæ ‡æ˜¯å¦ä¸å‡ ä½•ä¸€èµ·å­˜å‚¨ã€‚
+        /// <para>PostGis EWKBæ ¼å¼ã€‚</para>
         /// </summary>
         public bool HasEwkbZ
         {
@@ -192,8 +192,8 @@ namespace GeoAPI.IO
         }
 
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃ×ø±êÊÇ·ñÓë¼¸ºÎÒ»Æğ´æ´¢¡£
-        /// <para>PostGis EWKB¸ñÊ½¡£</para>
+        /// è·å–æˆ–è®¾ç½®åæ ‡æ˜¯å¦ä¸å‡ ä½•ä¸€èµ·å­˜å‚¨ã€‚
+        /// <para>PostGis EWKBæ ¼å¼ã€‚</para>
         /// </summary>
         public bool HasEwkbM
         {
@@ -208,8 +208,8 @@ namespace GeoAPI.IO
         }
 
         /// <summary>
-        /// »ñÈ¡»òÉèÖÃ×ø±êÊÇ·ñÓë¼¸ºÎÒ»Æğ´æ´¢¡£
-        /// <para>PostGis EWKB¸ñÊ½¡£</para>
+        /// è·å–æˆ–è®¾ç½®åæ ‡æ˜¯å¦ä¸å‡ ä½•ä¸€èµ·å­˜å‚¨ã€‚
+        /// <para>PostGis EWKBæ ¼å¼ã€‚</para>
         /// </summary>
         public bool HasEwkbSrid
         {

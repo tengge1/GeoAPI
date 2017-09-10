@@ -1,4 +1,4 @@
-internal static class Consts
+﻿internal static class Consts
 {
     public const string Title = "GeoAPI";
     public const string Description = "GeoAPI";
