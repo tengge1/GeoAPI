@@ -3,23 +3,23 @@ using System;
 namespace GeoAPI.Operation.Buffer
 {
     /// <summary>
-    /// Buffer style.
+    /// 缓冲样式。
     /// </summary>
     [Obsolete("Use EndCapStyle instead.")]
     public enum BufferStyle
     {
         /// <summary> 
-        /// Specifies a round line buffer end cap endCapStyle (Default).
+        /// 指定一个圆形缓冲区端帽endCapStyle（默认）。
         /// </summary>/
         CapRound = 1,
 
         /// <summary> 
-        /// Specifies a butt (or flat) line buffer end cap endCapStyle.
+        /// 指定一个对接（或平面）行缓冲区端帽endCapStyle。
         /// </summary>
         CapButt = 2,
 
         /// <summary>
-        /// Specifies a square line buffer end cap endCapStyle.
+        /// 指定一个方形线缓冲区端帽endCapStyle。
         /// </summary>
         CapSquare = 3,
     }

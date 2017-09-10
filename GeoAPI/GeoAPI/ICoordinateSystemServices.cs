@@ -23,7 +23,7 @@ using GeoAPI.CoordinateSystems.Transformations;
 namespace GeoAPI
 {
     /// <summary>
-    /// 提供对坐标系和变换设施的访问的类的接口。
+    /// 提供对坐标系和转换工具的访问的类的接口。
     /// </summary>
     public interface ICoordinateSystemServices
     {

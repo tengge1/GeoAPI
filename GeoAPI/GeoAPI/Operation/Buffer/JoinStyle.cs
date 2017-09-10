@@ -1,22 +1,22 @@
 ﻿namespace GeoAPI.Operation.Buffer
 {
     /// <summary>
-    /// Join style constants
+    /// 连接样式常量
     /// </summary>
     public enum JoinStyle
     {
         /// <summary>
-        /// Specifies a round join style.
+        /// 指定圆形连接样式。
         /// </summary>
         Round = 1,
-        
+
         /// <summary>
-        /// Specifies a mitre join style.
+        /// 指定斜坡连接样式。
         /// </summary>
         Mitre = 2,
 
         /// <summary>
-        /// Specifies a bevel join style.
+        /// 指定斜角连接样式。
         /// </summary>
         Bevel = 3
     }

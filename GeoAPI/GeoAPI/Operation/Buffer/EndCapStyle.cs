@@ -1,22 +1,22 @@
 ﻿namespace GeoAPI.Operation.Buffer
 {
     ///<summary>
-    /// End cap style constants
+    /// 端帽样式常量
     ///</summary>
     public enum EndCapStyle
     {
         /// <summary>
-        /// Specifies a round line buffer end cap style.
+        /// 指定一个圆形缓冲区端帽样式。
         /// </summary>
         Round = 1,
 
         /// <summary>
-        /// Specifies a flat line buffer end cap style.
+        /// 指定一个平行缓冲区端冒样式。
         /// </summary>
         Flat = 2,
 
         /// <summary>
-        /// Specifies a square line buffer end cap style.
+        /// 指定一个方形线缓冲区端帽样式。
         /// </summary>
         Square = 3
     }
