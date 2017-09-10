@@ -5,7 +5,7 @@ using System.Reflection;
 namespace GeoAPI
 {
     /// <summary>
-    /// Static class that provides access to a  <see cref="IGeometryServices"/> class.
+    /// 提供访问<see cref =“IGeometryServices”/>类的静态类。
     /// </summary>
     public static class GeometryServiceProvider
     {
@@ -13,7 +13,7 @@ namespace GeoAPI
         private static readonly object LockObject = new object();
 
         /// <summary>
-        /// Gets or sets the <see cref="IGeometryServices"/> instance.
+        /// 获取或设置<see cref =“IGeometryServices”/>实例。
         /// </summary>
         public static IGeometryServices Instance
         {

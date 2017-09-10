@@ -6,90 +6,89 @@ using GeoAPI.Geometries;
 namespace GeoAPI
 {
     /// <summary>
-    /// Delegate function to get a coordinate system from a given initialization string
+    /// 委托函数从给定的初始化字符串获取坐标系
     /// </summary>
-    /// <param name="init">The initialization string</param>
-    /// <typeparam name="TCoordinateSystem">The type of the coordinate sytem.</typeparam>
+    /// <param name="init">初始化字符串</param>
+    /// <typeparam name="TCoordinateSystem">坐标系的类型。</typeparam>
     [Obsolete("Not used", true)]
     public delegate TCoordinateSystem GetCoordinateSystemDelegate<TCoordinateSystem>(string init);
-    
+
     /// <summary>
-    /// An interface for classes that offer access to geometry creating facillities.
+    /// 用于提供对几何创建工具的访问的类的接口。
     /// </summary>
     public interface IGeometryServices
     {
         /// <summary>
-        /// Gets the default spatial reference id
+        /// 获取默认的空间参考ID
         /// </summary>
         int DefaultSRID { get; }
-        
+
         /// <summary>
-        /// Gets or sets the coordiate sequence factory to use
+        /// 获取或设置要使用的坐标序列工厂
         /// </summary>
         ICoordinateSequenceFactory DefaultCoordinateSequenceFactory { get; }
 
         /// <summary>
-        /// Gets or sets the default precision model
+        /// 获取或设置默认精度模型
         /// </summary>
         IPrecisionModel DefaultPrecisionModel { get; }
 
         /// <summary>
-        /// Creates a precision model based on given precision model type
+        /// 基于给定的精度模型类型创建精度模型
         /// </summary>
-        /// <returns>The precision model type</returns>
+        /// <returns>精密模型类型</returns>
         IPrecisionModel CreatePrecisionModel(PrecisionModels modelType);
 
         /// <summary>
-        /// Creates a precision model based on given precision model.
+        /// 基于给定精度模型创建精度模型。
         /// </summary>
-        /// <returns>The precision model</returns>
+        /// <returns>精密模型</returns>
         IPrecisionModel CreatePrecisionModel(IPrecisionModel modelType);
 
         /// <summary>
-        /// Creates a precision model based on the given scale factor.
+        /// 基于给定的比例因子创建精度模型。
         /// </summary>
-        /// <param name="scale">The scale factor</param>
-        /// <returns>The precision model.</returns>
+        /// <param name="scale">比例因子</param>
+        /// <returns>精密模型。</returns>
         IPrecisionModel CreatePrecisionModel(double scale);
 
         /// <summary>
-        /// Creates a new geometry factory, using <see cref="DefaultPrecisionModel"/>, <see cref="DefaultSRID"/> and <see cref="DefaultCoordinateSequenceFactory"/>.
+        /// 创建一个新的几何工厂，使用<see cref =“DefaultPrecisionModel”/>，<see cref =“DefaultSRID”/>和<see cref =“DefaultCoordinateSequenceFactory”/>。
         /// </summary>
-        /// <returns>The geometry factory</returns>
+        /// <returns>几何工厂</returns>
         IGeometryFactory CreateGeometryFactory();
-        
+
         /// <summary>
-        /// Creates a geometry fractory using <see cref="DefaultPrecisionModel"/> and <see cref="DefaultCoordinateSequenceFactory"/>.
+        /// 使用<see cref =“DefaultPrecisionModel”/>和<see cref =“DefaultCoordinateSequenceFactory”/>创建几何分数。
         /// </summary>
         /// <param name="srid"></param>
-        /// <returns>The geometry factory</returns>
+        /// <returns>几何工厂</returns>
         IGeometryFactory CreateGeometryFactory(int srid);
 
         /// <summary>
-        /// Creates a geometry factory using the given <paramref name="coordinateSequenceFactory"/> along with <see cref="DefaultPrecisionModel"/> and <see cref="DefaultSRID"/>.
+        /// 使用给定的<paramref name =“coordinateSequenceFactory”/>以及<see cref =“DefaultPrecisionModel”/>和<see cref =“DefaultSRID”/>创建几何工厂。
         /// </summary>
-        /// <param name="coordinateSequenceFactory">The coordinate sequence factory to use.</param>
-        /// <returns>The geometry factory.</returns>
+        /// <param name="coordinateSequenceFactory">要使用的坐标序列工厂。</param>
+        /// <returns>几何工厂。</returns>
         IGeometryFactory CreateGeometryFactory(ICoordinateSequenceFactory coordinateSequenceFactory);
 
         /// <summary>
-        /// Creates a geometry factory using the given <paramref name="precisionModel"/> along with <see cref="DefaultCoordinateSequenceFactory"/> and <see cref="DefaultSRID"/>.
+        /// 使用给定的<paramref name =“precisionModel”/>以及<see cref =“DefaultCoordinateSequenceFactory”/>和<see cref =“DefaultSRID”/>创建几何工厂。
         /// </summary>
-        /// <param name="precisionModel">The coordinate sequence factory to use.</param>
+        /// <param name="precisionModel">要使用的坐标序列工厂。</param>
         /// <returns>The geometry factory.</returns>
         IGeometryFactory CreateGeometryFactory(IPrecisionModel precisionModel);
 
         /// <summary>
-        /// Creates a geometry factory using the given <paramref name="precisionModel"/> along with <see cref="DefaultCoordinateSequenceFactory"/> and <see cref="DefaultSRID"/>.
+        /// 使用给定的<paramref name =“precisionModel”/>以及<see cref =“DefaultCoordinateSequenceFactory”/>和<see cref =“DefaultSRID”/>创建几何工厂。
         /// </summary>
-        /// <param name="precisionModel">The coordinate sequence factory to use.</param>
-        /// <param name="srid">The spatial reference id.</param>
-        /// <returns>The geometry factory.</returns>
+        /// <param name="precisionModel">要使用的坐标序列工厂。</param>
+        /// <param name="srid">空间参考ID。</param>
+        /// <returns>几何工厂。</returns>
         IGeometryFactory CreateGeometryFactory(IPrecisionModel precisionModel, int srid);
 
         /// <summary>
-        /// Creates a geometry factory using the given <paramref name="precisionModel"/>,
-        /// <paramref name="srid"/> and <paramref name="coordinateSequenceFactory"/>.
+        /// 使用给定的<paramref name =“precisionModel”/>，<paramref name =“srid”/>和<paramref name =“coordinateSequenceFactory”/>创建几何工厂。
         /// </summary>
         /// <param name="precisionModel">The coordinate sequence factory to use.</param>
         /// <param name="srid">The spatial reference id.</param>
@@ -99,12 +98,12 @@ namespace GeoAPI
                                                ICoordinateSequenceFactory coordinateSequenceFactory);
 
         /// <summary>
-        /// Reads the configuration from the configuration
+        /// 从配置中读取配置
         /// </summary>
         void ReadConfiguration();
 
         /// <summary>
-        /// Writes the current configuration to the configuration
+        /// 将当前配置写入配置
         /// </summary>
         void WriteConfiguration();
     }

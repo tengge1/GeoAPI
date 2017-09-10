@@ -5,27 +5,23 @@
 namespace GeoAPI
 {
     /// <summary>
-    /// Provides methods to parse simple value types without throwing format exception.
+    /// 提供方法来解析简单的值类型，而不会抛出格式异常。
     /// </summary>
     internal static class ValueParser
     {
         /// <summary>
-        /// Attempts to convert the string representation of a number in a
-        /// specified style and culture-specific format to its double-precision
-        /// floating-point number equivalent.
+        /// 尝试将指定样式和文化特定格式的数字的字符串表示形式转换为等效的双精度浮点数。
         /// </summary>
-        /// <param name="s">The string to attempt to parse.</param>
+        /// <param name="s">要尝试解析的字符串。</param>
         /// <param name="style">
-        /// A bitwise combination of <see cref="System.Globalization.NumberStyles"/>
-        /// values that indicates the permitted format of <paramref name="s"/>.
+        /// 表示<paramref name =“s”/>的允许格式的<see cref =“System.Globalization.NumberStyles”/>值的按位组合。
         /// </param>
         /// <param name="provider">
-        /// A <see cref="System.IFormatProvider"/> that supplies
-        /// culture-specific formatting information about <paramref name="s"/>.
+        /// 一个<see cref =“System.IFormatProvider”/>提供有关<paramref name =“s”/>的文化特定格式化信息。
         /// </param>
-        /// <param name="result">The result of the parsed string, or zero if parsing failed.</param>
-        /// <returns>A boolean value indicating whether or not the parse succeeded.</returns>
-        /// <remarks>Returns 0 in the result parameter if the parse fails.</remarks>
+        /// <param name="result">解析字符串的结果，如果解析失败，则返回0。</param>
+        /// <returns>一个布尔值，指示解析是否成功。</returns>
+        /// <remarks>如果解析失败，则返回结果参数中的0。</remarks>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "s")]
         public static bool TryParse(string s, System.Globalization.NumberStyles style, IFormatProvider provider, out double result)
         {

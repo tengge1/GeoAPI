@@ -23,49 +23,48 @@ using GeoAPI.CoordinateSystems.Transformations;
 namespace GeoAPI
 {
     /// <summary>
-    /// Interface for classes that provide access to coordinate system and tranformation facilities.
+    /// 提供对坐标系和变换设施的访问的类的接口。
     /// </summary>
     public interface ICoordinateSystemServices
     {
         /// <summary>
-        /// Returns the coordinate system by <paramref name="srid"/> identifier
+        /// 通过<paramref name =“srid”/>标识符返回坐标系
         /// </summary>
-        /// <param name="srid">The initialization for the coordinate system</param>
-        /// <returns>The coordinate system.</returns>
+        /// <param name="srid">坐标系的初始化</param>
+        /// <returns>坐标系。</returns>
         ICoordinateSystem GetCoordinateSystem(int srid);
 
         /// <summary>
-        /// Returns the coordinate system by <paramref name="authority"/> and <paramref name="code"/>.
+        /// 通过<paramref name =“authority”/>和<paramref name =“code”/>返回坐标系。
         /// </summary>
-        /// <param name="authority">The authority for the coordinate system</param>
-        /// <param name="code">The code assigned to the coordinate system by <paramref name="authority"/>.</param>
-        /// <returns>The coordinate system.</returns>
+        /// <param name="authority">坐标系管理局</param>
+        /// <param name="code">通过<paramref name =“authority”/>分配给坐标系的代码。</param>
+        /// <returns>坐标系。</returns>
         ICoordinateSystem GetCoordinateSystem(string authority, long code);
 
         /// <summary>
-        /// Method to get the identifier, by which this coordinate system can be accessed.
+        /// 获取该坐标系可以被访问的标识符的方法。
         /// </summary>
-        /// <param name="authority">The authority name</param>
-        /// <param name="authorityCode">The code assigned by <paramref name="authority"/></param>
-        /// <returns>The identifier or <value>null</value></returns>
+        /// <param name="authority">管理局名称</param>
+        /// <param name="authorityCode">由<paramref name =“authority”/>分配的代码</param>
+        /// <returns>标识符或<value> null </value></returns>
         int? GetSRID(string authority, long authorityCode);
 
         /// <summary>
-        /// Method to create a coordinate tranformation between two spatial reference systems, defined by their identifiers
+        /// 在由其标识符定义的两个空间参考系统之间创建坐标变换的方法
         /// </summary>
-        /// <remarks>This is a convenience function for <see cref="CreateTransformation(ICoordinateSystem,ICoordinateSystem)"/>.</remarks>
-        /// <param name="sourceSrid">The identifier for the source spatial reference system.</param>
-        /// <param name="targetSrid">The identifier for the target spatial reference system.</param>
-        /// <returns>A coordinate transformation, <value>null</value> if no transformation could be created.</returns>
+        /// <remarks>这是<see cref =“创建转换（KoordinatenSystem，KoordinatenSystem）”/>的便利函数。</remarks>
+        /// <param name="sourceSrid">源空间参考系统的标识符。</param>
+        /// <param name="targetSrid">目标空间参考系统的标识符。</param>
+        /// <returns>如果不能创建转换，则坐标变换<value> null </ value>。</returns>
         ICoordinateTransformation CreateTransformation(int sourceSrid, int targetSrid);
 
         /// <summary>
-        /// Method to create a coordinate tranformation between two spatial reference systems
+        /// 在两个空间参考系统之间创建坐标变换的方法
         /// </summary>
-        /// <param name="source">The source spatial reference system.</param>
-        /// <param name="target">The target spatial reference system.</param>
-        /// <returns>A coordinate transformation, <value>null</value> if no transformation could be created.</returns>
+        /// <param name="source">源空间参考系。</param>
+        /// <param name="target">目标空间参考系。</param>
+        /// <returns>如果不能创建转换，则坐标变换<value> null </ value>。</returns>
         ICoordinateTransformation CreateTransformation(ICoordinateSystem source, ICoordinateSystem target);
-
     }
 }
