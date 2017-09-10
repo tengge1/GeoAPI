@@ -8,28 +8,27 @@ using ApplicationException = System.Exception;
 namespace GeoAPI.IO
 {
     /// <summary>
-    /// Thrown by a <c>WKTReader</c> when a parsing problem occurs.
+    /// 当解析问题发生时，由<c> WKTReader </ c>抛出。
     /// </summary>
     public class ParseException : ApplicationException
     {
         /// <summary>
-        /// Creates a <c>ParseException</c> with the given detail message.
+        /// 使用给定的详细消息创建一个<c> ParseException </ c>。
         /// </summary>
-        /// <param name="message">A description of this <c>ParseException</c>.</param>
+        /// <param name="message">这个<c> ParseException </ c>的描述。</param>
         public ParseException(String message) : base(message) { }
 
         /// <summary>
-        /// Creates a <c>ParseException</c> with <c>e</c>s detail message.
+        /// 用<c> e </ c>的详细信息创建一个<c> ParseException </ c>。
         /// </summary>
-        /// <param name="e">An exception that occurred while a <c>WKTReader</c> was
-        /// parsing a Well-known Text string.</param>
+        /// <param name="e">当<c> WKTReader </ c>正在解析一个众所周知的文本字符串时发生的异常。</param>
         public ParseException(Exception e) : this(e.ToString(), e) { }
 
         /// <summary>
-        /// Creates a <c>ParseException</c> with <paramref name="innerException"/>s detail message
+        /// 使用<paramref name =“innerException”/>的详细消息创建一个<c> ParseException </ c>
         /// </summary>
         /// <param name="message"></param>
-        /// <param name="innerException">The inner exception</param>
+        /// <param name="innerException">内部异常</param>
         public ParseException(String message, Exception innerException)
             : base(message, innerException)
         {

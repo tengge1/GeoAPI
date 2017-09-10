@@ -4,33 +4,33 @@ using GeoAPI.Geometries;
 namespace GeoAPI.IO
 {
     /// <summary>
-    /// Lightweight class that handles OGC Geometry type declaration
+    /// 处理OGC几何类型声明的轻量级的类
     /// </summary>
     public struct GeometryType
     {
         /// <summary>
-        /// Initializes this instance
+        /// 初始化此实例
         /// </summary>
-        /// <param name="geometryType">The value describing the <see cref="GeometryType"/></param>
+        /// <param name =“geometryType”>描述<see cref =“GeometryType”/> </ param>的值
         public GeometryType(uint geometryType)
         {
             _geometrytype = geometryType;
         }
 
         /// <summary>
-        /// Inititalizes this instance based on a geometry and an Ordinates flag.
+        /// 基于几何和一个“坐标”标志来初始化这个实例。
         /// </summary>
-        /// <param name="geometry">The geometry.</param>
-        /// <param name="ordinates">The ordinates flag.</param>
+        /// <param name="geometry">几何。</param>
+        /// <param name="ordinates">纵坐标标志。</param>
         public GeometryType(IGeometry geometry, Ordinates ordinates)
             : this(geometry.OgcGeometryType, ordinates, geometry.SRID >= 0)
         {
         }
 
         /// <summary>
-        /// Inititalizes this instance based on an <see cref="OgcGeometryType"/>
+        /// 基于<see cref =“OgcGeometryType”/>初始化此实例
         /// </summary>
-        /// <param name="ogcGeometryType">The OGC geometry type</param>
+        /// <param name="ogcGeometryType">OGC几何类型</param>
         public GeometryType(OgcGeometryType ogcGeometryType)
             : this(ogcGeometryType, Ordinates.XY, false)
         {
@@ -38,21 +38,21 @@ namespace GeoAPI.IO
         }
 
         /// <summary>
-        /// Inititalizes this instance based on an <see cref="OgcGeometryType"/> and an SRID indicator
+        /// 根据<see cref =“OgcGeometryType”/>和SRID指示符初始化此实例
         /// </summary>
-        /// <param name="ogcGeometryType">The OGC geometry type</param>
-        /// <param name="hasSrid">Indicator if a SRID is supplied.</param>
+        /// <param name="ogcGeometryType">OGC几何类型</param>
+        /// <param name="hasSrid">是否提供SRID的标志。</param>
         public GeometryType(OgcGeometryType ogcGeometryType, bool hasSrid)
             : this(ogcGeometryType, Ordinates.XY, hasSrid)
         {
         }
 
         /// <summary>
-        /// Inititalizes this instance based on an <see cref="OgcGeometryType"/> and an SRID indicator
+        /// 根据<see cref =“OgcGeometryType”/>和SRID指示符初始化此实例
         /// </summary>
-        /// <param name="ogcGeometryType">The OGC geometry type</param>
-        /// <param name="ordinates">The ordinates flag.</param>
-        /// <param name="hasSrid">Indicator if a SRID is supplied.</param>
+        /// <param name="ogcGeometryType">OGC几何类型</param>
+        /// <param name="ordinates">纵坐标标志。</param>
+        /// <param name="hasSrid">是否提供SRID的标志。</param>
         public GeometryType(OgcGeometryType ogcGeometryType, Ordinates ordinates, bool hasSrid)
         {
             _geometrytype = (uint)ogcGeometryType;
@@ -75,13 +75,13 @@ namespace GeoAPI.IO
         private uint _geometrytype;
 
         /// <summary>
-        /// Gets or sets the base geometry type
+        /// 获取或设置基本几何类型
         /// </summary>
         public OgcGeometryType BaseGeometryType
         {
             get
             {
-                //Leave out Ewkb flags
+                // 留下Ewkb标志
                 var val = _geometrytype & 0xffffff;
                 if (val > 2000) val -= 2000;
                 if (val > 1000) val -= 1000;
@@ -98,7 +98,7 @@ namespace GeoAPI.IO
         }
 
         /// <summary>
-        /// Gets the OGC Well-Known-Binary type code
+        /// 获得OGC知名二进制类型代码
         /// </summary>
         public int WkbGeometryType
         {
@@ -106,7 +106,7 @@ namespace GeoAPI.IO
         }
 
         /// <summary>
-        /// Gets the PostGIS Enhanced Well-Known-Binary type code
+        /// 获得PostGIS增强的知名二进制类型代码
         /// </summary>
         public int EwkbWkbGeometryType
         {
@@ -117,22 +117,22 @@ namespace GeoAPI.IO
         }
 
         /// <summary>
-        /// Gets or sets whether z-ordinate values are stored along with the geometry.
+        /// 获取或设置z坐标值是否与几何一起存储。
         /// </summary>
         public bool HasZ { get { return HasWkbZ | HasEwkbZ; } }
 
         /// <summary>
-        /// Gets or sets whether m-ordinate values are stored along with the geometry.
+        /// 获取或设置坐标值是否与几何一起存储。
         /// </summary>
         public bool HasM { get { return HasWkbM | HasEwkbM; } }
 
         /// <summary>
-        /// Gets whether SRID value is stored along with the geometry.
+        /// 获取SRID值是否与几何一起存储。
         /// </summary>
         public bool HasSrid { get { return HasEwkbSrid; } }
 
         /// <summary>
-        /// Gets or sets whether z-ordinate values are stored along with the geometry.
+        /// 获取或设置z坐标值是否与几何一起存储。
         /// </summary>
         public bool HasWkbZ
         {
@@ -150,7 +150,7 @@ namespace GeoAPI.IO
         }
 
         /// <summary>
-        /// Gets or sets whether m-ordinate values are stored along with the geometry.
+        /// 获取或设置坐标值是否与几何一起存储。
         /// </summary>
         public bool HasWkbM
         {
@@ -176,8 +176,8 @@ namespace GeoAPI.IO
         private const uint EwkbFlags = EwkbZFlag | EwkbMFlag | EwkbSridFlag;
 
         /// <summary>
-        /// Gets or sets whether z-ordinates are stored along with the geometry.
-        /// <para>PostGis EWKB format.</para>
+        /// 获取或设置坐标是否与几何一起存储。
+        /// <para>PostGis EWKB格式。</para>
         /// </summary>
         public bool HasEwkbZ
         {
@@ -192,8 +192,8 @@ namespace GeoAPI.IO
         }
 
         /// <summary>
-        /// Gets or sets whether z-ordinates are stored along with the geometry.
-        /// <para>PostGis EWKB format.</para>
+        /// 获取或设置坐标是否与几何一起存储。
+        /// <para>PostGis EWKB格式。</para>
         /// </summary>
         public bool HasEwkbM
         {
@@ -208,8 +208,8 @@ namespace GeoAPI.IO
         }
 
         /// <summary>
-        /// Gets or sets whether z-ordinates are stored along with the geometry.
-        /// <para>PostGis EWKB format.</para>
+        /// 获取或设置坐标是否与几何一起存储。
+        /// <para>PostGis EWKB格式。</para>
         /// </summary>
         public bool HasEwkbSrid
         {

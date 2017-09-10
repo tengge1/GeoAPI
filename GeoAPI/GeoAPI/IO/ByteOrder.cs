@@ -1,17 +1,17 @@
 namespace GeoAPI.IO
 {
     /// <summary>
-    /// Byte order
+    /// ×Ö½ÚË³Ðò
     /// </summary>
     public enum ByteOrder : byte
     {
         /// <summary>
-        /// BigEndian
+        /// ´óÎ²¶Ë
         /// </summary>
         BigEndian = 0x00,
 
         /// <summary>
-        /// LittleEndian
+        /// Ð¡Î²¶Ë
         /// </summary>
         LittleEndian = 0x01,
     }
