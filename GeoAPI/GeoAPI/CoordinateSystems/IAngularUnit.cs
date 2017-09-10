@@ -17,14 +17,14 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// The IAngularUnit interface defines methods on angular units.
-	/// </summary>
-	public interface IAngularUnit : IUnit
-	{
-		/// <summary>
-		/// Gets or sets the number of radians per angular unit.
-		/// </summary>
-		double RadiansPerUnit { get; set; }
-	}
+    /// <summary>
+    /// IAngularUnit接口定义角度单位的方法。
+    /// </summary>
+    public interface IAngularUnit : IUnit
+    {
+        /// <summary>
+        /// 获取或设置每个角度单位的弧度数。
+        /// </summary>
+        double RadiansPerUnit { get; set; }
+    }
 }

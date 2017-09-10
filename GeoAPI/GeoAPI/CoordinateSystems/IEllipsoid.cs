@@ -17,37 +17,36 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// The IEllipsoid interface defines the standard information stored with ellipsoid objects.
-	/// </summary>
-	public interface IEllipsoid : IInfo
-	{
-		/// <summary>
-		/// Gets or sets the value of the semi-major axis.
-		/// </summary>
-		double SemiMajorAxis { get; set; }
+    /// <summary>
+    /// IEllipsoid接口定义了用椭圆体对象存储的标准信息。
+    /// </summary>
+    public interface IEllipsoid : IInfo
+    {
+        /// <summary>
+        /// 获取或设置半长轴的值。
+        /// </summary>
+        double SemiMajorAxis { get; set; }
 
-		/// <summary>
-		/// Gets or sets the value of the semi-minor axis.
-		/// </summary>
-		double SemiMinorAxis { get; set; }
+        /// <summary>
+        /// 获取或设置半短轴的值。
+        /// </summary>
+        double SemiMinorAxis { get; set; }
 
-		/// <summary>
-		/// Gets or sets the value of the inverse of the flattening constant of the ellipsoid.
-		/// </summary>
-		double InverseFlattening { get; set; }
+        /// <summary>
+        /// 获取或设置椭球的平坦常数的倒数值。
+        /// </summary>
+        double InverseFlattening { get; set; }
 
-		/// <summary>
-		/// Gets or sets the value of the axis unit.
-		/// </summary>
-		ILinearUnit AxisUnit { get; set; }
+        /// <summary>
+        /// 获取或设置轴单位的值。
+        /// </summary>
+        ILinearUnit AxisUnit { get; set; }
 
-		/// <summary>
-		/// Is the Inverse Flattening definitive for this ellipsoid? Some ellipsoids use the
-		/// IVF as the defining value, and calculate the polar radius whenever asked. Other
-		/// ellipsoids use the polar radius to calculate the IVF whenever asked. This
-		/// distinction can be important to avoid floating-point rounding errors.
-		/// </summary>
-		bool IsIvfDefinitive { get; set; }
-	}
+        /// <summary>
+        /// 这个椭圆体的反向平坦度是否正确？ 一些椭圆体使用IVF作为定义值，并在询问时计算
+        /// 极坐标半径。 其他椭圆体使用极坐标半径来计算IVF。 这种区别对于避免浮点舍入误差
+        /// 很重要。
+        /// </summary>
+        bool IsIvfDefinitive { get; set; }
+    }
 }

@@ -17,8 +17,8 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// The IUnit interface abstracts different kinds of units, it has no methods.
-	/// </summary>
-	public interface IUnit : IInfo { }
+    /// <summary>
+    /// IUnit接口抽象不同类型的单位，它没有方法。
+    /// </summary>
+    public interface IUnit : IInfo { }
 }

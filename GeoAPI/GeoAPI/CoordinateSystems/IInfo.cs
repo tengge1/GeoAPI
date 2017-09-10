@@ -18,63 +18,58 @@
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// The ISpatialReferenceInfo interface defines the standard 
-    /// information stored with spatial reference objects. This
-    /// interface is reused for many of the spatial reference
-    /// objects in the system.
+    /// ISpatialReferenceInfo接口定义与空间参考对象一起存储的标准信息。 该接口
+    /// 被重用于系统中的许多空间参考对象。
     /// </summary>
     public interface IInfo
     {
         /// <summary>
-        /// Gets or sets the name of the object.
+        /// 获取或设置对象的名称。
         /// </summary>
         string Name { get; }
 
         /// <summary>
-        /// Gets or sets the authority name for this object, e.g., 揚OSC?
-        /// is this is a standard object with an authority specific
-        /// identity code. Returns 揅USTOM?if this is a custom object.
+        /// 获取或设置此对象的管理局名称，例如，POSC是具有授权特定身份代码的标准对象。 
+        /// 如果这是自定义对象，返回CUSTOM。
         /// </summary>
         string Authority { get; }
 
         /// <summary>
-        /// Gets or sets the authority specific identification code of the object
+        /// 获取或设置对象的管理局特定识别码
         /// </summary>
         long AuthorityCode { get; }
 
         /// <summary>
-        /// Gets or sets the alias of the object.
+        /// 获取或设置对象的别名。
         /// </summary>
         string Alias { get; }
 
         /// <summary>
-        /// Gets or sets the abbreviation of the object.
+        /// 获取或设置对象的缩写。
         /// </summary>
         string Abbreviation { get; }
 
         /// <summary>
-        /// Gets or sets the provider-supplied remarks for the object.
+        /// 获取或设置对象的提供者提供的备注。
         /// </summary>
         string Remarks { get; }
 
         /// <summary>
-        /// Returns the Well-known text for this spatial reference object
-        /// as defined in the simple features specification.
+        /// 返回此简单特征规范中定义的此空间参考对象的知名文本。
         /// </summary>
         string WKT { get; }
 
         /// <summary>
-        /// Gets an XML representation of this object.
+        /// 获取此对象的XML表示。
         /// </summary>
         string XML { get; }
 
         /// <summary>
-        /// Checks whether the values of this instance is equal to the values of another instance.
-        /// Only parameters used for coordinate system are used for comparison.
-        /// Name, abbreviation, authority, alias and remarks are ignored in the comparison.
+        /// 检查此实例的值是否等于另一个实例的值。
+        /// 仅用于坐标系的参数用于比较。 名称，缩写，权限，别名和备注在比较中被忽略。
         /// </summary>
         /// <param name="obj"></param>
-        /// <returns>True if equal</returns>
+        /// <returns>如果相等则为真</returns>
         bool EqualParams(object obj);
     }
 }

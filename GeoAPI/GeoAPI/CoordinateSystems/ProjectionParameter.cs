@@ -20,89 +20,82 @@ using System.Globalization;
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// A named projection parameter value.
-	/// </summary>
-	/// <remarks>
-	/// The linear units of parameters' values match the linear units of the containing 
-	/// projected coordinate system. The angular units of parameter values match the 
-	/// angular units of the geographic coordinate system that the projected coordinate 
-	/// system is based on. (Notice that this is different from <see cref="Parameter"/>,
-	/// where the units are always meters and degrees.)
-	/// </remarks>
-#if HAS_SYSTEM_SERIALIZABLEATTRIBUTE
+    /// <summary>
+    /// 一个命名的投影参数值。
+    /// </summary>
+    /// <remarks>
+    /// 参数值的线性单位与包含的投影坐标系的线性单位相匹配。 参数值的角度单位与投影坐标系
+    /// 所基于的地理坐标系的角度单位相匹配。（请注意，这不同于<see cref =“Parameter”/>，
+    /// 其中单位始终为米和度。）
+    /// </remarks>
     [Serializable]
-#endif
-	public class ProjectionParameter 
-	{
-		/// <summary>
-		/// Initializes an instance of a ProjectionParameter
-		/// </summary>
-		/// <param name="name">Name of parameter</param>
-		/// <param name="value">Parameter value</param>
-		public ProjectionParameter(string name, double value)
-		{
-			_Name = name;
-			_Value = value;
-		}
+    public class ProjectionParameter
+    {
+        /// <summary>
+        /// 初始化ProjectionParameter的一个实例
+        /// </summary>
+        /// <param name="name">参数名称</param>
+        /// <param name="value">参数值</param>
+        public ProjectionParameter(string name, double value)
+        {
+            _Name = name;
+            _Value = value;
+        }
 
 
-		private string _Name;
-
-		/// <summary>
-		/// Parameter name.
-		/// </summary>
-        public string Name
-		{
-			get { return _Name; }
-			set { _Name = value; }
-		}
-
-		private double _Value;
-
-		/// <summary>
-		/// Parameter value.
-		/// The linear units of a parameters' values match the linear units of the containing 
-		/// projected coordinate system. The angular units of parameter values match the 
-		/// angular units of the geographic coordinate system that the projected coordinate 
-		/// system is based on.
-		/// </summary>
-        public double Value
-		{
-			get { return _Value; }
-			set { _Value = value; }
-		}
-
-		/// <summary>
-		/// Returns the Well-known text for this object
-		/// as defined in the simple features specification.
-		/// </summary>
-		public string WKT
-		{
-			get
-			{
-				return String.Format(CultureInfo.InvariantCulture.NumberFormat, "PARAMETER[\"{0}\", {1}]", Name, Value);
-			}
-		}
-
-		/// <summary>
-		/// Gets an XML representation of this object
-		/// </summary>
-		public string XML
-		{
-			get
-			{
-                return string.Format(CultureInfo.InvariantCulture.NumberFormat, "<CS_ProjectionParameter Name=\"{0}\" Value=\"{1}\"/>", Name, Value);
-			}
-		}
+        private string _Name;
 
         /// <summary>
-        /// Function to get a textual representation of this envelope
+        /// 参数名称。
+        /// </summary>
+        public string Name
+        {
+            get { return _Name; }
+            set { _Name = value; }
+        }
+
+        private double _Value;
+
+        /// <summary>
+        /// 参数值。
+        /// 参数值的线性单位与包含的投影坐标系的线性单位相匹配。 参数值的角度单位与投影
+        /// 坐标系所基于的地理坐标系的角度单位相匹配。
+        /// </summary>
+        public double Value
+        {
+            get { return _Value; }
+            set { _Value = value; }
+        }
+
+        /// <summary>
+        /// 返回在简单特征规范中定义的该对象的知名文本。
+        /// </summary>
+        public string WKT
+        {
+            get
+            {
+                return String.Format(CultureInfo.InvariantCulture.NumberFormat, "PARAMETER[\"{0}\", {1}]", Name, Value);
+            }
+        }
+
+        /// <summary>
+        /// 获取此对象的XML表示
+        /// </summary>
+        public string XML
+        {
+            get
+            {
+                return string.Format(CultureInfo.InvariantCulture.NumberFormat, "<CS_ProjectionParameter Name=\"{0}\" Value=\"{1}\"/>", Name, Value);
+            }
+        }
+
+        /// <summary>
+        /// 获取此类的文本表示的功能
         /// </summary>
         /// <returns>A textual representation of this envelope</returns>
         public override string ToString()
         {
             return string.Format("ProjectionParameter '{0}': {1}", Name, Value);
         }
-	}
+    }
 }

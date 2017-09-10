@@ -17,110 +17,102 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// A vertical datum of geoid model derived heights, also called GPS-derived heights.
-	/// These heights are approximations of orthometric heights (H), constructed from the
-	/// ellipsoidal heights (h) by the use of the given geoid undulation model (N) through
-	/// the equation: H=h-N.
-	/// </summary>
-	public enum DatumType : int
-	{
-		/// <summary>
-		/// Lowest possible value for horizontal datum types
-		/// </summary>
-		HD_Min = 1000,
+    /// <summary>
+    /// 大地水准面模型衍生高度的垂直基准，也称为GPS导出高度。 这些高度是通过使用给定
+    /// 的大地水准面波动模型（N）通过等式H = h-N由椭球高度（h）构建的正高度（H）的近
+    /// 似值。
+    /// </summary>
+    public enum DatumType : int
+    {
+        /// <summary>
+        /// 水平基准类型的最小可能值
+        /// </summary>
+        HD_Min = 1000,
 
-		/// <summary>
-		/// Unspecified horizontal datum type. Horizontal datums with this type should never
-		/// supply a conversion to WGS84 using Bursa Wolf parameters.
-		/// </summary>
-		HD_Other = 1000,
+        /// <summary>
+        /// 未指定的水平基准类型。 使用此类型的水平基准不应使用Bursa Wolf参数向WGS84
+        /// 提供转换。
+        /// </summary>
+        HD_Other = 1000,
 
-		/// <summary>
-		/// These datums, such as ED50, NAD27 and NAD83, have been designed to support
-		/// horizontal positions on the ellipsoid as opposed to positions in 3-D space. These datums were designed mainly to support a horizontal component of a position in a domain of limited extent, such as a country, a region or a continent.
-		/// </summary>
-		HD_Classic = 1001,
+        /// <summary>
+        /// 这些基准点，例如ED50，NAD27和NAD83，被设计为支持椭圆体上的水平位置，而不
+        /// 是3-D空间中的位置。 这些基准面主要是为了支持在有限程度的领域（如国家，地区
+        /// 或大陆）中的一个位置的水平部分。
+        /// </summary>
+        HD_Classic = 1001,
 
-		/// <summary>
-		/// A geocentric datum is a "satellite age" modern geodetic datum mainly of global
-		/// extent, such as WGS84 (used in GPS), PZ90 (used in GLONASS) and ITRF. These
-		/// datums were designed to support both a horizontal component of position and 
-		/// a vertical component of position (through ellipsoidal heights). The regional
-		/// realizations of ITRF, such as ETRF, are also included in this category.
-		/// </summary>
-		HD_Geocentric = 1002,
+        /// <summary>
+        /// 地心学基准是全球范围内的“卫星时代”现代大地测量数据，如WGS84（用于GPS），
+        /// PZ90（GLONASS中使用）和ITRF。 这些基准面被设计成支持位置的水平分量和位置的
+        /// 垂直分量（通过椭圆高度）。 ITRF的区域实现，如ETRF，也包括在这一类。
+        /// </summary>
+        HD_Geocentric = 1002,
 
-		/// <summary>
-		/// Highest possible value for horizontal datum types.
-		/// </summary>
-		HD_Max = 1999,
+        /// <summary>
+        /// 水平基准类型的最高值。
+        /// </summary>
+        HD_Max = 1999,
 
-		/// <summary>
-		/// Lowest possible value for vertical datum types.
-		/// </summary>
-		VD_Min = 2000,
+        /// <summary>
+        /// 垂直基准类型的最低可能值。
+        /// </summary>
+        VD_Min = 2000,
 
-		/// <summary>
-		/// Unspecified vertical datum type.
-		/// </summary>
-		VD_Other = 2000,
+        /// <summary>
+        /// 未指定的垂直基准类型。
+        /// </summary>
+        VD_Other = 2000,
 
-		/// <summary>
-		/// A vertical datum for orthometric heights that are measured along the plumb line.
-		/// </summary>
-		VD_Orthometric = 2001,
+        /// <summary>
+        /// 沿垂直线测量的正交高度的垂直基准。
+        /// </summary>
+        VD_Orthometric = 2001,
 
-		/// <summary>
-		/// A vertical datum for ellipsoidal heights that are measured along the normal to
-		/// the ellipsoid used in the definition of horizontal datum.
-		/// </summary>
-		VD_Ellipsoidal = 2002,
+        /// <summary>
+        /// 用于椭圆高度的垂直基准，沿水平原点定义中使用的椭圆体的法线测量。
+        /// </summary>
+        VD_Ellipsoidal = 2002,
 
-		/// <summary>
-		/// The vertical datum of altitudes or heights in the atmosphere. These are
-		/// approximations of orthometric heights obtained with the help of a barometer or
-		/// a barometric altimeter. These values are usually expressed in one of the
-		/// following units: meters, feet, millibars (used to measure pressure levels), or
-		/// theta value (units used to measure geopotential height).
-		/// </summary>
-		VD_AltitudeBarometric = 2003,
+        /// <summary>
+        /// 大气中高度或高度的垂直基准。 这些是在气压计或气压高度计的帮助下获得的正高度
+        /// 的近似值。 这些值通常以以下单位之一表示：米，英尺，毫巴（用于测量压力水平）
+        /// 或θ值（用于测量位势高度的单位）。
+        /// </summary>
+        VD_AltitudeBarometric = 2003,
 
-		/// <summary>
-		/// A normal height system.
-		/// </summary>
-		VD_Normal = 2004,
+        /// <summary>
+        /// 正常高度系统。
+        /// </summary>
+        VD_Normal = 2004,
 
-		/// <summary>
-		/// A vertical datum of geoid model derived heights, also called GPS-derived heights.
-		/// These heights are approximations of orthometric heights (H), constructed from the
-		/// ellipsoidal heights (h) by the use of the given geoid undulation model (N) 
-		/// through the equation: H=h-N.
-		/// </summary>
-		VD_GeoidModelDerived = 2005,
+        /// <summary>
+        /// 大地水准面模型衍生高度的垂直基准，也称为GPS导出高度。 这些高度是通过使用给定
+        /// 的大地水准面波动模型（N）通过等式H = h-N由椭球高度（h）构建的正高度（H）的近
+        /// 似值。
+        /// </summary>
+        VD_GeoidModelDerived = 2005,
 
-		/// <summary>
-		/// This attribute is used to support the set of datums generated for hydrographic
-		/// engineering projects where depth measurements below sea level are needed. It is
-		/// often called a hydrographic or a marine datum. Depths are measured in the 
-		/// direction perpendicular (approximately) to the actual equipotential surfaces of
-		/// the earth's gravity field, using such procedures as echo-sounding.
-		/// </summary>
-		VD_Depth = 2006,
+        /// <summary>
+        /// 该属性用于支持需要在海平面以下深度测量的水文工程项目生成的基准集。 它通常被
+        /// 称为水文或海洋基准。 通过使用回波探测等程序，在与地球重力场的实际等电位面垂直
+        /// （大致）的方向上测量深度。
+        /// </summary>
+        VD_Depth = 2006,
 
-		/// <summary>
-		/// Highest possible value for vertical datum types.
-		/// </summary>
-		VD_Max = 2999,
+        /// <summary>
+        /// 垂直基准类型的最高可能值。
+        /// </summary>
+        VD_Max = 2999,
 
-		/// <summary>
-		/// Lowest possible value for local datum types.
-		/// </summary>
-		LD_Min = 10000,
+        /// <summary>
+        /// 局部基准类型的最低可能值。
+        /// </summary>
+        LD_Min = 10000,
 
-		/// <summary>
-		/// Highest possible value for local datum types.
-		/// </summary>
-		LD_Max = 32767
-	}
+        /// <summary>
+        /// 本地基准类型的最高可能值。
+        /// </summary>
+        LD_Max = 32767
+    }
 }

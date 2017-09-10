@@ -17,23 +17,20 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// An aggregate of two coordinate systems (CRS). One of these is usually a 
-	/// CRS based on a two dimensional coordinate system such as a geographic or
-	/// a projected coordinate system with a horizontal datum. The other is a 
-	/// vertical CRS which is a one-dimensional coordinate system with a vertical
-	/// datum.
-	/// </summary>
-	public interface ICompoundCoordinateSystem : ICoordinateSystem
-	{
-		/// <summary>
-		/// Gets first sub-coordinate system.
-		/// </summary>
-		ICoordinateSystem HeadCS { get; }
+    /// <summary>
+    /// 两个坐标系（CRS）的集合。 其中之一通常是基于二维坐标系的CRS，例如具有水平基准
+    /// 的地理或投影坐标系。 另一个是垂直CRS，它是具有垂直基准的一维坐标系。
+    /// </summary>
+    public interface ICompoundCoordinateSystem : ICoordinateSystem
+    {
+        /// <summary>
+        /// 获得第一个子坐标系。
+        /// </summary>
+        ICoordinateSystem HeadCS { get; }
 
-		/// <summary>
-		/// Gets second sub-coordinate system.
-		/// </summary>
-		ICoordinateSystem TailCS { get; }
-	}
+        /// <summary>
+        /// 获得第二个子坐标系。
+        /// </summary>
+        ICoordinateSystem TailCS { get; }
+    }
 }

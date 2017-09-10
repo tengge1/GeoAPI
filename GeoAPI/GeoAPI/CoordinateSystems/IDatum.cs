@@ -17,24 +17,20 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// A set of quantities from which other quantities are calculated.
-	/// </summary>
-	/// <remarks>
-	/// For the OGC abstract model, it can be defined as a set of real points on the earth 
-	/// that have coordinates. EG. A datum can be thought of as a set of parameters 
-	/// defining completely the origin and orientation of a coordinate system with respect 
-	/// to the earth. A textual description and/or a set of parameters describing the 
-	/// relationship of a coordinate system to some predefined physical locations (such 
-	/// as center of mass) and physical directions (such as axis of spin). The definition 
-	/// of the datum may also include the temporal behavior (such as the rate of change of
-	/// the orientation of the coordinate axes).
-	/// </remarks>
-	public interface IDatum : IInfo
-	{
-		/// <summary>
-		/// Gets or sets the type of the datum as an enumerated code.
-		/// </summary>
-		DatumType DatumType { get; set; }
-	}
+    /// <summary>
+    /// 计算其他数量的一组数量。（基准）
+    /// </summary>
+    /// <remarks>
+    /// 对于OGC抽象模型，它可以被定义为具有坐标的地球上的一组真实点。 例如，
+    /// 数据可以被认为是完全定义坐标系相对于地球的起点和方向的一组参数。 描述
+    /// 坐标系与某些预定物理位置（如质心）和物理方向（如旋转轴）的关系的文本
+    /// 描述和/或一组参数。 基准面的定义还可以包括时间行为（例如坐标轴方向的变化率）。
+    /// </remarks>
+    public interface IDatum : IInfo
+    {
+        /// <summary>
+        /// 获取或设置基准的类型为枚举代码。
+        /// </summary>
+        DatumType DatumType { get; set; }
+    }
 }

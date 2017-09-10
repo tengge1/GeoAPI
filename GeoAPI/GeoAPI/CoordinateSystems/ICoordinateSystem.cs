@@ -17,57 +17,50 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// Base interface for all coordinate systems
-	/// </summary>
-	/// <remarks>
-	/// <para>A coordinate system is a mathematical space, where the elements of the space are called
-	/// positions. Each position is described by a list of numbers. The length of the list corresponds
-	/// to the dimension of the coordinate system. So in a 2D coordinate system each position is 
-	/// described by a list containing 2 numbers.</para>
-	/// <para>
-	/// However, in a coordinate system, not all lists of numbers correspond to a position - 
-	/// some lists may be outside the domain of the coordinate system. For example, in a 2D Lat/Lon
-	/// coordinate system, the list (91,91) does not correspond to a position.</para>
-	/// <para>
-	/// Some coordinate systems also have a mapping from the mathematical space into locations
-	/// in the real world. So in a Lat/Lon coordinate system, the mathematical position (lat, long) 
-	/// corresponds to a location on the surface of the Earth. This mapping from the mathematical 
-	/// space into real-world locations is called a Datum.</para>
-	/// </remarks>
-	public interface ICoordinateSystem : IInfo 
+    /// <summary>
+    /// 所有坐标系的基类
+    /// </summary>
+    /// <remarks>
+    /// <para>坐标系是一个数学空间，空间的元素称为位置。 每个位置由数字列表描述。 
+    /// 列表的长度对应于坐标系的尺寸。 因此，在2D坐标系中，每个位置由包含2个数字
+    /// 的列表描述。</para>
+    /// <para>
+    /// 然而，在坐标系中，并不是所有的数字列表对应于位置 - 一些列表可能在坐标系的
+    /// 域之外。 例如，在2D经纬度坐标系中，列表（91,91）不对应于位置。</para>
+    /// <para>
+    /// 一些坐标系也具有从数学空间到现实世界中的位置的映射。 所以在经纬度坐标系中，
+    /// 数学位置（纬度，经度）对应于地球表面上的一个位置。 从数学空间到现实世界的
+    /// 位置的映射称为基准。</para>
+    /// </remarks>
+    public interface ICoordinateSystem : IInfo
     {
 
-		/// <summary>
-		/// Dimension of the coordinate system.
-		/// </summary>
-		int Dimension { get; }
+        /// <summary>
+        /// 坐标系的尺寸。
+        /// </summary>
+        int Dimension { get; }
 
-		/// <summary>
-		/// Gets axis details for dimension within coordinate system.
-		/// </summary>
-		/// <param name="dimension">Dimension</param>
-		/// <returns>Axis info</returns>
-		AxisInfo GetAxis(int dimension);
+        /// <summary>
+        /// 获取坐标系中尺寸的轴细节。
+        /// </summary>
+        /// <param name="dimension">尺寸</param>
+        /// <returns>轴信息</returns>
+        AxisInfo GetAxis(int dimension);
 
-		/// <summary>
-		/// Gets units for dimension within coordinate system.
-		/// </summary>
-		IUnit GetUnits(int dimension);
+        /// <summary>
+        /// 获取坐标系中尺寸的单位。
+        /// </summary>
+        IUnit GetUnits(int dimension);
 
-		/// <summary>
-		/// Gets default envelope of coordinate system.
-		/// </summary>
-		/// <remarks>
-		/// Gets default envelope of coordinate system. Coordinate systems 
-		/// which are bounded should return the minimum bounding box of their 
-		/// domain. Unbounded coordinate systems should return a box which is 
-		/// as large as is likely to be used. For example, a (lon,lat) 
-		/// geographic coordinate system in degrees should return a box from 
-		/// (-180,-90) to (180,90), and a geocentric coordinate system could 
-		/// return a box from (-r,-r,-r) to (+r,+r,+r) where r is the 
-		/// approximate radius of the Earth.
-		/// </remarks>
-		double[] DefaultEnvelope { get; }
-	}
+        /// <summary>
+        /// 获取坐标系的默认包围盒。
+        /// </summary>
+        /// <remarks>
+        /// 获取坐标系的默认包围盒。 有界的坐标系应该返回其域的最小边界框。 无界坐标系
+        /// 应该返回一个尽可能大的可能使用的框。 例如，以度为单位的经纬度地理坐标系应该
+        /// 从（-180，-90）到（180,90）返回一个框，一个地心坐标系可以从（-r，-r， -r）
+        /// 到（+ r，+ r，+ r）其中r是地球的近似半径。
+        /// </remarks>
+        double[] DefaultEnvelope { get; }
+    }
 }

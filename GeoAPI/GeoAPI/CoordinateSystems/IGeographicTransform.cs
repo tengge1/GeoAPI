@@ -19,41 +19,38 @@ using System.Collections.Generic;
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// The IGeographicTransform interface is implemented on geographic transformation
-	/// objects and implements datum transformations between geographic coordinate systems.
-	/// </summary>
-	public interface IGeographicTransform : IInfo
-	{
-		/// <summary>
-		/// Gets or sets source geographic coordinate system for the transformation.
-		/// </summary>
-		IGeographicCoordinateSystem SourceGCS { get; set; }
+    /// <summary>
+    /// IGOgraphicTransform接口在地理变换对象上实现，并在地理坐标系之间实现基准变换。
+    /// </summary>
+    public interface IGeographicTransform : IInfo
+    {
+        /// <summary>
+        /// 获取或设置变换的源地理坐标系。
+        /// </summary>
+        IGeographicCoordinateSystem SourceGCS { get; set; }
 
-		/// <summary>
-		/// Gets or sets the target geographic coordinate system for the transformation.
-		/// </summary>
-		IGeographicCoordinateSystem TargetGCS { get; set; }
+        /// <summary>
+        /// 获取或设置转换的目标地理坐标系。
+        /// </summary>
+        IGeographicCoordinateSystem TargetGCS { get; set; }
 
-		/// <summary>
-		/// Returns an accessor interface to the parameters for this geographic transformation.
-		/// </summary>
-		IParameterInfo ParameterInfo { get; }
+        /// <summary>
+        /// 返回此地理变换参数的访问器接口。
+        /// </summary>
+        IParameterInfo ParameterInfo { get; }
 
-		/// <summary>
-		/// Transforms an array of points from the source geographic coordinate system
-		/// to the target geographic coordinate system.
-		/// </summary>
-		/// <param name="points">Points in the source geographic coordinate system</param>
-		/// <returns>Points in the target geographic coordinate system</returns>
+        /// <summary>
+        /// 将点阵列从源地理坐标系转换为目标地理坐标系。
+        /// </summary>
+        /// <param name="points">源地理坐标系中的点</param>
+        /// <returns>目标地理坐标系中的点</returns>
         List<double[]> Forward(List<double[]> points);
 
-		/// <summary>
-		/// Transforms an array of points from the target geographic coordinate system
-		/// to the source geographic coordinate system.
-		/// </summary>
-		/// <param name="points">Points in the target geographic coordinate system</param>
-		/// <returns>Points in the source geographic coordinate system</returns>
+        /// <summary>
+        /// 将点阵列从目标地理坐标系转换为源地理坐标系。
+        /// </summary>
+        /// <param name="points">目标地理坐标系中的点</param>
+        /// <returns>源地理坐标系中的点</returns>
         List<double[]> Inverse(List<double[]> points);
-	}
+    }
 }

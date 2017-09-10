@@ -17,47 +17,45 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// Orientation of axis. Some coordinate systems use non-standard orientations. 
-	/// For example, the first axis in South African grids usually points West, 
-	/// instead of East. This information is obviously relevant for algorithms
-	/// converting South African grid coordinates into Lat/Long.
-	/// </summary>
-	public enum AxisOrientationEnum : short
-	{
-		/// <summary>
-		/// Unknown or unspecified axis orientation. This can be used for local or fitted coordinate systems.
-		/// </summary>
-		Other = 0,
+    /// <summary>
+    /// 轴方向。 一些坐标系使用非标准方向。 例如，南非电网的第一轴通常指向西，而不是
+    /// 东。 这个信息与将南非网格坐标转换为经纬度的算法显然相关。
+    /// </summary>
+    public enum AxisOrientationEnum : short
+    {
+        /// <summary>
+        /// 未知或未指定的轴方向。 这可以用于本地或拟合的坐标系。
+        /// </summary>
+        Other = 0,
 
-		/// <summary>
-		/// Increasing ordinates values go North. This is usually used for Grid Y coordinates and Latitude.
-		/// </summary>
-		North = 1,
+        /// <summary>
+        /// 增加纵坐标值向北。 这通常用于Grid Y坐标和纬度。
+        /// </summary>
+        North = 1,
 
-		/// <summary>
-		/// Increasing ordinates values go South. This is rarely used.
-		/// </summary>
-		South = 2,
+        /// <summary>
+        /// 增加纵坐标值向南。 这很少使用。
+        /// </summary>
+        South = 2,
 
-		/// <summary>
-		/// Increasing ordinates values go East. This is rarely used.
-		/// </summary>
-		East = 3,
+        /// <summary>
+        /// 增加纵坐标值向东。 这很少使用。
+        /// </summary>
+        East = 3,
 
-		/// <summary>
-		/// Increasing ordinates values go West. This is usually used for Grid X coordinates and Longitude.
-		/// </summary>
-		West = 4,
+        /// <summary>
+        /// 向西增加坐标值。 这通常用于Grid X坐标和经度。
+        /// </summary>
+        West = 4,
 
-		/// <summary>
-		/// Increasing ordinates values go up. This is used for vertical coordinate systems.
-		/// </summary>
-		Up = 5,
+        /// <summary>
+        /// 增加纵坐标值上升。 这用于垂直坐标系。
+        /// </summary>
+        Up = 5,
 
-		/// <summary>
-		/// Increasing ordinates values go down. This is used for vertical coordinate systems.
-		/// </summary>
-		Down = 6
-	}
+        /// <summary>
+        /// 增加纵坐标值下降。 这用于垂直坐标系。
+        /// </summary>
+        Down = 6
+    }
 }

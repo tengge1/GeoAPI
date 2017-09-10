@@ -21,16 +21,16 @@ using System.Globalization;
 namespace GeoAPI.CoordinateSystems
 {
     /// <summary>
-    /// Details of axis. This is used to label axes, and indicate the orientation.
+    /// 轴的细节。 这用于标记轴，并指示方向。
     /// </summary>
 	[Serializable]
     public class AxisInfo
     {
         /// <summary>
-        /// Initializes a new instance of an AxisInfo.
+        /// 初始化AxisInfo的新实例。
         /// </summary>
-        /// <param name="name">Name of axis</param>
-        /// <param name="orientation">Axis orientation</param>
+        /// <param name="name">轴名称</param>
+        /// <param name="orientation">轴方向</param>
         public AxisInfo(string name, AxisOrientationEnum orientation)
         {
             _Name = name;
@@ -40,7 +40,7 @@ namespace GeoAPI.CoordinateSystems
         private string _Name;
 
         /// <summary>
-        /// Human readable name for axis. Possible values are X, Y, Long, Lat or any other short string.
+        /// 人们可读名称。 可能的值为X，Y，Long，Lat或任何其他短字符串。
         /// </summary>
         public string Name
         {
@@ -51,7 +51,7 @@ namespace GeoAPI.CoordinateSystems
         private AxisOrientationEnum _Orientation;
 
         /// <summary>
-        /// Gets enumerated value for orientation.
+        /// 获取枚举的方向值。
         /// </summary>
         public AxisOrientationEnum Orientation
         {
@@ -60,8 +60,7 @@ namespace GeoAPI.CoordinateSystems
         }
 
         /// <summary>
-        /// Returns the Well-known text for this object
-        /// as defined in the simple features specification.
+        /// 返回在简单特征规范中定义的该对象的知名文本。
         /// </summary>
         public string WKT
         {
@@ -72,7 +71,7 @@ namespace GeoAPI.CoordinateSystems
         }
 
         /// <summary>
-        /// Gets an XML representation of this object
+        /// 获取此对象的XML表示
         /// </summary>
         public string XML
         {

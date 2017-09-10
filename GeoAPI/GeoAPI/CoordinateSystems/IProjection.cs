@@ -17,39 +17,36 @@
 
 namespace GeoAPI.CoordinateSystems
 {
-	/// <summary>
-	/// The IProjection interface defines the standard information stored with projection
-	/// objects. A projection object implements a coordinate transformation from a geographic
-	/// coordinate system to a projected coordinate system, given the ellipsoid for the
-	/// geographic coordinate system. It is expected that each coordinate transformation of
-	/// interest, e.g., Transverse Mercator, Lambert, will be implemented as a COM class of
-	/// coType Projection, supporting the IProjection interface.
-	/// </summary>
-	public interface IProjection : IInfo
-	{
-		/// <summary>
-		/// Gets number of parameters of the projection.
-		/// </summary>
-		int NumParameters { get; }
+    /// <summary>
+    /// IProjection接口定义与投影对象一起存储的标准信息。 给定地理坐标系的椭球，投影对象
+    /// 实现从地理坐标系到投影坐标系的坐标变换。 预期感兴趣的每个坐标变换，例如横向墨卡托，
+    /// 兰伯特将被实现为co类型投影的COM类，支持IProjection接口。
+    /// </summary>
+    public interface IProjection : IInfo
+    {
+        /// <summary>
+        /// 获取投影的参数数。
+        /// </summary>
+        int NumParameters { get; }
 
-		/// <summary>
-		/// Gets the projection classification name (e.g. 'Transverse_Mercator').
-		/// </summary>
-		string ClassName { get; }
+        /// <summary>
+        /// 获取投影分类名称（例如“横向墨卡托”）。
+        /// </summary>
+        string ClassName { get; }
 
-		/// <summary>
-		/// Gets an indexed parameter of the projection.
-		/// </summary>
-		/// <param name="index">Index of parameter</param>
-		/// <returns>n'th parameter</returns>
-		ProjectionParameter GetParameter(int index);
+        /// <summary>
+        /// 获取投影的索引参数。
+        /// </summary>
+        /// <param name="index">参数索引</param>
+        /// <returns>第n个参数</returns>
+        ProjectionParameter GetParameter(int index);
 
-		/// <summary>
-		/// Gets an named parameter of the projection.
-		/// </summary>
-		/// <remarks>The parameter name is case insensitive</remarks>
-		/// <param name="name">Name of parameter</param>
-		/// <returns>parameter or null if not found</returns>
-		ProjectionParameter GetParameter(string name);
-	}
+        /// <summary>
+        /// 获取投影的命名参数。
+        /// </summary>
+        /// <remarks>参数名称不区分大小写</remarks>
+        /// <param name="name">参数名称</param>
+        /// <returns>参数或null（如果没有找到）</returns>
+        ProjectionParameter GetParameter(string name);
+    }
 }
