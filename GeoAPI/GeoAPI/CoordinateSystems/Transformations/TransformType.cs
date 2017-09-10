@@ -17,29 +17,29 @@
 
 namespace GeoAPI.CoordinateSystems.Transformations
 {
-	/// <summary>
-	/// Semantic type of transform used in coordinate transformation.
-	/// </summary>
-	public enum TransformType : int
-	{
-		/// <summary>
-		/// Unknown or unspecified type of transform.
-		/// </summary>
-		Other = 0,
+    /// <summary>
+    /// 用于坐标变换的语义变换类型。
+    /// </summary>
+    public enum TransformType : int
+    {
+        /// <summary>
+        /// 未知或未指定类型的变换。
+        /// </summary>
+        Other = 0,
 
-		/// <summary>
-		/// Transform depends only on defined parameters. For example, a cartographic projection.
-		/// </summary>
-		Conversion = 1,
+        /// <summary>
+        /// 变换仅取决于定义的参数。 例如，地图投影。
+        /// </summary>
+        Conversion = 1,
 
-		/// <summary>
-		/// Transform depends only on empirically derived parameters. For example a datum transformation.
-		/// </summary>
-		Transformation = 2,
+        /// <summary>
+        /// 变换仅取决于经验导出的参数。 例如基准变换。
+        /// </summary>
+        Transformation = 2,
 
-		/// <summary>
-		/// Transform depends on both defined and empirical parameters.
-		/// </summary>
-		ConversionAndTransformation = 3
-	}
+        /// <summary>
+        /// 变换取决于定义和经验参数。
+        /// </summary>
+        ConversionAndTransformation = 3
+    }
 }

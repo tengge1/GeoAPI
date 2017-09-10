@@ -20,55 +20,75 @@ using System.Collections.Generic;
 namespace GeoAPI.CoordinateSystems.Transformations
 {
     /// <summary>
-    /// Creates math transforms.
+    /// 创建数学变换。
     /// </summary>
     /// <remarks>
-    /// <para>CT_MathTransformFactory is a low level factory that is used to create CT_MathTransform objects. Many high level GIS applications will never need to use a CT_MathTransformFactory directly; they can use a CT_CoordinateTransformationFactory instead. However, the CT_MathTransformFactory interface is specified here, since it can be used directly by applications that wish to transform other types of coordinates (e.g. color coordinates, or image pixel coordinates).</para>
-    /// <para>The following comments assume that the same vendor implements the math transform factory interfaces and math transform interfaces.</para>
-    /// <para>A math transform is an object that actually does the work of applying formulae to coordinate values. The math transform does not know or care how the coordinates relate to positions in the real world. This lack of semantics makes implementing CT_MathTransformFactory significantly easier than it would be otherwise.</para>
-    /// <para>For example CT_MathTransformFactory can create affine math transforms. The affine transform applies a matrix to the coordinates without knowing how what it is doing relates to the real world. So if the matrix scales Z values by a factor of 1000, then it could be converting meters into millimeters, or it could be converting kilometers into meters.</para>
-    /// <para>Because math transforms have low semantic value (but high mathematical value), programmers who do not have much knowledge of how GIS applications use coordinate systems, or how those coordinate systems relate to the real world can implement CT_MathTransformFactory.</para>
-    /// <para>The low semantic content of math transforms also means that they will be useful in applications that have nothing to do with GIS coordinates. For example, a math transform could be used to map color coordinates between different color spaces, such as converting (red, green, blue) colors into (hue, light, saturation) colors.</para>
-    /// <para>Since a math transform does not know what its source and target coordinate systems mean, it is not necessary or desirable for a math transform object to keep information on its source and target coordinate systems.</para>
+    /// <para>CT_MathTransformFactory是一个用于创建CT_MathTransform对象的低级
+    /// 工厂。 许多高级GIS应用程序永远不需要直接使用CT_MathTransformFactory; 
+    /// 他们可以使用CT_CoordinateTransformationFactory。 但是，
+    /// CT_MathTransformFactory接口是在这里指定的，因为它可以直接用于希望转换
+    /// 其他类型坐标（例如颜色坐标或图像像素坐标）的应用程序。</para>
+    /// <para>以下注释假设相同的供应商实现了数学转换工厂接口和数学变换接口。</para>
+    /// <para>数学变换是一个实际执行公式来协调值的工作的对象。 数学变换不知道
+    /// 或关心坐标如何与现实世界中的位置相关。 这种缺乏语义使得实现
+    /// CT_MathTransformFactory比其他方式更容易。</para>
+    /// <para>例如CT_MathTransformFactory可以创建仿射数学变换。 仿射变换将矩阵
+    /// 应用于坐标，而不知道它在做什么与现实世界有关。 因此，如果矩阵将Z值缩小
+    /// 到1000倍，那么可以将米变换成毫米，或者将公里转换成米。</para>
+    /// <para>因为数学变换具有较低的语义价值（但数学价值高），对于GIS应用程序如何
+    /// 使用坐标系，或者这些坐标系如何与现实世界有关的程序员来说，可以实现
+    /// CT_MathTransformFactory。</para>
+    /// <para>数学变换的低语义内容也意味着它们对于与GIS坐标无关的应用程序将是有用
+    /// 的。 例如，数学变换可用于映射不同颜色空间之间的颜色坐标，例如将（红色，
+    /// 绿色，蓝色）颜色转换为（色调，亮度，饱和度）颜色。</para>
+    /// <para>由于数学变换不知道其源和目标坐标系是什么意思，因此数学变换对象不必要
+    /// 或希望保留其源和目标坐标系统上的信息。</para>
     /// </remarks>
     public interface IMathTransformFactory
     {
         /// <summary>
-        /// Creates an affine transform from a matrix.
+        /// 从矩阵创建仿射变换。
         /// </summary>
-        /// <remarks>If the transform's input dimension is M, and output dimension is N, then the matrix will have size [N+1][M+1]. The +1 in the matrix dimensions allows the matrix to do a shift, as well as a rotation. The [M][j] element of the matrix will be the j'th ordinate of the moved origin. The [i][N] element of the matrix will be 0 for i less than M, and 1 for i equals M.</remarks>
+        /// <remarks>如果变换的输入维数为M，输出维数为N，则矩阵的大小为
+        /// [N + 1] [M + 1]。 矩阵维数中的+1可以让矩阵进行移位以及旋转。 
+        /// 矩阵的[M] [j]元素将是移动原点的第j个纵坐标。 对于i小于M，
+        /// 矩阵的[i] [N]元素将为0，对于i，矩阵的[i]元素将为0，等于M.</remarks>
         /// <param name="matrix"></param>
         /// <returns></returns>
         IMathTransform CreateAffineTransform(double[,] matrix);
 
         /// <summary>
-        /// Creates a transform by concatenating two existing transforms. A concatenated transform acts in the same way as applying two transforms, one after the other.
+        /// 通过连接两个现有的转换来创建变换。 连接变换的作用方式与应用两个
+        /// 变换相同。
         /// </summary>
-        /// <remarks>The dimension of the output space of the first transform must match the dimension of the input space in the second transform. If you wish to concatenate more than two transforms, then you can repeatedly use this method.</remarks>
+        /// <remarks>第一个变换的输出空间的维度必须与第二个变换中的输入空间的
+        /// 维度相匹配。 如果你想连接两个以上的变换，那么你可以反复使用这个
+        /// 方法。</remarks>
         /// <param name="transform1"></param>
         /// <param name="transform2"></param>
         /// <returns></returns>
         IMathTransform CreateConcatenatedTransform(IMathTransform transform1, IMathTransform transform2);
 
         /// <summary>
-        /// Creates a math transform from a Well-Known Text string.
+        /// 创建一个已知文本字符串的数学变换。
         /// </summary>
         /// <param name="wkt"></param>
         /// <returns></returns>
         IMathTransform CreateFromWKT(string wkt);
 
         /// <summary>
-        /// Creates a math transform from XML.
+        /// 从XML创建数学变换。
         /// </summary>
         /// <param name="xml"></param>
         /// <returns></returns>
         IMathTransform CreateFromXML(string xml);
 
         /// <summary>
-        /// Creates a transform from a classification name and parameters.
+        /// 从分类名称和参数创建变换。
         /// </summary>
         /// <remarks>
-        /// The client must ensure that all the linear parameters are expressed in meters, and all the angular parameters are expressed in degrees. Also, they must supply "semi_major" and "semi_minor" parameters for cartographic projection transforms.
+        /// 客户端必须确保所有线性参数以米为单位表示，所有角参数均以度数表示。 
+        /// 此外，它们必须为制图投影变换提供“半主要”和“半最小”参数。
         /// </remarks>
         /// <param name="classification"></param>
         /// <param name="parameters"></param>
@@ -76,10 +96,13 @@ namespace GeoAPI.CoordinateSystems.Transformations
         IMathTransform CreateParameterizedTransform(string classification, List<Parameter> parameters);
 
         /// <summary>
-        /// Creates a transform which passes through a subset of ordinates to another transform.
+        /// 创建通过一个纵坐标子集到另一个变换的变换。
         /// </summary>
         /// <remarks>
-        /// This allows transforms to operate on a subset of ordinates. For example, if you have (Lat,Lon,Height) coordinates, then you may wish to convert the height values from meters to feet without affecting the (Lat,Lon) values. If you wanted to affect the (Lat,Lon) values and leave the Height values alone, then you would have to swap the ordinates around to (Height,Lat,Lon). You can do this with an affine map.
+        /// 这允许变换在纵坐标子集上操作。 例如，如果您有（Lat，Lon，Height）
+        /// 坐标，则可能希望将高度值从米转换为英尺，而不会影响（纬度，Lon）值。 
+        /// 如果要影响（Lat，Lon）值并单独保留Height值，则必须将坐标交替到
+        /// （Height，Lat，Lon）。 你可以用仿射映射来做到这一点。
         /// </remarks>
         /// <param name="firstAffectedOrdinate"></param>
         /// <param name="subTransform"></param>
@@ -87,14 +110,14 @@ namespace GeoAPI.CoordinateSystems.Transformations
         IMathTransform CreatePassThroughTransform(int firstAffectedOrdinate, IMathTransform subTransform);
 
         /// <summary>
-        /// Tests whether parameter is angular. Clients must ensure that all angular parameter values are in degrees.
+        /// 测试参数是否有角度。 客户必须确保所有角度参数值都以度为单位。
         /// </summary>
         /// <param name="parameterName"></param>
         /// <returns></returns>
         bool IsParameterAngular(string parameterName);
 
         /// <summary>
-        /// Tests whether parameter is linear. Clients must ensure that all linear parameter values are in meters.
+        /// 测试参数是否为线性。 客户必须确保所有线性参数值以米为单位。
         /// </summary>
         /// <param name="parameterName"></param>
         /// <returns></returns>
