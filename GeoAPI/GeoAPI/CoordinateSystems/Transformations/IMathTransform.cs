@@ -21,177 +21,158 @@ using GeoAPI.Geometries;
 
 namespace GeoAPI.CoordinateSystems.Transformations
 {
-	/// <summary>
-	/// Transforms muti-dimensional coordinate points.
-	/// </summary>
-	/// <remarks>
-	/// If a client application wishes to query the source and target coordinate 
-	/// systems of a transformation, then it should keep hold of the 
-	/// <see cref="ICoordinateTransformation"/> interface, and use the contained 
-	/// math transform object whenever it wishes to perform a transform.
-	/// </remarks>
-	public interface IMathTransform
-	{
-		/// <summary>
-		/// Gets the dimension of input points.
-		/// </summary>
-		int DimSource { get; }
+    /// <summary>
+    /// 转换多维坐标点。
+    /// </summary>
+    /// <remarks>
+    /// 如果客户应用程序希望查询转换的源和目标坐标系，则应保持<see cref =“ICoordinateTransformation”/>接口，并且只要希望执行转换就使用包含的数学变换对象。
+    /// </remarks>
+    public interface IMathTransform
+    {
+        /// <summary>
+        /// 获取输入点的维数。
+        /// </summary>
+        int DimSource { get; }
 
-		/// <summary>
-		/// Gets the dimension of output points.
-		/// </summary>
-		int DimTarget { get; }
+        /// <summary>
+        /// 获取输出点的维数。
+        /// </summary>
+        int DimTarget { get; }
 
-		/// <summary>
-		/// Tests whether this transform does not move any points.
-		/// </summary>
-		/// <returns></returns>
-		bool Identity();
+        /// <summary>
+        /// 测试这个变换是否不移动任何点。
+        /// </summary>
+        /// <returns></returns>
+        bool Identity();
 
-		/// <summary>
-		/// Gets a Well-Known text representation of this object.
-		/// </summary>
-		string WKT { get; }
+        /// <summary>
+        /// 获取这个对象的一个很好的文本表示。
+        /// </summary>
+        string WKT { get; }
 
-		/// <summary>
-		/// Gets an XML representation of this object.
-		/// </summary>
-		string XML { get; }
+        /// <summary>
+        /// 获取此对象的XML表示。
+        /// </summary>
+        string XML { get; }
 
-		/// <summary>
-		/// Gets the derivative of this transform at a point. If the transform does 
-		/// not have a well-defined derivative at the point, then this function should 
-		/// fail in the usual way for the DCP. The derivative is the matrix of the 
-		/// non-translating portion of the approximate affine map at the point. The
-		/// matrix will have dimensions corresponding to the source and target 
-		/// coordinate systems. If the input dimension is M, and the output dimension 
-		/// is N, then the matrix will have size [M][N]. The elements of the matrix 
-		/// {elt[n][m] : n=0..(N-1)} form a vector in the output space which is 
-		/// parallel to the displacement caused by a small change in the m'th ordinate 
-		/// in the input space.
-		/// </summary>
-		/// <param name="point"></param>
-		/// <returns></returns>
-		double[,] Derivative(double[] point);
+        /// <summary>
+        /// 在某一点获得此变换的导数。 如果转换在该点没有明确定义的导数，
+        /// 则该函数应该以通常的DCP方式失败。 该导数是该点上近似仿射映射
+        /// 的非转换部分的矩阵。 矩阵将具有对应于源和目标坐标系的尺寸。 
+        /// 如果输入维数为M，输出维数为N，则矩阵的大小为[M] [N]。 矩阵
+        /// {elt [n] [m]：n = 0 ..（N-1）}的元素在输出空间中形成与第m个纵
+        /// 坐标的小变化引起的位移平行的向量 的输入空间。
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        double[,] Derivative(double[] point);
 
-		/// <summary>
-		/// Gets transformed convex hull.
-		/// </summary>
-		/// <remarks>
-		/// <para>The supplied ordinates are interpreted as a sequence of points, which generates a convex
-		/// hull in the source space. The returned sequence of ordinates represents a convex hull in the 
-		/// output space. The number of output points will often be different from the number of input 
-		/// points. Each of the input points should be inside the valid domain (this can be checked by 
-		/// testing the points' domain flags individually). However, the convex hull of the input points
-		/// may go outside the valid domain. The returned convex hull should contain the transformed image
-		/// of the intersection of the source convex hull and the source domain.</para>
-		/// <para>A convex hull is a shape in a coordinate system, where if two positions A and B are 
-		/// inside the shape, then all positions in the straight line between A and B are also inside 
-		/// the shape. So in 3D a cube and a sphere are both convex hulls. Other less obvious examples 
-		/// of convex hulls are straight lines, and single points. (A single point is a convex hull, 
-		/// because the positions A and B must both be the same - i.e. the point itself. So the straight
-		/// line between A and B has zero length.)</para>
-		/// <para>Some examples of shapes that are NOT convex hulls are donuts, and horseshoes.</para>
-		/// </remarks>
-		/// <param name="points"></param>
-		/// <returns></returns>
-		List<double> GetCodomainConvexHull(List<double> points);
+        /// <summary>
+        /// 获得变形的凸包。
+        /// </summary>
+        /// <remarks>
+        /// <para>所提供的纵坐标被解释为一系列点，其在源空间中生成凸包。
+        /// 返回的纵坐标表示输出空间中的凸包。 输出点的数量通常与输入点
+        /// 的数量不同。 每个输入点应该在有效的域内（可以通过单独测试点的
+        /// 域标记来检查）。 但是，输入点的凸包可能会超出有效域。 返回的
+        /// 凸包应该包含源凸包和源域的交集的变换图像。</para>
+        /// <para>凸包是坐标系中的一个形状，如果两个位置A和B在形状的内部，
+        /// 那么在A和B之间的直线中的所有位置也都在形状内。 所以在3D中，立
+        /// 方体和球体都是凸包。 凸包的其他不太明显的例子是直线和单点。 
+        /// （单点是凸包，因为位置A和B必须都相同 - 即点本身，因此A和B之间的
+        /// 直线的长度为零）</para>
+        /// <para>不是凸包的形状的一些例子是甜甜圈和马蹄铁。</para>
+        /// </remarks>
+        /// <param name="points"></param>
+        /// <returns></returns>
+        List<double> GetCodomainConvexHull(List<double> points);
 
-		/// <summary>
-		/// Gets flags classifying domain points within a convex hull.
-		/// </summary>
-		/// <remarks>
-		///  The supplied ordinates are interpreted as a sequence of points, which 
-		/// generates a convex hull in the source space. Conceptually, each of the 
-		/// (usually infinite) points inside the convex hull is then tested against
-		/// the source domain. The flags of all these tests are then combined. In 
-		/// practice, implementations of different transforms will use different 
-		/// short-cuts to avoid doing an infinite number of tests.
-		/// </remarks>
-		/// <param name="points"></param>
-		/// <returns></returns>
-		DomainFlags GetDomainFlags(List<double> points);
+        /// <summary>
+        /// 获取在凸包中分类域点的标志。
+        /// </summary>
+        /// <remarks>
+        /// 所提供的纵坐标被解释为一系列点，其在源空间中生成凸包。 在概念上，
+        /// 然后根据源域测试凸包中的每个（通常是无限的）点。 然后组合所有这些
+        /// 测试的标志。 在实践中，不同转换的实现将使用不同的快捷方式来避免无
+        /// 限次的测试。
+        /// </remarks>
+        /// <param name="points"></param>
+        /// <returns></returns>
+        DomainFlags GetDomainFlags(List<double> points);
 
-		/// <summary>
-		/// Creates the inverse transform of this object.
-		/// </summary>
-		/// <remarks>This method may fail if the transform is not one to one. However, all cartographic projections should succeed.</remarks>
-		/// <returns></returns>
-		IMathTransform Inverse();
+        /// <summary>
+        /// 创建此对象的逆变换。
+        /// </summary>
+        /// <remarks>如果转换不是一对一的，则此方法可能会失败。 然而，所有的
+        /// 地图投影都应该成功。</remarks>
+        /// <returns></returns>
+        IMathTransform Inverse();
 
-		/// <summary>
-		/// Transforms a coordinate point. The passed parameter point should not be modified.
-		/// </summary>
-		/// <param name="point"></param>
-		/// <returns></returns>
+        /// <summary>
+        /// 转换坐标点。 传递的参数点不应该被修改。
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns></returns>
         double[] Transform(double[] point);
 
         /// <summary>
-        /// Transforms a a coordinate. The input coordinate remains unchanged.
+        /// 转换一个坐标。 输入坐标保持不变。
         /// </summary>
-        /// <param name="coordinate">The coordinate to transform</param>
-        /// <returns>The transformed coordinate</returns>
+        /// <param name="coordinate">要转换的坐标</param>
+        /// <returns>变换的坐标</returns>
         [Obsolete("Use Coordinate Transform(Coordinate coordinate) instead.")]
         ICoordinate Transform(ICoordinate coordinate);
 
         /// <summary>
-        /// Transforms a a coordinate. The input coordinate remains unchanged.
+        /// 转换一个坐标。 输入坐标保持不变。
         /// </summary>
-        /// <param name="coordinate">The coordinate to transform</param>
-        /// <returns>The transformed coordinate</returns>
+        /// <param name="coordinate">要转换的坐标</param>
+        /// <returns>变换的坐标</returns>
         Coordinate Transform(Coordinate coordinate);
 
-
-		/// <summary>
-		/// Transforms a list of coordinate point ordinal values.
-		/// </summary>
-		/// <remarks>
-		/// This method is provided for efficiently transforming many points. The supplied array 
-		/// of ordinal values will contain packed ordinal values. For example, if the source 
-		/// dimension is 3, then the ordinals will be packed in this order (x0,y0,z0,x1,y1,z1 ...).
-		/// The size of the passed array must be an integer multiple of DimSource. The returned 
-		/// ordinal values are packed in a similar way. In some DCPs. the ordinals may be 
-		/// transformed in-place, and the returned array may be the same as the passed array.
-		/// So any client code should not attempt to reuse the passed ordinal values (although
-		/// they can certainly reuse the passed array). If there is any problem then the server
-		/// implementation will throw an exception. If this happens then the client should not
-		/// make any assumptions about the state of the ordinal values.
-		/// </remarks>
-		/// <param name="points"></param>
-		/// <returns></returns>
-        IList<double[]> TransformList(IList<double[]> points);
-
         /// <summary>
-        /// Transforms a list of coordinates.
+        /// 转换坐标点序数值列表。
         /// </summary>
         /// <remarks>
-        /// This method is provided for efficiently transforming many points. The supplied array 
-        /// of ordinal values will contain packed ordinal values. For example, if the source 
-        /// dimension is 3, then the ordinals will be packed in this order (x0,y0,z0,x1,y1,z1 ...).
-        /// The size of the passed array must be an integer multiple of DimSource. The returned 
-        /// ordinal values are packed in a similar way. In some DCPs. the ordinals may be 
-        /// transformed in-place, and the returned array may be the same as the passed array.
-        /// So any client code should not attempt to reuse the passed ordinal values (although
-        /// they can certainly reuse the passed array). If there is any problem then the server
-        /// implementation will throw an exception. If this happens then the client should not
-        /// make any assumptions about the state of the ordinal values.
+        /// 提供了这种方法来有效地转换许多点。 提供的序数值数组将包含压缩
+        /// 的序数值。 例如，如果源维数为3，那么将以这个顺序（x0，y0，z0，
+        /// x1，y1，z1 ...）打包序数。 传递的数组的大小必须是DimSource的
+        /// 整数倍。 返回的序数值以类似的方式打包。 在一些DCP。 可以原位转
+        /// 换序数，并且返回的数组可能与传递的数组相同。
+        /// 所以任何客户端代码都不应该尝试重用传递的序数值（尽管它们可以
+        /// 重用传递的数组）。 如果有任何问题，那么服务器实现会抛出异常。 
+        /// 如果发生这种情况，客户端不应该对序数值的状态做任何假设。
         /// </remarks>
         /// <param name="points"></param>
         /// <returns></returns>
-        IList<Coordinate> TransformList(IList<Coordinate> points); 
-
-
-		/// <summary>
-		/// Reverses the transformation
-		/// </summary>
-		void Invert();
+        IList<double[]> TransformList(IList<double[]> points);
 
         /// <summary>
-        /// Transforms a coordinate sequence. The input coordinate sequence remains unchanged.
+        /// 转换坐标列表。
         /// </summary>
-        /// <param name="coordinateSequence">The coordinate sequence to transform.</param>
-        /// <returns>The transformed coordinate sequence.</returns>
-        ICoordinateSequence Transform(ICoordinateSequence coordinateSequence);
+        /// <remarks>
+        /// 提供了这种方法来有效地转换许多点。 提供的序数值数组将包含压缩的序数值。 
+        /// 例如，如果源维数为3，那么将以这个顺序（x0，y0，z0，x1，y1，z1 ...）打包
+        /// 序数。传递的数组的大小必须是DimSource的整数倍。返回的序数值以类似的方式
+        /// 打包。 在一些DCP。 可以原位转换序数，并且返回的数组可能与传递的数组相同。
+        /// 所以任何客户端代码都不应该尝试重用传递的序数值（尽管它们可以重用传递的
+        /// 数组）。 如果有任何问题，那么服务器实现会抛出异常。 如果发生这种情况，
+        /// 客户端不应该对序数值的状态做任何假设。
+        /// </remarks>
+        /// <param name="points"></param>
+        /// <returns></returns>
+        IList<Coordinate> TransformList(IList<Coordinate> points);
 
-	}
+        /// <summary>
+        /// 逆变换
+        /// </summary>
+        void Invert();
+
+        /// <summary>
+        /// 变换坐标序列。 输入坐标序列保持不变。
+        /// </summary>
+        /// <param name="coordinateSequence">要转换的坐标序列。</param>
+        /// <returns>变换的坐标序列。</returns>
+        ICoordinateSequence Transform(ICoordinateSequence coordinateSequence);
+    }
 }

@@ -17,22 +17,20 @@
 
 namespace GeoAPI.CoordinateSystems.Transformations
 {
-	/// <summary>
-	/// Creates coordinate transformations.
-	/// </summary>
-	public interface ICoordinateTransformationFactory
-	{
-		/// <summary>
-		/// Creates a transformation between two coordinate systems.
-		/// </summary>
-		/// <remarks>
-		/// This method will examine the coordinate systems in order to construct
-		/// a transformation between them. This method may fail if no path between 
-		/// the coordinate systems is found, using the normal failing behavior of 
-		/// the DCP (e.g. throwing an exception).</remarks>
-		/// <param name="sourceCS">Source coordinate system</param>
-		/// <param name="targetCS">Target coordinate system</param>
-		/// <returns></returns>
-		ICoordinateTransformation CreateFromCoordinateSystems(ICoordinateSystem sourceCS, ICoordinateSystem targetCS);
-	}
+    /// <summary>
+    /// 创建坐标变换。
+    /// </summary>
+    public interface ICoordinateTransformationFactory
+    {
+        /// <summary>
+        /// 创建两个坐标系之间的转换。
+        /// </summary>
+        /// <remarks>
+        /// 该方法将检查坐标系，以构建它们之间的转换。 如果找不到坐标系之间的
+        /// 路径，使用DCP的正常失败行为（例如抛出异常），则此方法可能会失败。</remarks>
+        /// <param name="sourceCS">源坐标系</param>
+        /// <param name="targetCS">目标坐标系</param>
+        /// <returns></returns>
+        ICoordinateTransformation CreateFromCoordinateSystems(ICoordinateSystem sourceCS, ICoordinateSystem targetCS);
+    }
 }

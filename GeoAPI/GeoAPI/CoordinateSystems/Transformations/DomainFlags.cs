@@ -18,35 +18,33 @@
 namespace GeoAPI.CoordinateSystems.Transformations
 {
     /// <summary>
-    /// Flags indicating parts of domain covered by a convex hull. 
+    /// 指示由凸包覆盖的域的部分的标志
     /// </summary>
     /// <remarks>
-    /// These flags can be combined. For example, the value 3 
-    /// corresponds to a combination of <see cref="Inside"/> and <see cref="Outside"/>,
-    /// which means that some parts of the convex hull are inside the 
-    /// domain, and some parts of the convex hull are outside the domain.
+    /// 这些标志可以组合。 例如，值3对应于<see cref =“Inside”/>
+    /// 和<see cref =“Outside”/>的组合，这意味着凸包的某些部分在
+    /// 域内，而部分凸包在域之外。
     /// </remarks>
     public enum DomainFlags : int
     {
         /// <summary>
-        /// At least one point in a convex hull is inside the transform's domain.
+        /// 凸包中的至少一个点在变换的域内。
         /// </summary>
         Inside = 1,
 
         /// <summary>
-        /// At least one point in a convex hull is outside the transform's domain.
+        /// 凸包中的至少一个点在变换域之外。
         /// </summary>
         Outside = 2,
 
         /// <summary>
-        /// At least one point in a convex hull is not transformed continuously.
+        /// 凸包中的至少一点不会连续变形。
         /// </summary>
         /// <remarks>
-        /// As an example, consider a "Longitude_Rotation" transform which adjusts 
-        /// longitude coordinates to take account of a change in Prime Meridian. If
-        /// the rotation is 5 degrees east, then the point (Lat=175,Lon=0) is not 
-        /// transformed continuously, since it is on the meridian line which will 
-        /// be split at +180/-180 degrees.
+        /// 作为一个例子，考虑一个“经度回归”变换，它调整经度坐标
+        /// 以考虑主子午线的变化。 如果旋转是东方5度，则点
+        /// （Lat = 175，Lon = 0）不会连续变换，因为它位于将以+ 180 / -180度
+        /// 分割的子午线。
         /// </remarks>
         Discontinuous = 4
     }

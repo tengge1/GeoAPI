@@ -17,60 +17,64 @@
 
 namespace GeoAPI.CoordinateSystems.Transformations
 {
-	/// <summary>
-	/// Describes a coordinate transformation. This interface only describes a 
-	/// coordinate transformation, it does not actually perform the transform 
-	/// operation on points. To transform points you must use a math transform.
-	/// </summary>
-	public interface ICoordinateTransformation
-	{
-		/// <summary>
-		/// Human readable description of domain in source coordinate system.
-		/// </summary>
-		string AreaOfUse { get; }
+    /// <summary>
+    /// 描述坐标变换。 此接口仅描述坐标变换，但实际上并不对点
+    /// 进行变换操作。 要转换点，您必须使用数学变换。
+    /// </summary>
+    public interface ICoordinateTransformation
+    {
+        /// <summary>
+        /// 源坐标系中域的人类可读描述。
+        /// </summary>
+        string AreaOfUse { get; }
 
-		/// <summary>
-		/// Authority which defined transformation and parameter values.
-		/// </summary>
-		/// <remarks>
-		/// An Authority is an organization that maintains definitions of Authority Codes. For example the European Petroleum Survey Group (EPSG) maintains a database of coordinate systems, and other spatial referencing objects, where each object has a code number ID. For example, the EPSG code for a WGS84 Lat/Lon coordinate system is ?326?
-		/// </remarks>
-		string Authority { get; }
+        /// <summary>
+        /// 定义转换和参数值的权限。
+        /// </summary>
+        /// <remarks>
+        /// 管理局是一个维护权力机构代码定义的组织。 例如，欧洲石油调查组
+        /// （EPSG）维护坐标系数据库和其他空间参照对象，其中每个对象都有一
+        /// 个代号。 例如，WGS84 Lat / Lon坐标系的EPSG代码是？326？
+        /// </remarks>
+        string Authority { get; }
 
-		/// <summary>
-		/// Code used by authority to identify transformation. An empty string is used for no code.
-		/// </summary>
-		/// <remarks>The AuthorityCode is a compact string defined by an Authority to reference a particular spatial reference object. For example, the European Survey Group (EPSG) authority uses 32 bit integers to reference coordinate systems, so all their code strings will consist of a few digits. The EPSG code for WGS84 Lat/Lon is ?326?</remarks>
-		long AuthorityCode { get; }
+        /// <summary>
+        /// 管理局用于识别转化的代码。 空字符串用于无代码。
+        /// </summary>
+        /// <remarks>AuthorityCode是由管理机构定义以引用特定空间参考对象的
+        /// 紧凑字符串。 例如，欧洲调查组（EPSG）授权机构使用32位整数来引用
+        /// 坐标系，因此所有的代码字符串都将由数位组成。 WGS84 Lat / Lon的
+        /// EPSG代码是？326？</remarks>
+        long AuthorityCode { get; }
 
-		/// <summary>
-		/// Gets math transform.
-		/// </summary>
-		IMathTransform MathTransform { get; }
+        /// <summary>
+        /// 获得数学变换。
+        /// </summary>
+        IMathTransform MathTransform { get; }
 
-		/// <summary>
-		/// Name of transformation.
-		/// </summary>
-		string Name { get; }
+        /// <summary>
+        /// 转换名称
+        /// </summary>
+        string Name { get; }
 
-		/// <summary>
-		/// Gets the provider-supplied remarks.
-		/// </summary>
-		string Remarks { get; }
+        /// <summary>
+        /// 获取供应商提供的备注。
+        /// </summary>
+        string Remarks { get; }
 
-		/// <summary>
-		/// Source coordinate system.
-		/// </summary>
-		ICoordinateSystem SourceCS { get; }
+        /// <summary>
+        /// 源坐标系。
+        /// </summary>
+        ICoordinateSystem SourceCS { get; }
 
-		/// <summary>
-		/// Target coordinate system.
-		/// </summary>
-		ICoordinateSystem TargetCS { get; }
+        /// <summary>
+        /// 目标坐标系。
+        /// </summary>
+        ICoordinateSystem TargetCS { get; }
 
-		/// <summary>
-		/// Semantic type of transform. For example, a datum transformation or a coordinate conversion.
-		/// </summary>
-		TransformType TransformType { get; }
-	}
+        /// <summary>
+        /// 语义类型的变换。 例如，基准变换或坐标转换。
+        /// </summary>
+        TransformType TransformType { get; }
+    }
 }
