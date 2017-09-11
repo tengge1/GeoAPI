@@ -198,40 +198,16 @@ namespace GeoAPI.Geometries
             return Equals2D(other);
         }
 
-        ///// <summary>
-        /////
-        ///// </summary>
-        ///// <param name="obj1"></param>
-        ///// <param name="obj2"></param>
-        ///// <returns></returns>
-        //public static bool operator ==(Coordinate obj1, ICoordinate obj2)
-        //{
-        //    return Equals(obj1, obj2);
-        //}
-
-        ///// <summary>
-        /////
-        ///// </summary>
-        ///// <param name="obj1"></param>
-        ///// <param name="obj2"></param>
-        ///// <returns></returns>
-        //public static bool operator !=(Coordinate obj1, ICoordinate obj2)
-        //{
-        //    return !(obj1 == obj2);
-        //}
-
         /// <summary>
-        /// Compares this object with the specified object for order.
-        /// Since Coordinates are 2.5D, this routine ignores the z value when making the comparison.
+        /// 将此对象与指定的对象进行比较以进行排序。 由于坐标为2.5D，此例程在进行比较时忽略z值。
         /// Returns
-        ///   -1  : this.x lowerthan other.x || ((this.x == other.x) AND (this.y lowerthan other.y))
+        ///   -1  : this.x低于other.x || （（this.x == other.x）AND（this.y lowerthan other.y））
         ///    0  : this.x == other.x AND this.y = other.y
-        ///    1  : this.x greaterthan other.x || ((this.x == other.x) AND (this.y greaterthan other.y))
+        ///    1  : this.x大于other.x || （（this.x == other.x）AND（this.y morethan other.y））
         /// </summary>
-        /// <param name="o"><other>Coordinate</other> with which this <other>Coordinate</other> is being compared.</param>
+        /// <param name="o"><other>坐标</ other>与此<其他>坐标</ other>进行比较。</param>
         /// <returns>
-        /// A negative integer, zero, or a positive integer as this <other>Coordinate</other>
-        ///         is less than, equal to, or greater than the specified <other>Coordinate</other>.
+        /// 负整数，零或正整数，因为<其他>坐标</ other>小于，等于或大于指定的<其他>坐标</ other>。
         /// </returns>
         public int CompareTo(object o)
         {
@@ -240,17 +216,15 @@ namespace GeoAPI.Geometries
         }
 
         /// <summary>
-        /// Compares this object with the specified object for order.
-        /// Since Coordinates are 2.5D, this routine ignores the z value when making the comparison.
+        /// 将此对象与指定的对象进行比较以进行排序。 由于坐标为2.5D，此例程在进行比较时忽略z值。
         /// Returns
-        ///   -1  : this.x lowerthan other.x || ((this.x == other.x) AND (this.y lowerthan other.y))
+        ///   -1  : this.x低于other.x || （（this.x == other.x）AND（this.y lowerthan other.y））
         ///    0  : this.x == other.x AND this.y = other.y
-        ///    1  : this.x greaterthan other.x || ((this.x == other.x) AND (this.y greaterthan other.y))
+        ///    1  : this.x大于other.x || （（this.x == other.x）AND（this.y morethan other.y））
         /// </summary>
-        /// <param name="other"><other>Coordinate</other> with which this <other>Coordinate</other> is being compared.</param>
+        /// <param name="other"><other>坐标</ other>与此<其他>坐标</ other>进行比较。</param>
         /// <returns>
-        /// A negative integer, zero, or a positive integer as this <other>Coordinate</other>
-        ///         is less than, equal to, or greater than the specified <other>Coordinate</other>.
+        /// 负整数，零或正整数，因为<other>坐标</ other>小于，等于或大于指定的<其他>坐标</ other>。
         /// </returns>
         public int CompareTo(Coordinate other)
         {
@@ -264,13 +238,11 @@ namespace GeoAPI.Geometries
         }
 
         /// <summary>
-        /// Returns <c>true</c> if <paramref name="other"/> 
-        /// has the same values for X, Y and Z.
+        /// 如果<paramref name =“other”/>具有与X，Y和Z相同的值，则返回<c> true </ c>。
         /// </summary>
-        /// <param name="other">A <see cref="Coordinate"/> with which to do the 3D comparison.</param>
+        /// <param name="other">一个<see cref =“Coordinate”/>与之进行3D比较。</param>
         /// <returns>
-        /// <c>true</c> if <paramref name="other"/> is a <see cref="Coordinate"/> 
-        /// with the same values for X, Y and Z.
+        /// <c> true </ c> if <paramref name =“other”/>是一个<see cref =“Coordinate”/>，具有与X，Y和Z相同的值。
         /// </returns>
         public bool Equals3D(Coordinate other)
         {
@@ -279,7 +251,7 @@ namespace GeoAPI.Geometries
         }
 
         /// <summary>
-        /// Tests if another coordinate has the same value for Z, within a tolerance.
+        /// 在公差范围内，测试另一个坐标是否具有与Z相同的值。
         /// </summary>
         /// <param name="c">A <see cref="Coordinate"/>.</param>
         /// <param name="tolerance">The tolerance value.</param>
@@ -290,9 +262,9 @@ namespace GeoAPI.Geometries
         }
 
         /// <summary>
-        /// Returns a <other>string</other> of the form <I>(x,y,z)</I> .
+        /// 返回<I>（x，y，z）</ I>形式的<other> string </ other>。
         /// </summary>
-        /// <returns><other>string</other> of the form <I>(x,y,z)</I></returns>
+        /// <returns><i>（x，y，z）</ I>的<other> string </ other></returns>
         public override string ToString()
         {
             return "(" + X.ToString("R", NumberFormatInfo.InvariantInfo) + ", " +
@@ -301,7 +273,7 @@ namespace GeoAPI.Geometries
         }
 
         /// <summary>
-        /// Create a new object as copy of this instance.
+        /// 创建一个新对象作为该实例的副本。
         /// </summary>
         /// <returns></returns>
         public object Clone()
@@ -310,11 +282,11 @@ namespace GeoAPI.Geometries
         }
 
         /// <summary>
-        /// Computes the 2-dimensional Euclidean distance to another location.
+        /// 计算到另一个位置的二维欧几里德距离。
         /// </summary>
-        /// <param name="c">A <see cref="Coordinate"/> with which to do the distance comparison.</param>
-        /// <returns>the 2-dimensional Euclidean distance between the locations.</returns>
-        /// <remarks>The Z-ordinate is ignored.</remarks>
+        /// <param name="c">一个<see cref =“Coordinate”/>与之做距离比较。</param>
+        /// <returns>位置之间的二维欧氏距离。</returns>
+        /// <remarks>Z坐标被忽略。</remarks>
         public double Distance(Coordinate c)
         {
             var dx = X - c.X;
@@ -323,10 +295,10 @@ namespace GeoAPI.Geometries
         }
 
         /// <summary>
-        /// Computes the 3-dimensional Euclidean distance to another location.
+        /// 计算到另一个位置的三维欧几里德距离。
         /// </summary>
-        /// <param name="c">A <see cref="Coordinate"/> with which to do the distance comparison.</param>
-        /// <returns>the 3-dimensional Euclidean distance between the locations.</returns>
+        /// <param name="c">一个<see cref =“Coordinate”/>与之做距离比较。</param>
+        /// <returns>位置之间的三维欧几里德距离。</returns>
         public double Distance3D(Coordinate c)
         {
             double dx = X - c.X;
@@ -336,9 +308,9 @@ namespace GeoAPI.Geometries
         }
 
         /// <summary>
-        /// Gets a hashcode for this coordinate.
+        /// 获取此坐标的哈希码。
         /// </summary>
-        /// <returns>A hashcode for this coordinate.</returns>
+        /// <returns>这个坐标的哈希码。</returns>
         public override int GetHashCode()
         {
             var result = 17;

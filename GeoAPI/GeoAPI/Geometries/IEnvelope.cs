@@ -1,24 +1,18 @@
-using System;
+﻿using System;
 
 namespace GeoAPI.Geometries
 {
-#if HAS_SYSTEM_ICLONEABLE
     using ICloneable = System.ICloneable;
-#else
-    using ICloneable = GeoAPI.ICloneable;
-#endif
 
     /// <summary>
-    /// Defines a rectangular region of the 2D coordinate plane.
+    /// 定义2D坐标平面的矩形区域。
     /// </summary>
     /// <remarks>
     /// <para>
-    /// It is often used to represent the bounding box of a <c>Geometry</c>,
-    /// e.g. the minimum and maximum x and y values of the <c>Coordinate</c>s.
+    /// 它通常用于表示<c>几何</ c>的边界框，例如。 <c>坐标</ c> s的最小和最大x和y值。
     /// </para>
     /// <para>
-    /// Note that Envelopes support infinite or half-infinite regions, by using the values of
-    /// <c>Double.PositiveInfinity</c> and <c>Double.NegativeInfinity</c>.
+    /// 请注意，通过使用<c> Double.PositiveInfinity </ c>和<c> Double.NegativeInfinity </ c>的值，信封支持无限或半无限区域。
     /// </para>
     /// <para>
     /// When Envelope objects are created or initialized,
@@ -26,7 +20,7 @@ namespace GeoAPI.Geometries
     /// </para>
     /// </remarks>
     [Obsolete("Use Envelope class instead")]
-    public interface IEnvelope : 
+    public interface IEnvelope :
         ICloneable,
         IComparable, IComparable<IEnvelope>, IEquatable<IEnvelope>
     {
@@ -69,7 +63,7 @@ namespace GeoAPI.Geometries
         /// Gets the <see cref="ICoordinate"/> or the center of the envelope
         /// </summary>
         ICoordinate Centre { get; }
-        
+
         /// <summary>
         /// Returns if the point specified by <see paramref="x"/> and <see paramref="y"/> is contained by the envelope.
         /// </summary>
@@ -256,21 +250,21 @@ namespace GeoAPI.Geometries
         void SetToNull();
 
         void Zoom(double perCent);
-                
+
         bool Overlaps(IEnvelope other);
 
         bool Overlaps(ICoordinate p);
-        
+
         bool Overlaps(double x, double y);
-        
+
         void SetCentre(double width, double height);
-        
+
         void SetCentre(IPoint centre, double width, double height);
-        
+
         void SetCentre(ICoordinate centre);
-        
+
         void SetCentre(IPoint centre);
-        
+
         void SetCentre(ICoordinate centre, double width, double height);
 
         IEnvelope Union(IPoint point);
