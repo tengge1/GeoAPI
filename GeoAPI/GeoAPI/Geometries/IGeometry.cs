@@ -1,91 +1,87 @@
-using System;
+﻿using System;
 using GeoAPI.Operation.Buffer;
 
 namespace GeoAPI.Geometries
 {
-#if HAS_SYSTEM_ICLONEABLE
     using ICloneable = System.ICloneable;
-#else
-    using ICloneable = GeoAPI.ICloneable;
-#endif
 
     /// <summary>  
-    /// Interface for basic implementation of <c>Geometry</c>.
+    /// 基本实现<c>几何</ c>的界面。
     /// </summary>
     public interface IGeometry : ICloneable, IComparable, IComparable<IGeometry>, IEquatable<IGeometry>
     {
         ///<summary>
-        /// The <see cref="IGeometryFactory"/> used to create this geometry
+        /// 基本实现<c>几何</ c>的基类。
         ///</summary>
         IGeometryFactory Factory { get; }
-        
+
         ///<summary>
-        /// The <see cref="IPrecisionModel"/> the <see cref="Factory"/> used to create this.
+        /// <see cref =“IPrecisionModel”/>用于创建这个的<see cref =“Factory”/>。
         ///</summary>
         IPrecisionModel PrecisionModel { get; }
 
         /// <summary>
-        /// Gets the spatial reference id
+        /// 获取空间索引ID
         /// </summary>
         int SRID { get; set; }
 
         /// <summary>
-        /// Gets the geometry type
+        /// 获取几何类型
         /// </summary>
         string GeometryType { get; }
 
         /// <summary>
-        /// Gets the OGC geometry type
+        /// 获取OGC几何类型
         /// </summary>
         OgcGeometryType OgcGeometryType { get; }
 
         /// <summary>
-        /// Gets the area of this geometry if applicable, otherwise <c>0d</c>
+        /// 获取此几何的面积（如果适用），否则<c> 0d </ c>
         /// </summary>
-        /// <remarks>A <see cref="ISurface"/> method moved in IGeometry</remarks>
+        /// <remarks>在IGeometry中移动了一个<see cref =“ISurface”/>方法</remarks>
         double Area { get; }
 
         /// <summary>
-        /// Gets the length of this geometry if applicable, otherwise <c>0d</c>
+        /// 获取此几何图形的长度（如果适用），否则<c> 0d </ c>
         /// </summary>
-        /// <remarks>A <see cref="ICurve"/> method moved in IGeometry</remarks>
-        double Length { get; }        
+        /// <remarks>在IGeometry中移动<see cref =“ICurve”/>方法</remarks>
+        double Length { get; }
 
         /// <summary>
-        /// Gets the number of geometries that make up this geometry
+        /// 获取构成该几何的几何体数
         /// </summary>
         /// <remarks>
-        /// A <see cref="IGeometryCollection"/> method moved in IGeometry
+        /// 在IGeometry中移动了一个<see cref =“IGeometryCollection”/>方法
         /// </remarks>
         int NumGeometries { get; }
 
         /// <summary>
-        /// Get the number of coordinates, that make up this geometry
+        /// 获取构成该几何的坐标数
         /// </summary>
-        /// <remarks>A <see cref="ILineString"/> method moved to IGeometry</remarks>
-        int NumPoints { get; }        
+        /// <remarks>将<see cref =“ILineString”/>方法移动到IGeometry</remarks>
+        int NumPoints { get; }
 
         /// <summary>
-        /// Gets the boundary geometry
+        /// 获取边界几何
         /// </summary>
         IGeometry Boundary { get; }
 
         /// <summary>
-        /// Gets the <see cref="Dimension"/> of the boundary
+        /// 获取边界的<see cref =“Dimension”/>
         /// </summary>
         Dimension BoundaryDimension { get; }
 
         /// <summary>
-        /// Gets the centroid of the geometry
+        /// 获得几何的质心
         /// </summary>
-        /// <remarks>A <see cref="ISurface"/> property moved in IGeometry</remarks>
-        IPoint Centroid { get; }                        
-        
+        /// <remarks>在IGeometry中移动了一个<see cref =“ISurface”/>属性</remarks>
+        IPoint Centroid { get; }
+
         ///<summary>
         /// Gets a <see cref="Coordinate"/> that is guaranteed to be part of the geometry, usually the first.
         ///</summary>
         Coordinate Coordinate { get; }
-        
+
         ///<summary>
         /// Gets an array of <see cref="Coordinate"/>s that make up this geometry.
         ///</summary>
@@ -95,12 +91,12 @@ namespace GeoAPI.Geometries
         /// Gets an array of <see cref="T:System.Double"/> ordinate values.
         ///</summary>
         Double[] GetOrdinates(Ordinate ordinate);
-        
+
         /// <summary>
         /// Gets the <see cref="Dimension"/> of this geometry
         /// </summary>
         Dimension Dimension { get; set; }
-             
+
         /// <summary>
         /// Gets the envelope this <see cref="IGeometry"/> would fit into.
         /// </summary>
@@ -119,7 +115,7 @@ namespace GeoAPI.Geometries
         /// <summary>
         /// A ISurface method moved in IGeometry 
         /// </summary>        
-        IPoint PointOnSurface { get; }        
+        IPoint PointOnSurface { get; }
 
         /// <summary>
         /// Gets the geometry at the given index
@@ -127,8 +123,8 @@ namespace GeoAPI.Geometries
         /// <remarks>A <see cref="IGeometryCollection"/> method moved in IGeometry</remarks>
         /// <param name="n">The index of the geometry to get</param>
         /// <returns>A geometry that is part of the <see cref="IGeometryCollection"/></returns>
-        IGeometry GetGeometryN(int n);   
-        
+        IGeometry GetGeometryN(int n);
+
         /// <summary>
         /// Normalizes this geometry
         /// </summary>
@@ -146,13 +142,13 @@ namespace GeoAPI.Geometries
         /// </summary>
         /// <returns>A byte array describing this geometry</returns>
         byte[] AsBinary();
-        
+
         /// <summary>
         /// Gets the Well-Known-Text representation of this geometry
         /// </summary>
         /// <returns>A text describing this geometry</returns>
         string AsText();
-        
+
         /// <summary>
         /// Gets or sets the user data associated with this geometry
         /// </summary>
@@ -173,7 +169,7 @@ namespace GeoAPI.Geometries
         IGeometry Buffer(double distance);
 
         IGeometry Buffer(double distance, int quadrantSegments);
-        
+
         [Obsolete]
         IGeometry Buffer(double distance, BufferStyle endCapStyle);
 
@@ -183,7 +179,7 @@ namespace GeoAPI.Geometries
         IGeometry Buffer(double distance, int quadrantSegments, EndCapStyle endCapStyle);
 
         IGeometry Buffer(double distance, IBufferParameters bufferParameters);
-        
+
         IGeometry Intersection(IGeometry other);
 
         IGeometry Union(IGeometry other);
