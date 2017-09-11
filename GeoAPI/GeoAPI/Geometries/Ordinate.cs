@@ -1,12 +1,12 @@
 ﻿namespace GeoAPI.Geometries
 {
     /// <summary>
-    /// Standard ordinate index values.
+    /// 标准纵坐标索引值。
     /// </summary>
     public enum Ordinate
-    {        
+    {
         /// <summary>
-        /// X Ordinate = 0.
+        /// X纵坐标= 0。
         /// </summary>
         X = 0,
 

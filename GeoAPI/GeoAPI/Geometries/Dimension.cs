@@ -1,94 +1,89 @@
-using System;
+﻿using System;
 
 namespace GeoAPI.Geometries
 {
     /// <summary>
-    /// Provides constants representing the dimensions of a point, a curve and a surface.
+    /// 提供表示点，曲线和曲面尺寸的常数。
     /// </summary>
     /// <remarks>
-    /// Also provides constants representing the dimensions of the empty geometry and
-    /// non-empty geometries, and the wildcard constant <see cref="Dontcare"/> meaning "any dimension".
-    /// These constants are used as the entries in <see cref="IntersectionMatrix"/>s.
+    /// 还提供了表示空几何和非空几何尺寸的常量，以及通配符常量<see cref =“Dontcare”/>，意思是“任何维度”。
+    /// 这些常量用作<see cref =“IntersectionMatrix”/> s中的条目。
     /// </remarks>
     public enum Dimension
     {
         /// <summary>
-        /// Dimension value of a point (0).
+        /// 点（0）的尺寸值。
         /// </summary>
         Point = 0,
 
         /// <summary>
-        /// Dimension value of a curve (1).
+        /// 曲线的尺寸值（1）。
         /// </summary>
         Curve = 1,
 
         /// <summary>
-        /// Dimension value of a surface (2).
+        /// 表面尺寸值（2）。
         /// </summary>
         Surface = 2,
 
         /// <summary>
-        /// Dimension value of a empty point (-1).
+        /// 空点的维度值（-1）。
         /// </summary>
         False = -1,
 
         /// <summary>
-        /// Dimension value of non-empty geometries (= {Point,Curve,A}).
+        /// 非空几何的尺寸值（= {Point，Curve，A}）。
         /// </summary>
         True = -2,
 
         /// <summary>
-        /// Dimension value for any dimension (= {False, True}).
+        /// 任何维度的维度值（= {False，True}）。
         /// </summary>
         Dontcare = -3
     }
 
     /// <summary>
-    /// Class containing static methods for conversions
-    /// between dimension values and characters.
+    /// 类包含用于维度值和字符之间的转换的静态方法。
     /// </summary>
     public class DimensionUtility
     {
         /// <summary>
-        /// Symbol for the FALSE pattern matrix entry
+        /// FALSE模式矩阵条目的符号
         /// </summary>
         public const char SymFalse = 'F';
-  
+
         /// <summary>
-        /// Symbol for the TRUE pattern matrix entry
+        /// TRUE模式矩阵输入的符号
         /// </summary>
         public const char SymTrue = 'T';
-  
+
         /// <summary>
-        /// Symbol for the DONTCARE pattern matrix entry
+        /// DONTCARE模式矩阵条目的符号
         /// </summary>
         public const char SymDontcare = '*';
-  
+
         /// <summary>
-        /// Symbol for the P (dimension 0) pattern matrix entry
+        /// P（维0）图案矩阵条目的符号
         /// </summary>
         public const char SymP = '0';
-  
+
         /// <summary>
-        /// Symbol for the L (dimension 1) pattern matrix entry
+        /// L（维1）模式矩阵条目的符号
         /// </summary>
         public const char SymL = '1';
-  
+
         /// <summary>
-        /// Symbol for the A (dimension 2) pattern matrix entry
+        /// A（维2）模式矩阵条目的符号
         /// </summary>
         public const char SymA = '2';
-  
-        
-        
+
+
+
         /// <summary>
-        /// Converts the dimension value to a dimension symbol,
-        /// for example, <c>True => 'T'</c>
+        /// 将维度值转换为维度符号，例如<c> True =>'T'</ c>
         /// </summary>
-        /// <param name="dimensionValue">Number that can be stored in the <c>IntersectionMatrix</c>.
-        /// Possible values are <c>True, False, Dontcare, 0, 1, 2</c>.</param>
-        /// <returns>Character for use in the string representation of an <c>IntersectionMatrix</c>.
-        /// Possible values are <c>T, F, * , 0, 1, 2</c>.</returns>
+        /// <param name="dimensionValue">可以存储在<c> IntersectionMatrix </ c>中的数字。 可能的值为<c> True，False，Dontcare，0，1，2 </ c>。</param>
+        /// <returns>用于<c> IntersectionMatrix </ c>的字符串表示中的字符。 可能的值为<c> T，F，*，0,1,2，</ c>。</returns>
         public static char ToDimensionSymbol(Dimension dimensionValue)
         {
             switch (dimensionValue)
@@ -112,13 +107,10 @@ namespace GeoAPI.Geometries
         }
 
         /// <summary>
-        /// Converts the dimension symbol to a dimension value,
-        /// for example, <c>'*' => Dontcare</c>
+        /// 将维度符号转换为维度值，例如<c>'*'=> Dontcare </ c>
         /// </summary>
-        /// <param name="dimensionSymbol">Character for use in the string representation of an <c>IntersectionMatrix</c>.
-        /// Possible values are <c>T, F, * , 0, 1, 2</c>.</param>
-        /// <returns>Number that can be stored in the <c>IntersectionMatrix</c>.
-        /// Possible values are <c>True, False, Dontcare, 0, 1, 2</c>.</returns>
+        /// <param name="dimensionSymbol">用于<c> IntersectionMatrix </ c>的字符串表示中的字符。 可能的值为<c> T，F，*，0,1,2，</ c>。</param>
+        /// <returns>可以存储在<c> IntersectionMatrix </ c>中的数字。 可能的值为<c> True，False，Dontcare，0，1，2 </ c>。</returns>
         public static Dimension ToDimensionValue(char dimensionSymbol)
         {
             switch (Char.ToUpper(dimensionSymbol))
