@@ -1,27 +1,22 @@
-using System;
+﻿using System;
 using System.Globalization;
 
 namespace GeoAPI.Geometries
 {
     /// <summary>
-    /// A lightweight class used to store coordinates on the 2-dimensional Cartesian plane.
+    /// 一个轻量类，用于存储二维笛卡尔平面上的坐标。
     /// <para>
-    /// It is distinct from <see cref="IPoint"/>, which is a subclass of <see cref="IGeometry"/>.
-    /// Unlike objects of type <see cref="IPoint"/> (which contain additional
-    /// information such as an envelope, a precision model, and spatial reference
-    /// system information), a <other>Coordinate</other> only contains ordinate values
-    /// and propertied.
+    /// 它与<see cref =“IPoint”/>是不同的，它是<see cref =“IGeometry”/>的子类。 不同于
+    /// <see cref =“IPoint”/>（包含信封，精度模型和空间参考系统信息等附加信息）的对象，
+    /// <other>Coordinate</ other>仅包含坐标值和属性。
     /// </para>
     /// <para>
-    /// <other>Coordinate</other>s are two-dimensional points, with an additional Z-ordinate.    
-    /// If an Z-ordinate value is not specified or not defined,
-    /// constructed coordinates have a Z-ordinate of <code>NaN</code>
-    /// (which is also the value of <see cref="NullOrdinate"/>).
+    /// <other>Coordinate</ other>是二维点，另外还有一个Z坐标。 如果没有指定或不定义Z坐标值，
+    /// 构造的坐标具有<code> NaN </ code>的Z坐标（也是<see cref =“NullOrdinate”/>）的值。
     /// </para>
     /// </summary>
     /// <remarks>
-    /// Apart from the basic accessor functions, NTS supports
-    /// only specific operations involving the Z-ordinate.
+    /// 除了基本的访问器功能，NTS仅支持涉及Z坐标的特定操作。
     /// </remarks>
 
     [Serializable]
@@ -30,27 +25,25 @@ namespace GeoAPI.Geometries
 #pragma warning restore 612,618
     {
         ///<summary>
-        /// The value used to indicate a null or missing ordinate value.
-        /// In particular, used for the value of ordinates for dimensions
-        /// greater than the defined dimension of a coordinate.
+        /// 用于指示空值或缺失纵坐标值的值。 特别地，用于尺寸大于坐标的定义尺寸的尺寸的值的值。
         ///</summary>
         public const double NullOrdinate = Double.NaN;
 
         /// <summary>
-        /// X coordinate.
+        /// X坐标。
         /// </summary>
         public double X; // = Double.NaN;
         /// <summary>
-        /// Y coordinate.
+        /// Y坐标。
         /// </summary>
         public double Y; // = Double.NaN;
         /// <summary>
-        /// Z coordinate.
+        /// Z坐标。
         /// </summary>
         public double Z; // = Double.NaN;
 
         /// <summary>
-        /// Constructs a <other>Coordinate</other> at (x,y,z).
+        /// 在（x，y，z）处构造一个<other>Coordinate</ other>。
         /// </summary>
         /// <param name="x">X value.</param>
         /// <param name="y">Y value.</param>
@@ -63,13 +56,12 @@ namespace GeoAPI.Geometries
         }
 
         /// <summary>
-        /// Gets or sets the ordinate value for the given index.
-        /// The supported values for the index are 
-        /// <see cref="Ordinate.X"/>, <see cref="Ordinate.Y"/> and <see cref="Ordinate.Z"/>.
+        /// 获取或设置给定索引的纵坐标值。 索引的支持值为<see cref =“Ordinate.X”/>，
+        /// <see cref =“Ordinate.Y”/>和<see cref =“Ordinate.Z”/>。
         /// </summary>
-        /// <param name="ordinateIndex">The ordinate index</param>
-        /// <returns>The ordinate value</returns>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="ordinateIndex"/> is not in the valid range.</exception>
+        /// <param name="ordinateIndex">坐标索引</param>
+        /// <returns>坐标值</returns>
+        /// <exception cref="ArgumentOutOfRangeException">如果<paramref name =“ordinateIndex”/>不在有效范围内，则抛出。</exception>
         public double this[Ordinate ordinateIndex]
         {
             get
@@ -104,34 +96,32 @@ namespace GeoAPI.Geometries
         }
 
         /// <summary>
-        ///  Constructs a <other>Coordinate</other> at (0,0,NaN).
+        ///  在（0,0，NaN）构造<other>坐标</ other>。
         /// </summary>
         public Coordinate() : this(0.0, 0.0, NullOrdinate) { }
 
         /// <summary>
-        /// Constructs a <other>Coordinate</other> having the same (x,y,z) values as
-        /// <other>other</other>.
+        /// 构造具有相同（x，y，z）值的<other>坐标</ other>
         /// </summary>
-        /// <param name="c"><other>Coordinate</other> to copy.</param>
+        /// <param name="c">要复制的<other>坐标</ other>。</param>
         [Obsolete]
         public Coordinate(ICoordinate c) : this(c.X, c.Y, c.Z) { }
 
         /// <summary>
-        /// Constructs a <other>Coordinate</other> having the same (x,y,z) values as
-        /// <other>other</other>.
+        /// 构造具有与其他</ other>相同的（x，y，z）值的<other>坐标</ other>。
         /// </summary>
-        /// <param name="c"><other>Coordinate</other> to copy.</param>
+        /// <param name="c">要复制的<other>坐标</ other>。</param>
         public Coordinate(Coordinate c) : this(c.X, c.Y, c.Z) { }
 
         /// <summary>
-        /// Constructs a <other>Coordinate</other> at (x,y,NaN).
+        /// 在（x，y，NaN）构造一个<other>坐标</ other>。
         /// </summary>
-        /// <param name="x">X value.</param>
-        /// <param name="y">Y value.</param>
+        /// <param name="x">X值。</param>
+        /// <param name="y">Y值。</param>
         public Coordinate(double x, double y) : this(x, y, NullOrdinate) { }
 
         /// <summary>
-        /// Gets/Sets <other>Coordinate</other>s (x,y,z) values.
+        /// 获取/设置<other>坐标</ other> s（x，y，z）值。
         /// </summary>
         public Coordinate CoordinateValue
         {
@@ -145,12 +135,11 @@ namespace GeoAPI.Geometries
         }
 
         /// <summary>
-        /// Returns whether the planar projections of the two <other>Coordinate</other>s are equal.
+        /// 返回两个<其他>坐标</ other>的平面投影是否相等。
         ///</summary>
-        /// <param name="other"><other>Coordinate</other> with which to do the 2D comparison.</param>
+        /// <param name="other"><其他>坐标</ other>与其进行2D比较。</param>
         /// <returns>
-        /// <other>true</other> if the x- and y-coordinates are equal;
-        /// the Z coordinates do not have to be equal.
+        /// 如果x和y坐标相等，则<other> true </ other> Z坐标不必相等。
         /// </returns>
         public bool Equals2D(Coordinate other)
         {
@@ -158,12 +147,12 @@ namespace GeoAPI.Geometries
         }
 
         /// <summary>
-        /// Tests if another coordinate has the same value for X and Y, within a tolerance.
+        /// 在公差范围内，测试X和Y的另一坐标是否相同。
         /// </summary>
-        /// <param name="c">A <see cref="Coordinate"/>.</param>
-        /// <param name="tolerance">The tolerance value.</param>
-        /// <returns><c>true</c> if the X and Y ordinates are within the given tolerance.</returns>
-        /// <remarks>The Z ordinate is ignored.</remarks>
+        /// <param name="c">一个 <see cref="Coordinate"/>.</param>
+        /// <param name="tolerance">公差值。</param>
+        /// <returns>如果X和Y坐标在给定的公差范围内，则<c> true </ c></returns>
+        /// <remarks>Z坐标被忽略。</remarks>
         public bool Equals2D(Coordinate c, double tolerance)
         {
             if (!EqualsWithTolerance(X, c.X, tolerance))
@@ -179,11 +168,12 @@ namespace GeoAPI.Geometries
         }
 
         /// <summary>
-        /// Returns <other>true</other> if <other>other</other> has the same values for the x and y ordinates.
-        /// Since Coordinates are 2.5D, this routine ignores the z value when making the comparison.
+        /// 如果<other>其他</ other>具有与x和y坐标相同的值，则返回<other> true </ other>。
+        /// 由于坐标为2.5D，此例程在进行比较时忽略z值。
         /// </summary>
-        /// <param name="other"><other>Coordinate</other> with which to do the comparison.</param>
-        /// <returns><other>true</other> if <other>other</other> is a <other>Coordinate</other> with the same values for the x and y ordinates.</returns>
+        /// <param name="other"><other>坐标</ other>用于比较。</param>
+        /// <returns><other> true </ other> if <other> other </ other>是一个
+        /// <other>坐标</ other>，具有与x和y坐标相同的值。</returns>
         public override bool Equals(object other)
         {
             if (other == null)
